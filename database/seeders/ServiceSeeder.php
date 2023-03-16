@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\Service;
+use Illuminate\Support\Str;
 
 class ServiceSeeder extends Seeder
 {
@@ -83,8 +84,11 @@ class ServiceSeeder extends Seeder
         foreach($services as $service){
             $newService = new Service();
             $newService->title = $service['title'];
+            $newService->slug = Str::slug($newService->title);
             $newService->icon = $service['icon'];
             $newService->save();
+            $newService->slug .="-$newService->id";
+            $newService->update();
         }
     }
 }

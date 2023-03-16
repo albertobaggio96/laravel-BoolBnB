@@ -9,6 +9,11 @@ use App\Models\Property;
 class Service extends Model
 {
     use HasFactory;
+    protected $fillable= [
+        'title',
+        'slug',
+        'icon'
+    ];
     public function properties(){
         return $this->belongsToMany(Property::class);
     }
