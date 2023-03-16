@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Service;
 class Property extends Model
 {
     use HasFactory;
@@ -12,6 +11,7 @@ class Property extends Model
     protected $fillable= [
         'user_id',
         'title',
+        'slug',
         'slug',
         'description',
         'night_price',
@@ -37,5 +37,9 @@ class Property extends Model
         return $this->belongsToMany(Service::class);
     }
 
+    public function views(){
+        return $this->hasMany(View::class);
+    }
 
 }
+
