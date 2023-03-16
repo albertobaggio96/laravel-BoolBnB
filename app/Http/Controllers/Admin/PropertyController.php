@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Sponsorship;
@@ -112,3 +113,5 @@ class PropertyController extends Controller
         return redirect()->route('admin.properties.index');
     }
 }
+
+
