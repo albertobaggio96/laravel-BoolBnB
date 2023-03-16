@@ -29,9 +29,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('name');
-            $table->string('surname');
-            $table->date('date_of_birth');
+            $table->string('name')->change();
+            $table->string('surname')->change();
+            $table->date('date_of_birth')->change();
         });
     }
 };
