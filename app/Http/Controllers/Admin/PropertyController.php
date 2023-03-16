@@ -113,6 +113,61 @@ class PropertyController extends Controller
         $property->delete();
         return redirect()->route('admin.properties.index');
     }
+
+    /**
+     * Display a listing of trash.
+     * 
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+     public function trashed(){
+        $trashProperties = property::onlyTrashed()->get();
+        return view('admin.properties.trashed', compact('trashProperties'));
+    }
+
+    /**
+     * Force delete the specified resource from storage.
+     *
+     * @param  string $slug
+     * @return \Illuminate\Http\Response
+     */
+
+    public function forceDelete(Property $property){
+
+        // if($property->isNotUrl()){
+        //     Storage::delete($property->preview);
+        // }
+
+        $property->forceDelete();
+
+        return redirect()->route('admin.properties.trashed')->with('message', "$property->title è stato cancellato definitivamente")->with('alert-type', 'warning');
+    }
+
+    /**
+     * Restore the specified resource from soft delete.
+     *
+     * @param  string $slug
+     * @return \Illuminate\Http\Response
+     */
+
+    public function restore(Property $property){
+
+        $property->restore();
+
+        return redirect()->route('admin.properties.trashed')->with('message', "$property->title è stato ripristinato")->with('alert-type', 'success');
+    }
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request){
+        $properties=property::where('title', 'LIKE', $request->title.'%')->orderBy('title', 'DESC');
+        return view('admin.property.index', compact('properties'));
+    }
 }
 
 

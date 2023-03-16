@@ -12,7 +12,7 @@
   <div class="text-center pb-4">
     <a href="{{ route("admin.properties.create") }}" class="btn btn-primary">Add new property</a>
     {{-- todo cestrino--}}
-    {{-- <a href="{{ route("admin.properties.trashed") }}" class="btn btn-secondary">trash</a> --}}
+    <a href="{{ route("admin.properties.trashed") }}" class="btn btn-secondary">trash</a>
     {{-- todo ricerca--}}
     {{-- <form class="d-flex ms-auto d-inline w-25" action="{{ route("admin.properties.search") }}" method="POST">
       @csrf
