@@ -12,4 +12,8 @@ class Image extends Model
         'property_id',
         'path'
     ];
+
+    public function property(){
+        return $this->belongsTo(Property::class);
+    }
 }
