@@ -48,6 +48,7 @@ class PropertyController extends Controller
     {
         $data = $property->all();
         $newProperty = new Property();
+        $newProperty->user_id = Auth::user()->id;
         $newProperty->fill($data);
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();

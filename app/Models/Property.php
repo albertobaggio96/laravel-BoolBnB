@@ -17,12 +17,13 @@ class Property extends Model
         'night_price',
         'n_beds',
         'n_rooms',
+        'n_toilettes',
         'cover_img',
         'mq',
         'visible',
         'address',
         'latitude',
-        'longitude'
+        'longitude',
     ];
 
     public function getRouteKeyName(){

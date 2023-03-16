@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 <form action="{{ route($routeName, $property) }}" method="POST" enctype="multipart/form-data" class="py-3">
     @csrf
     @method($method)
@@ -50,6 +48,27 @@
         </div>
 
         <div class="form-outline w-25 mb-3">
+            <label for="n_toilettes" class="form-label @error('n_beds') is-invalid @enderror">Toilettes number</label>
+            <input type="text" class="form-control" id="n_toilettes" placeholder="Insert number of beds" name="n_toilettes" value="{{old('n_toilettes', $property->n_beds)}}">
+            @error('n_toilettes')
+                <div class="invalid-feedback px-2">
+                    {{ $message }}
+                </div>
+            @enderror               
+        </div>
+
+        <div class="form-outline w-25 mb-3">
+            <label for="visible" class="form-label @error('visible') is-invalid @enderror">Visible</label>
+            <input type="text" class="form-control" id="visible" placeholder="Insert number of beds" name="visible" value="{{old('visible', $property->n_beds)}}">
+            @error('visible')
+                <div class="invalid-feedback px-2">
+                    {{ $message }}
+                </div>
+            @enderror               
+        </div>
+    
+
+        <div class="form-outline w-25 mb-3">
             <label for="rooms-number" class="form-label @error('n_rooms') is-invalid @enderror">Rooms number</label>
             <input type="text" class="form-control" id="rooms-number" placeholder="Insert number of rooms" name="n_rooms" value="{{old('n_rooms', $property->n_rooms)}}">
             @error('n_rooms')
@@ -59,6 +78,21 @@
             @enderror               
         </div>
 
+
+
+        {{-- FORM DI PROVA PER LO STORAGE DI PIU' FOTO --}}
+        <form action="{{ route('uploadImage') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div>
+                <label for="path">Seleziona i file da caricare:</label>
+                <input type="file" id="path" name="path[]" multiple required>
+            </div>
+        
+            <div>
+                <button type="submit">Carica</button>
+            </div>
+        </form>
+        
         <div class="form-outline w-25 mb-3">
             <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Cover Image</label>
             <input type="file" class="form-control" id="cover_img" placeholder="Insert cover image" name="cover_img" value="{{old('cover_img', $property->cover_img)}}">
@@ -96,4 +130,3 @@
     </div>
 
 </form>
-@endsection

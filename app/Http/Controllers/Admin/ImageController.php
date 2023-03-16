@@ -26,10 +26,11 @@ class ImageController extends Controller
                 $file->move($destinationPath, $fileName);
                 $images[] = $fileName;
             }
-
+            
+            
         foreach ($images as $imag) {
             $image = new Image();
-            $image->file_name = json_encode($imag);
+            $image->file_name = json_encode($image);
             $image->save();
        }
   }
