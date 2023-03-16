@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Baggio',
                 'date_of_birth' => '1996-03-31',
                 'email' => 'albi1313@hotmail.it',
-                'password' => 'laravel',
+                'password' => '',
             ],
             [
                 'name' => 'Lorenzo',
