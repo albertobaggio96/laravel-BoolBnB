@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('type', 50);
             $table->string('slug', 100);
             $table->float('price', 6, 2);
-            $table->time('period');
+            $table->smallInteger('period');
             $table->timestamps();
         });
     }
