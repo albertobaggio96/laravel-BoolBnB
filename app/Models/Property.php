@@ -12,6 +12,7 @@ class Property extends Model
     protected $fillable= [
         'user_id',
         'title',
+        'slug',
         'description',
         'night_price',
         'n_beds',
@@ -26,6 +27,10 @@ class Property extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function sponsorships(){
+        return $this->belongsToMany(Sponsorship::class);
     }
 
 
