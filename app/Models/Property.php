@@ -62,3 +62,4 @@ class Property extends Model
 
 >>>>>>> 58dac057cc2b779c861710988e7b868552ae2c12
 }
+
