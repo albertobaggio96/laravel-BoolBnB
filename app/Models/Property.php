@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Service;use App\Models\Service;
 class Property extends Model
 {
     use HasFactory;
@@ -30,11 +29,6 @@ class Property extends Model
         return $this->belongsTo(User::class);
     }
 
-<<<<<<< HEAD
-    public function messages() {
-        return $this->hasMany(Message::class);
-    }
-=======
     public function sponsorships(){
         return $this->belongsToMany(Sponsorship::class);
     }
@@ -47,19 +41,5 @@ class Property extends Model
         return $this->hasMany(View::class);
     }
 
-    public function sponsorships(){
-        return $this->belongsToMany(Sponsorship::class);
-    }
-
-    public function services(){
-        return $this->belongsToMany(Service::class);
-    }
-
-    public function views(){
-        return $this->hasMany(View::class);
-    }
-
-
->>>>>>> 58dac057cc2b779c861710988e7b868552ae2c12
 }
 
