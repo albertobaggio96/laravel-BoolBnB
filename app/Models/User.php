@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'surname',
+        'date_of_birth',    
+        //TODO AGGIUNGERE COGNOME DATA DI NASCITA
     ];
 
     /**
