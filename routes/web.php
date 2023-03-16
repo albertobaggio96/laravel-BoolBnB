@@ -35,6 +35,10 @@ Route::get('/dashboard', function () {
 // });
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group( function(){
+    Route::post('/properties/search', [PropertyController::class, 'search'])->name('properties.search');
+    Route::get('/properties/trashed',  [PropertyController::class, 'trashed'] )->name('properties.trashed');
+    Route::get('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore')->withTrashed();
+    Route::delete('/properties/{property}/force-delete', [PropertyController::class, 'forceDelete'])->name('properties.force-delete')->withTrashed();
     Route::resource('/properties', PropertyController::class);
 });
 
