@@ -13,8 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('properties', function (Blueprint $table) {
-            $table->string('slug', 200)->after('title');
+        Schema::create('views', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')->references('id')->on('properties')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->string('ip_address', 13);
+
+            $table->timestamps();
         });
     }
 
@@ -25,8 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('properties', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        Schema::dropIfExists('views');
     }
 };
