@@ -29,7 +29,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 150,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Piazza San Marco, 1 - Venezia, Veneto',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -44,7 +44,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 5,
                 'mq' => 400,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via del Corso, 1 - Roma, Lazio',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -59,7 +59,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 200,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Piazza del Campo, 1 - Siena, Toscana',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -74,7 +74,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 7,
                 'mq' => 500,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via della Spiga, 1 - Milano, Lombardia',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -89,7 +89,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 4,
                 'mq' => 300,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via Montenapoleone, 1 - Milano, Lombardia',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -104,7 +104,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 100,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via Condotti, 1 - Roma, Lazio',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -119,7 +119,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 100,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Piazza Bra, 1 - Verona, Veneto',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -134,7 +134,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 4,
                 'mq' => 300,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via Veneto, 1 - Roma, Lazio',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -149,7 +149,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 120,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Corso Vittorio Emanuele II, 1 - Napoli, Campania',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -164,7 +164,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 90,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Piazza Navona, 1 - Roma, Lazio',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -179,7 +179,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 3,
                 'mq' => 190,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Piazza del Duomo, 1 - Firenze, Toscana',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -194,7 +194,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 120,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via San Gregorio Armeno, 1 - Napoli, Campania',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -209,7 +209,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 80,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Corso Umberto I, 1 - Catania, Sicilia',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -224,7 +224,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 80,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Piazza Unità d\'Italia, 1 - Trieste, Friuli-Venezia Giulia',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -239,7 +239,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 80,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via Toledo, 1 - Napoli, Campania',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -254,7 +254,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 90,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Corso Buenos Aires, 1 - Milano, Lombardia',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -269,7 +269,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 120,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via Roma, 1 - Torino, Piemonte',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -284,7 +284,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 3,
                 'mq' => 200,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via dei Fori Imperiali, 1 - Roma, Lazio',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -299,7 +299,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 200,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via Veneto, 2 - Roma, Lazio',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -314,7 +314,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 110,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Corso Italia, 1 - Sorrento, Campania',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -329,7 +329,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 100,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via dei Calzaiuoli, 1 - Firenze, Toscana',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -344,7 +344,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 40,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Corso Garibaldi, 1 - Brescia, Lombardia',
                 'latitude' => '',
                 'longitude' => ''
             ],
@@ -359,7 +359,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 150,
                 'visible' => 1,
-                'address' => '',
+                'address' => 'Via Dante, 1 - Milano, Lombardia',
                 'latitude' => '',
                 'longitude' => ''
             ]
