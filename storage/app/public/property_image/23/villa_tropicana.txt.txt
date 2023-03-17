@@ -1,0 +1,8 @@
+'title' = 'villa tropicana',
+'description' = 'Chiunque soggiorni con noi vivrà un'atmosfera tropicale indimenticabile. Benvenuto in un luogo di riposo e relax.',
+'night_price' = '400',
+'n_bathroom' = '1',
+'n camere' = 2
+letti = 5 (1 matr 3 sing)
+location Teltow, Brandeburgo
+servizi = piscina, cucina, wifi, parcheggio gratis, idro, tv, sauna, telecamere sicurezza
