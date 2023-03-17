@@ -68,8 +68,8 @@ class PropertyController extends Controller
         // ?? slider per vedere la proprietà precedente o successiva
         $nextProperty = Property::where('title', '>', $property->title)->orderBy('title')->first();
         $prevProperty = Property::where('title', '<', $property->title)->orderBy('title', 'DESC')->first();
-
-        return view('admin.properties.show', compact('property', 'nextProperty', 'prevProperty'));
+        $services = Service::all();
+        return view('admin.properties.show', compact('property', 'nextProperty', 'prevProperty', 'services'));
     }
 
     /**
