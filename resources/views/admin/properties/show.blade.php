@@ -6,7 +6,7 @@
 
    <div class="card p-2 m-5 bg-primary" >
       {{-- TODO INSERIRE IMG COVER --}}
-      {{-- <img src="{{$property->cover_img}}" class="card-img-top" alt="..."> --}}
+      <img src="{{asset('storage/property_image/' . $property->cover_img)}}" class="card-img-top" alt="...">
       <div class="card-body">
          <h1 class="text-center">
             {{$property->title}}
