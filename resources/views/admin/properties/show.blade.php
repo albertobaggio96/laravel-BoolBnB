@@ -37,7 +37,25 @@
                @endforeach
          </div>
       </div>
+      <div class="container-btn d-flex justify-content-between">
+         <div class="prev">
+            @isset($prevProperty)
+            <a href="{{route('admin.properties.show', $prevProperty)}}" class="btn btn-danger">Prev</a>
+            @endisset
+         </div>
+
+         <div class="home">
+            <a href="{{route('admin.properties.index')}}" class="btn btn-warning">Go to Home</a>
+         </div>
+
+         <div class="next">
+            @isset($nextProperty)
+            <a href="{{route('admin.properties.show', $nextProperty)}}" class="btn btn-success ">Next</a>
+            @endisset
+         </div>
+      </div>
    </div>
+
 </div>
 
 @endsection
