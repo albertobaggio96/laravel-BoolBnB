@@ -26,6 +26,16 @@
                Dimension of room: {{$property->mq}}mq
             </h4>
          </div>
+         <div class="card-info d-flex">
+            <h3 class="m-3">
+               Services available:
+            </h3>
+               @foreach ($property->services as $service)
+                   <h4 class="m-3">
+                     {{$service->title}}
+                  </h4>
+               @endforeach
+         </div>
       </div>
    </div>
 </div>
