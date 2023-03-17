@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Sponsorship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class PropertyController extends Controller
 {
@@ -19,7 +20,8 @@ class PropertyController extends Controller
     public function index()
     {
         $userId = Auth::user()->id;
-        $properties = Property::where('user_id', 'userId')->get();
+        $properties = Property::where('user_id', $userId)->get();
+
         return view('admin.properties.index', compact('properties'));
     }
 
@@ -47,9 +49,13 @@ class PropertyController extends Controller
     {
         $data = $property->all();
         $newProperty = new Property();
+        $newProperty->user_id = Auth::user()->id;
         $newProperty->fill($data);
+        $newProperty->latitude = 10;
+        $newProperty->longitude = 10;
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
+        $newProperty->cover_img = Storage::put('property_img/' . $newProperty->id, $data['cover_img']);
         $newProperty->slug .= "-$newProperty->id";
         $newProperty->update();
 
@@ -67,8 +73,8 @@ class PropertyController extends Controller
         // ?? slider per vedere la proprietà precedente o successiva
         $nextProperty = Property::where('title', '>', $property->title)->orderBy('title')->first();
         $prevProperty = Property::where('title', '<', $property->title)->orderBy('title', 'DESC')->first();
-
-        return view('admin.properties.show', compact('property', 'nextProperty', 'prevProperty'));
+        $services = Service::all();
+        return view('admin.properties.show', compact('property', 'nextProperty', 'prevProperty', 'services'));
     }
 
     /**
@@ -111,6 +117,64 @@ class PropertyController extends Controller
     {
         $property->delete();
         return redirect()->route('admin.properties.index');
+    }
+
+    /**
+     * Display a listing of trash.
+     * 
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+     public function trashed(){
+        $trashProperties = property::onlyTrashed()->get();
+        return view('admin.properties.trashed', compact('trashProperties'));
+    }
+
+    /**
+     * Force delete the specified resource from storage.
+     *
+     * @param  string $slug
+     * @return \Illuminate\Http\Response
+     */
+
+    public function forceDelete(Property $property){
+
+        // if($property->isNotUrl()){
+        //     Storage::delete($property->preview);
+        // }
+
+        $property->forceDelete();
+
+        return redirect()->route('admin.properties.trashed')->with('message', "$property->title è stato cancellato definitivamente")->with('alert-type', 'warning');
+    }
+
+    /**
+     * Restore the specified resource from soft delete.
+     *
+     * @param  string $slug
+     * @return \Illuminate\Http\Response
+     */
+
+    public function restore(Property $property){
+
+        $property->restore();
+
+        return redirect()->route('admin.properties.trashed')->with('message', "$property->title è stato ripristinato")->with('alert-type', 'success');
+    }
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request){
+        $userId = Auth::user()->id;
+        $first= Property::where('user_id', $userId)->where('title', 'Like', '%' . $request->title . '%');
+        $properties= Property::where('user_id', $userId)->where('title', 'Like', $request->title . '%')->union($first)->get();
+
+        return view('admin.properties.index', compact('properties'));
     }
 }
 
