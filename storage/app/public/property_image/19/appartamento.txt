@@ -1,0 +1,11 @@
+'title' = 'appartamento da sogno  ',
+'description' = Questo appartamento di circa 200 mq al piano terra è stato completamente ristrutturato nel 2021. L'appartamento ha la posizione perfetta! A 5 minuti dalla fiera, accanto alla fiera, accesso al bosco dal giardino, a 5 minuti dal Maschsee e da altre destinazioni. Centrale e idilliaco allo stesso tempo. 4 persone possono dormire in 3 stanze. Camino, giardino privato con piscina, cucina aperta di lusso, XL cabina doccia, parquet o piastrelle di design in tutte le camere, spazio di lavoro nella nuova veranda... tutto il necessario! La piscina all'aperto può essere aggiunta tra maggio e settembre. Verrà addebitato un costo giornaliero di 40€. La pulizia, il filtraggio e il riscaldamento sono inclusi (se consentito dalle autorità al momento del soggiorno). Da 4 notti è incluso un controllo intermedio in cui la piscina viene aspirata una volta e clorurata.
+'night_price' = '750,
+'n_bathroom' = 3
+'n camere' = 3
+letti = 4( 2 matrimoniale, letto castello,)
+location = hannover, niedersachsen
+servizi = piscina, cucina, wifi, parcheggio gratis,telecamere sicurezza, tv, giardino privato, balcone, asciugatrice
+costi servizio = 250
+costi airbnb = 689
+mq = 200

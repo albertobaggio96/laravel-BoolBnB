@@ -1,0 +1,30 @@
+'title' = 'attico aida ',
+'description' =  Vivete qui in posizione centrale, vicino alla STAZIONE CENTRALE, a tema moderno e amorevole per la crociera Aida nel monolocale attico superiore con vista unica sulla città e la zona della Ruhr. Un grande letto matrimoniale di lusso e un divano letto completamente allungabile consentono a un massimo di 4 adulti di soggiornare comodamente. Netflix, cucina, asciugamani, macchina Nespresso e un grande schermo piatto sono tutti parte della nostra attrezzatura di lusso. Qui potete aspettarvi:
+Vista🌟 attico a 63 metri di altezza
+🌟 Drink di benvenuto
+🌟 Amaca e balcone di alta qualità
+Letto e materasso🌟 di🌟 alta qualità
+decorativo e dettagli
+🌟 Smart TV con Netflix
+🌟 Free WiFi
+🌟 Piccola dispensa cucina
+🌟 Nespresso stazione incl. 2 capsule
+🌟 Tea station con numerosi tè
+Biancheria da letto di🌟 alta qualità
+🌟 Piscina e sauna raggiungibili a piedi
+(Addebitabile nel Parco Sanitario di Nienhausen)
+🌟 Ampia area beauty & spa
+Parco🌟 cittadino con lago proprio accanto alla casa.
+Benvenuto a bordo sul ponte 21 , qui troverai un attico a tema con la vista più alta di Gelsenkirchen. Al fine di darvi la migliore sensazione possibile di essere a bordo, lavoriamo anche con gli stessi fornitori come shampoo, biancheria da letto o asciugamani.
+Per un relax ancora maggiore, l'ampia area Beauty & Spa Wild Rose Beauty vi aspetta con un'ampia selezione. Entrambe le aree sono raggiungibili nell'edificio direttamente dalla camera, ma devono essere riservate a pagamento. L'alloggio è molto centrale, direttamente presso l'edificio corre il tram da cui si può facilmente raggiungere la città di Essen, in circa 10 minuti a piedi si può raggiungere la stazione ferroviaria principale o il centro della città di Gelsenkirchen da dove si possono scoprire tutte le parti della zona della Ruhr. Molti ristoranti sono facilmente raggiungibili sia nell'edificio che a piedi. Non vediamo l'ora di darti presto il benvenuto nel nostro appartamento a tema.
+- L'appartamento a tema è sempre completamente affittato e solo tu hai accesso all'appartamento a tema. L'accesso all'edificio avviene tramite chip.
+- Il parcheggio gratuito è disponibile lungo la strada "Am Stadtgarten" - ma per 12€/giorno è anche possibile parcheggiare direttamente presso l'alloggio nel parcheggio dell'hotel.
+In tutto l'edificio, i residenti danno così tanto valore al riposo notturno, che inizia dalle 20: 00. Aiutaci a rafforzare il buon rapporto tra residenti e ospiti limitando conversazioni, musica e TV al volume della stanza. 
+'night_price' = 91',
+'n_bathroom' = '1',
+'n camere' = 
+letti = 2(matrimoniale divano-letto)
+location = Gelsenkirchen, Nordrhein-Westfalen
+servizi = ascensore, cucina, wifi, parcheggio gratis, tv, balcone, telecamera sicurezza, spazio lavoro dedicato
+costi servizio = 25
+costi airbnb = 67

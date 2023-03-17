@@ -1,0 +1,15 @@
+'title' = 'stanza privata in casa ',
+'description' = 'vivi nella nostra casa in una camera ampia e accogliente con bagno privato con doccia e dormi in un comodo letto matrimoniale 1,80 x 2 m,
+vivi in un quartiere interessante con aspetti diversi,
+molto vicini ci sono i giardini del mondo,
+ma sei anche nel cuore della vita di Berlino a Warschauer Straße in 20 minuti, o in 30 minuti su Alexanderplatz, collegamento diretto in tram alla stazione ferroviaria principale, appartamento per non fumatori. Viviamo nel verde quartiere di Marzahn, a 15 chilometri dal centro città.
+Qui puoi dormire tranquillamente e rilassato, pur restando vicino alla frenesia della città.
+Il nostro giardino e la piscina possono essere utilizzati anche da te. La camera e il bagno sono a tua esclusiva disposizione; il frigorifero e la lavastoviglie possono essere utilizzati da te, così come il giardino e la piscina, la cucina può essere utilizzata in misura limitata, ad esempio per la colazione, per la preparazione di alimenti freddi. Questa è una casa per non fumatori.',
+'night_price' = '48',
+'n_bathroom' = '1',
+'n camere' = 1
+letti = 1(matrimoniale)
+location = brelino
+servizi = piscina, cucina, wifi, parcheggio gratis, idro, tv, giardino privato, balcone, frigorifero
+costi servizio = 20
+costi airbnb = 53
