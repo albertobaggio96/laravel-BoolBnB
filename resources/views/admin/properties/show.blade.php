@@ -6,7 +6,6 @@
    <div class="row">
       <div class="col-12">
          <div class="card p-2 m-5 ">
-            {{-- TODO INSERIRE IMG COVER --}}
             <img src="{{asset('storage/' . $property->cover_img)}}" class="card-img-top" alt="...">
             <div class="card-body">
                <h1 class="text-center">
@@ -24,7 +23,7 @@
                      Numero di stanze: {{$property->n_rooms}}
                   </h4>
                   <h4 class="m-3">
-                     Dimension of room: {{$property->mq}}mq
+                     Dimensione della camera: {{$property->mq}}mq
                   </h4>
                </div>
                <div class="card-info d-flex ">
@@ -46,19 +45,25 @@
                </div>
             </div>
             <div class="container-btn d-flex justify-content-between">
-               <div class="prev">
+               <div class="prev m-2">
                   @isset($prevProperty)
-                  <a href="{{route('admin.properties.show', $prevProperty)}}" class="btn btn-danger">Prev</a>
+                  <a href="{{route('admin.properties.show', $prevProperty)}}" class="btn btn-danger">Indietro</a>
                   @endisset
                </div>
-      
-               <div class="home">
-                  <a href="{{route('admin.properties.index')}}" class="btn btn-warning">Go to Home</a>
+               
+               <div class="container d-flex justify-content-center">
+                  <div class="home m-2">
+                     <a href="{{route('admin.properties.edit', $property->slug)}}" class="btn btn-info">Modifica</a>
+                  </div>
+   
+                  <div class="home m-2">
+                     <a href="{{route('admin.properties.index')}}" class="btn btn-warning">Vai alla home</a>
+                  </div>
                </div>
-      
-               <div class="next">
+
+               <div class="next m-2">
                   @isset($nextProperty)
-                  <a href="{{route('admin.properties.show', $nextProperty)}}" class="btn btn-success ">Next</a>
+                  <a href="{{route('admin.properties.show', $nextProperty)}}" class="btn btn-success ">Avanti</a>
                   @endisset
                </div>
             </div>
