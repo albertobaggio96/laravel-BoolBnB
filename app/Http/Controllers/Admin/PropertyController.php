@@ -165,7 +165,10 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request){
-        $properties=Property::where('title', 'Like',  '%' .$request->title . '%')->get();
+        $userId = Auth::user()->id;
+        $first= Property::where('user_id', $userId)->where('title', 'Like', '%' . $request->title . '%');
+        $properties= Property::where('user_id', $userId)->where('title', 'Like', $request->title . '%')->union($first)->get();
+
         return view('admin.properties.index', compact('properties'));
     }
 }
