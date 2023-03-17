@@ -14,11 +14,11 @@
     {{-- todo cestrino--}}
     <a href="{{ route("admin.properties.trashed") }}" class="btn btn-secondary">trash</a>
     {{-- todo ricerca--}}
-    {{-- <form class="d-flex ms-auto d-inline w-25" action="{{ route("admin.properties.search") }}" method="POST">
+    <form class="d-flex ms-auto d-inline w-25" action="{{ route("admin.properties.search") }}" method="POST">
       @csrf
       <input class="form-control me-2" name="title">
       <button class="btn btn-success" type="submit">Search</button>
-    </form> --}}
+    </form>
   </div>
   <table class="table table-dark table-striped table-hover">
     <thead>

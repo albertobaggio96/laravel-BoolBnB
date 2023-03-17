@@ -165,8 +165,8 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request){
-        $properties=property::where('title', 'LIKE', $request->title.'%')->orderBy('title', 'DESC');
-        return view('admin.property.index', compact('properties'));
+        $properties=Property::where('title', 'Like',  '%' .$request->title . '%')->get();
+        return view('admin.properties.index', compact('properties'));
     }
 }
 
