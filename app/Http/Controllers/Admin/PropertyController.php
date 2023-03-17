@@ -78,7 +78,7 @@ class PropertyController extends Controller
             'latitude' => 'required|max:50',
             'longitude' => 'required|max:50',
             'user_id' => 'required|exists:users,id',
-            'services' => 'array|exists:services,id'
+            'services' => 'required|array|exists:services,id'
         ]);
         $newProperty = new Property();
         $geocode = $this->getGeocode($data['address']);
@@ -135,7 +135,7 @@ class PropertyController extends Controller
     public function update(Request $request, Property $property)
     {
         $data = $request->validate([
-            'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('projects')->ignore($property->id)],
+            'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('properties')->ignore($property->id)],
             'descriprtion' => 'required|string|min:50|max:500',
             'night_price' => 'required|decimal:2|min:1',
             'n_beds' => 'required|numeric|min:1',
@@ -147,7 +147,7 @@ class PropertyController extends Controller
             'latitude' => 'required|max:50',
             'longitude' => 'required|max:50',
             'user_id' => 'required|exists:users,id',
-            'services' => 'array|exists:services,id'
+            'services' => 'required|array|exists:services,id'
         ]);
 
         $property->slug = Str::slug($property->title . "-$property->id");

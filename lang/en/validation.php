@@ -195,6 +195,9 @@ return [
             'min' => 'La lunghezza dell\'indirizzo deve essere compresa tra 2 e 200 caratteri',
             'max' => 'La lunghezza dell\'indirizzo deve essere compresa tra 2 e 200 caratteri',
             'string' => 'La descrizione deve essere di tipo stringa',
+        ],
+        'services' => [
+            'required' => 'Devi inserire i servizi della proprieta'
         ]
     ],
 
