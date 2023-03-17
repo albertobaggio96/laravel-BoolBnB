@@ -7,6 +7,20 @@
 
                 <div class="card px-5 py-3 mb-3">
 
+
+                    <div class="form-outline w-100 mb-3">
+                        {{-- @dump($property->services) --}}
+                        @foreach ($services as $service)
+                            <input type="checkbox" name="services[]"  value="{{$service->id}}" @checked($property->services->contains($service->id))>
+                            <label>{{$service->title}}</label>
+                        @endforeach
+                        @error('service')
+                            <div class="invalid-feedback px-2">
+                                <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
+                            </div>
+                        @enderror                  
+                    </div>
+
                     <div class="form-outline w-100 mb-3">
                         <label for="title<" class="form-label @error('title') is-invalid @enderror">Title</label>
                         <input type="text" class="form-control" id="title" placeholder="Insert title" name="title" value="{{old('title', $property->title)}}">
@@ -19,9 +33,7 @@
 
                     <div class="form-outline w-100 mb-3">
                         <label for="description" class="form-label @error('description') is-invalid @enderror">Description</label>            
-                        <textarea class="d-block" name="description" id="description" cols="40" rows="10" placeholder="Insert description">
-                            {{old('description', $property->description)}}
-                        </textarea>
+                        <textarea class="d-block" name="description" id="description" cols="40" rows="10" placeholder="Insert description">{{old('description', $property->description)}}</textarea>
                         @error('description')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -79,20 +91,9 @@
                             </div>
                         @enderror               
                     </div>
-
-                    <iframe src="/multi-image" frameborder="0"></iframe>
-                    {{-- FORM DI PROVA PER LO STORAGE DI PIU' FOTO --}}
-                    {{-- <form action="{{ route('uploadImage') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div>
-                            <label for="path">Seleziona i file da caricare:</label>
-                            <input type="file" id="path" name="path[]" multiple required>
-                        </div>
-                    
-                        <div>
-                            <button type="button">Carica</button>
-                        </div>
-                    </form> --}}
+                    @if (Route::is('admin.properties.edit'))
+                        <iframe src="/multi-image" frameborder="0"></iframe>
+                    @endif
                     
                     <div class="form-outline w-50 my-3">
                         <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Cover Image</label>
