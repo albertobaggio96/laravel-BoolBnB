@@ -20,51 +20,51 @@ class ServiceSeeder extends Seeder
         $services = [
             [	//1
                 'title' => 'Cucina completamente attrezzata',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-kitchen-set"></i>'
             ],
             [	//2
                 'title' => 'Lavastoviglie',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-house-tsunami"></i>'
             ],
             [	//3
                 'title' => 'Macchina del ghiaccio',
-                'icon' => ''
+                'icon' => '<i class="fa-regular fa-snowflake"></i>'
             ],
             [	//4
                 'title' => 'Zona pranzo formale',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-utensils"></i>'
             ],
             [	//5
                 'title' => 'TV Satellitare',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-tv"></i>'
             ],
             [	//6
                 'title' => 'Lettore DVD',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-compact-disc"></i>'
             ],
             [	//7
                 'title' => 'Stampante',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-print"></i>'
             ],
             [	//8
                 'title' => 'Caminetto',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-fire"></i>'
             ],
             [	//9
                 'title' => 'Wi-Fi',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-wifi"></i>'
             ],
             [	//10
                 'title' => 'Ascensore',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-elevator"></i>'
             ],
             [	//11
                 'title' => 'Aria condizionata',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-temperature-arrow-down"></i>'
             ],
             [	//12
                 'title' => 'Piscina',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-water-ladder"></i>'
             ],
             [	//13
                 'title' => 'Sala cinema',
@@ -72,11 +72,11 @@ class ServiceSeeder extends Seeder
             ],
             [	//14
                 'title' => 'Parcheggio',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-film"></i>'
             ],
             [	//15
                 'title' => 'Sala fitness',
-                'icon' => ''
+                'icon' => '<i class="fa-solid fa-dumbbell"></i>'
             ]
         ];
 
