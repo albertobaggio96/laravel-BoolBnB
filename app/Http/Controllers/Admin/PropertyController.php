@@ -53,9 +53,9 @@ class PropertyController extends Controller
         $newProperty->fill($data);
         $newProperty->latitude = 10;
         $newProperty->longitude = 10;
-        $newProperty->cover_img = Storage::put(`property_img/$newProperty->id`, $data['cover_img']);
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
+        $newProperty->cover_img = Storage::put('property_img/' . $newProperty->id, $data['cover_img']);
         $newProperty->slug .= "-$newProperty->id";
         $newProperty->update();
 

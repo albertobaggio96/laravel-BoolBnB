@@ -80,8 +80,9 @@
                         @enderror               
                     </div>
 
+                    <iframe src="/multi-image" frameborder="0"></iframe>
                     {{-- FORM DI PROVA PER LO STORAGE DI PIU' FOTO --}}
-                    <form action="{{ route('uploadImage') }}" method="POST" enctype="multipart/form-data">
+                    {{-- <form action="{{ route('uploadImage') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <label for="path">Seleziona i file da caricare:</label>
@@ -89,9 +90,9 @@
                         </div>
                     
                         <div>
-                            <button type="submit">Carica</button>
+                            <button type="button">Carica</button>
                         </div>
-                    </form>
+                    </form> --}}
                     
                     <div class="form-outline w-50 my-3">
                         <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Cover Image</label>

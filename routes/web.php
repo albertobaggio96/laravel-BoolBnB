@@ -24,6 +24,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/multi-image', [ImageController::class, 'index']);
+
 
 
 //TODO IN RF1 L'UTENTE NON DEVE AVERE LA POSSIBILITA' DI CANCELLARE I DATI INSERITI IN FASE DI REGISTRAZIONE
