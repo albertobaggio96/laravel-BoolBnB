@@ -121,6 +121,8 @@ class PropertyController extends Controller
         $data = $request->all();
 
         $property->slug = Str::slug($property->title . "-$property->id");
+        $property->services()->sync($data['services'] ?? []);
+        
         $property->update($data);
         return redirect()->route('admin.properties.show', $property->slug);
     }
