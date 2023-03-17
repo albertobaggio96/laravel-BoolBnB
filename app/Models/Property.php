@@ -20,12 +20,13 @@ class Property extends Model
         'night_price',
         'n_beds',
         'n_rooms',
+        'n_toilettes',
         'cover_img',
         'mq',
         'visible',
         'address',
         'latitude',
-        'longitude'
+        'longitude',
     ];
 
     public function getRouteKeyName(){
@@ -46,6 +47,10 @@ class Property extends Model
 
     public function views(){
         return $this->hasMany(View::class);
+    }
+
+    public function images(){
+        return $this->hasMany(Image::class);
     }
 
 }
