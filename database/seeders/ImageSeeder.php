@@ -418,231 +418,231 @@ class ImageSeeder extends Seeder
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_1.webp'
+                'path' => '19/image_1.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_2.webp'
+                'path' => '19/image_2.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_3.webp'
+                'path' => '19/image_3.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_4.webp'
+                'path' => '19/image_4.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_5.webp'
+                'path' => '19/image_5.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_6.webp'
+                'path' => '19/image_6.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_7.webp'
+                'path' => '19/image_7.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_8.webp'
+                'path' => '19/image_8.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_9.webp'
+                'path' => '19/image_9.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_10.webp'
+                'path' => '19/image_10.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_11.webp'
+                'path' => '19/image_11.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_12.webp'
+                'path' => '19/image_12.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_13.webp'
+                'path' => '19/image_13.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_14.webp'
+                'path' => '19/image_14.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_15.webp'
+                'path' => '19/image_15.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_16.webp'
+                'path' => '19/image_16.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_17.webp'
+                'path' => '19/image_17.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_18.webp'
+                'path' => '19/image_18.jpg'
             ],
             [
                 'property_id' => 19,
-                'path' => '19/image_19.webp'
+                'path' => '19/image_19.jpg'
             ],
             [
                 'property_id' => 20,
-                'path' => '20/image_1.webp'
+                'path' => '20/image_1.jpg'
             ],
             [
                 'property_id' => 20,
-                'path' => '20/image_2.webp'
+                'path' => '20/image_2.jpg'
             ],
             [
                 'property_id' => 20,
-                'path' => '20/image_3.webp'
+                'path' => '20/image_3.jpg'
             ],
             [
                 'property_id' => 20,
-                'path' => '20/image_4.webp'
+                'path' => '20/image_4.jpg'
             ],
             [
                 'property_id' => 20,
-                'path' => '20/image_5.webp'
+                'path' => '20/image_5.jpg'
             ],
             [
                 'property_id' => 20,
-                'path' => '20/image_6.webp'
+                'path' => '20/image_6.jpg'
             ],
             [
                 'property_id' => 20,
-                'path' => '20/image_7.webp'
+                'path' => '20/image_7.jpg'
             ],
             [
                 'property_id' => 21,
-                'path' => '21/image_1.webp'
+                'path' => '21/image_1.jpg'
             ],
             [
                 'property_id' => 21,
-                'path' => '21/image_2.webp'
+                'path' => '21/image_2.jpg'
             ],
             [
                 'property_id' => 21,
-                'path' => '21/image_3.webp'
+                'path' => '21/image_3.jpg'
             ],
             [
                 'property_id' => 21,
-                'path' => '21/image_4.webp'
+                'path' => '21/image_4.jpg'
             ],
             [
                 'property_id' => 21,
-                'path' => '21/image_5.webp'
+                'path' => '21/image_5.jpg'
             ],
             [
                 'property_id' => 21,
-                'path' => '21/image_6.webp'
+                'path' => '21/image_6.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_1.webp'
+                'path' => '22/image_1.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_2.webp'
+                'path' => '22/image_2.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_3.webp'
+                'path' => '22/image_3.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_4.webp'
+                'path' => '22/image_4.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_5.webp'
+                'path' => '22/image_5.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_6.webp'
+                'path' => '22/image_6.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_7.webp'
+                'path' => '22/image_7.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_8.webp'
+                'path' => '22/image_8.jpg'
             ],
             [
                 'property_id' => 22,
-                'path' => '22/image_9.webp'
+                'path' => '22/image_9.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_1.webp'
+                'path' => '23/image_1.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_2.webp'
+                'path' => '23/image_2.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_3.webp'
+                'path' => '23/image_3.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_4.webp'
+                'path' => '23/image_4.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_5.webp'
+                'path' => '23/image_5.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_6.webp'
+                'path' => '23/image_6.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_7.webp'
+                'path' => '23/image_7.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_8.webp'
+                'path' => '23/image_8.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_9.webp'
+                'path' => '23/image_9.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_10.webp'
+                'path' => '23/image_10.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_11.webp'
+                'path' => '23/image_11.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_12.webp'
+                'path' => '23/image_12.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_13.webp'
+                'path' => '23/image_13.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_14.webp'
+                'path' => '23/image_14.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_15.webp'
+                'path' => '23/image_15.jpg'
             ],
             [
                 'property_id' => 23,
-                'path' => '23/image_16.webp'
+                'path' => '23/image_16.jpg'
             ]
             
         ];
