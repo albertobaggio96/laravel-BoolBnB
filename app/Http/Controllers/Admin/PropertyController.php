@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Validation\Rule;
+
 class PropertyController extends Controller
 {
 
@@ -63,7 +65,21 @@ class PropertyController extends Controller
      */
     public function store(Request $property)
     {
-        $data = $property->all();
+        $data = $property->validate([
+            'title' => 'required|string|min:5|max:100|unique:properties',
+            'descriprtion' => 'required|string|min:50|max:500',
+            'night_price' => 'required|numeric|min:1',
+            'n_beds' => 'required|numeric|min:1',
+            'n_rooms' => 'required|numeric|min:1',
+            'cover_img' => 'required|image',
+            'mq' => 'required|decimal:2|min:1',
+            'visible' => 'required|boolean',
+            'address' => 'required|string|min:2|max:200',
+            'latitude' => 'required|max:50',
+            'longitude' => 'required|max:50',
+            'user_id' => 'required|exists:users,id',
+            'services' => 'array|exists:services,id'
+        ]);
         $newProperty = new Property();
         $geocode = $this->getGeocode($data['address']);
         $newProperty->user_id = Auth::user()->id;
@@ -118,7 +134,21 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('projects')->ignore($property->id)],
+            'descriprtion' => 'required|string|min:50|max:500',
+            'night_price' => 'required|decimal:2|min:1',
+            'n_beds' => 'required|numeric|min:1',
+            'n_rooms' => 'required|numeric|min:1',
+            'cover_img' => 'required|image',
+            'mq' => 'required|decimal:2|min:1',
+            'visible' => 'required|boolean',
+            'address' => 'required|string|min:2|max:200',
+            'latitude' => 'required|max:50',
+            'longitude' => 'required|max:50',
+            'user_id' => 'required|exists:users,id',
+            'services' => 'array|exists:services,id'
+        ]);
 
         $property->slug = Str::slug($property->title . "-$property->id");
         $property->services()->sync($data['services'] ?? []);
