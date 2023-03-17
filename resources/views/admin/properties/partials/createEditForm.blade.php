@@ -7,18 +7,19 @@
 
                 <div class="card px-5 py-3 mb-3">
 
-
-                    <div class="form-outline w-100 mb-3">
-                        {{-- @dump($property->services) --}}
-                        @foreach ($services as $service)
-                            <input type="checkbox" name="services[]"  value="{{$service->id}}" @checked($property->services->contains($service->id))>
-                            <label>{{$service->title}}</label>
-                        @endforeach
-                        @error('service')
-                            <div class="invalid-feedback px-2">
-                                <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
-                            </div>
-                        @enderror                  
+                    <div class="row">
+                            <h5>Seleziona i Servizi offerti dal tuo appartamento</h5>
+                            @foreach ($services as $service)
+                                <div class="form-check form-switch col-6">
+                                    <input class="form-check-input" role="switch" type="checkbox" name="services[]" id="{{$service->id}}" value="{{$service->id}}" @checked($property->services->contains($service->id))>
+                                    <label for="{{$service->id}}">{{$service->title}}</label>
+                                </div>
+                                @error('service')
+                                    <div class="invalid-feedback px-2">
+                                        <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
+                                    </div>
+                                @enderror                  
+                            @endforeach 
                     </div>
 
                     <div class="form-outline w-100 mb-3">
@@ -91,7 +92,9 @@
                             </div>
                         @enderror               
                     </div>
+
                     @if (Route::is('admin.properties.edit'))
+                        <h6 class="mb-2">Aggiungi altre immagini al tuo annuncio</h6>
                         <iframe src="/multi-image" frameborder="0"></iframe>
                     @endif
                     
