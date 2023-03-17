@@ -149,9 +149,53 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'title' => [
+            'required' => 'Devi inserire un titolo',
+            'min' => 'La lunghezza del titolo deve essere compresa tra 5 e 100 caratteri',
+            'max' => 'La lunghezza del titolo deve essere compresa tra 5 e 100 caratteri',
+            'string' => 'Il titolo deve essere di tipo stringa',
+            'unique' => 'Il titolo non può essere identico ad un altro già esistente',
         ],
+        'description' => [
+            'required' => 'Devi inserire una descrizione',
+            'min' => 'La lunghezza della descrizione deve essere compresa tra 50 e 500 caratteri',
+            'max' => 'La lunghezza della descrizione deve essere compresa tra 50 e 500 caratteri',
+            'string' => 'La descrizione deve essere di tipo stringa',
+        ],
+        'night_price' => [
+            'required' => 'Devi inserire un prezzo per notte',
+            'min' => 'Il prezzo deve essere maggiore di 0',
+            'decimal' => 'Il prezzo deve essere un numero decimale, se non li ha inserire ,00',
+        ],
+        'n_beds' => [
+            'required' => 'Devi inserire il numero di letti presenti',
+            'min' => 'Il numero di letti deve essere maggiore di 0',
+            'numeric' => 'Il numero di letti deve essere un numero intero'
+        ],
+        'n_rooms' => [
+            'required' => 'Devi inserire il numero di stanze presenti',
+            'min' => 'Il numero di stanze deve essere maggiore di 0',
+            'numeric' => 'Il numero di stanze deve essere un numero intero'
+        ],
+        'cover_img' => [
+            'required' => 'Devi inserire un\'immagine di copertina per l\'annuncio',
+            'image' => 'Il file inserito deve essere un\'immagine'
+        ],
+        'mq' => [
+            'required' => 'Devi inserire la metratura della proprietà',
+            'min' => 'I metri quadrati devono essere maggiori di 0',
+            'decimal' => 'I metri quadrati devono essere un numero decimale, se non li ha inserire ,00',
+        ],
+        'visible' => [
+            'required' => 'Devi inserire se la proprietà e visibile ai clienti',
+            'boolean' => 'La visibilità deve essere vera o falsa: inserire 0 per "falso" oppure inserire 1 per "vero"'
+        ],
+        'address' => [
+            'required' => 'Devi inserire un indirizzo per la proprietà',
+            'min' => 'La lunghezza dell\'indirizzo deve essere compresa tra 2 e 200 caratteri',
+            'max' => 'La lunghezza dell\'indirizzo deve essere compresa tra 2 e 200 caratteri',
+            'string' => 'La descrizione deve essere di tipo stringa',
+        ]
     ],
 
     /*
