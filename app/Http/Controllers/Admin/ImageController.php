@@ -28,7 +28,7 @@ class ImageController extends Controller
             }
             
             
-        foreach ($images as $imag) {
+        foreach ($images as $image) {
             $image = new Image();
             $image->file_name = json_encode($image);
             $image->save();
