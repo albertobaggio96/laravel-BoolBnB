@@ -184,7 +184,7 @@ return [
         'mq' => [
             'required' => 'Devi inserire la metratura della proprietà',
             'min' => 'I metri quadrati devono essere maggiori di 0',
-            'decimal' => 'I metri quadrati devono essere un numero decimale, se non li ha inserire ,00',
+            'decimal' => 'I metri quadrati devono essere un numero decimale, se non li ha inserire .00',
         ],
         'visible' => [
             'required' => 'Devi inserire se la proprietà e visibile ai clienti',
