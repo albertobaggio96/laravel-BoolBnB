@@ -20,63 +20,63 @@ class ServiceSeeder extends Seeder
         $services = [
             [	//1
                 'title' => 'Cucina completamente attrezzata',
-                'icon' => '<i class="fa-solid fa-kitchen-set"></i>'
+                'icon' => 'fa-solid fa-kitchen-set'
             ],
             [	//2
                 'title' => 'Lavastoviglie',
-                'icon' => '<i class="fa-solid fa-house-tsunami"></i>'
+                'icon' => 'fa-solid fa-house-tsunami'
             ],
             [	//3
                 'title' => 'Macchina del ghiaccio',
-                'icon' => '<i class="fa-regular fa-snowflake"></i>'
+                'icon' => 'fa-regular fa-snowflake'
             ],
             [	//4
                 'title' => 'Zona pranzo formale',
-                'icon' => '<i class="fa-solid fa-utensils"></i>'
+                'icon' => 'fa-solid fa-utensils'
             ],
             [	//5
                 'title' => 'TV Satellitare',
-                'icon' => '<i class="fa-solid fa-tv"></i>'
+                'icon' => 'fa-solid fa-tv'
             ],
             [	//6
                 'title' => 'Lettore DVD',
-                'icon' => '<i class="fa-solid fa-compact-disc"></i>'
+                'icon' => 'fa-solid fa-compact-disc'
             ],
             [	//7
                 'title' => 'Stampante',
-                'icon' => '<i class="fa-solid fa-print"></i>'
+                'icon' => 'fa-solid fa-print'
             ],
             [	//8
                 'title' => 'Caminetto',
-                'icon' => '<i class="fa-solid fa-fire"></i>'
+                'icon' => 'fa-solid fa-fire'
             ],
             [	//9
                 'title' => 'Wi-Fi',
-                'icon' => '<i class="fa-solid fa-wifi"></i>'
+                'icon' => 'fa-solid fa-wifi'
             ],
             [	//10
                 'title' => 'Ascensore',
-                'icon' => '<i class="fa-solid fa-elevator"></i>'
+                'icon' => 'fa-solid fa-elevator'
             ],
             [	//11
                 'title' => 'Aria condizionata',
-                'icon' => '<i class="fa-solid fa-temperature-arrow-down"></i>'
+                'icon' => 'fa-solid fa-temperature-arrow-down'
             ],
             [	//12
                 'title' => 'Piscina',
-                'icon' => '<i class="fa-solid fa-water-ladder"></i>'
+                'icon' => 'fa-solid fa-water-ladder'
             ],
             [	//13
                 'title' => 'Sala cinema',
-                'icon' => ''
+                'icon' => 'fa-solid fa-film'
             ],
             [	//14
                 'title' => 'Parcheggio',
-                'icon' => '<i class="fa-solid fa-film"></i>'
+                'icon' => 'fa-solid fa-square-parking'
             ],
             [	//15
                 'title' => 'Sala fitness',
-                'icon' => '<i class="fa-solid fa-dumbbell"></i>'
+                'icon' => 'fa-solid fa-dumbbell'
             ]
         ];
 
