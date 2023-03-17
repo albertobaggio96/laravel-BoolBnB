@@ -5,11 +5,13 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
 
 use App\Models\Property;
 
 class PropertySeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      *
@@ -30,8 +32,8 @@ class PropertySeeder extends Seeder
                 'mq' => 150,
                 'visible' => 1,
                 'address' => 'Piazza San Marco, 1 - Venezia, Veneto',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.43424,
+                'longitude' => 12.33805
             ],
             [	//2
                 'title' => 'Villa Front Lake',
@@ -45,8 +47,8 @@ class PropertySeeder extends Seeder
                 'mq' => 400,
                 'visible' => 1,
                 'address' => 'Via del Corso, 1 - Roma, Lazio',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 41.90979,
+                'longitude' => 12.47686
             ],
             [	//3
                 'title' => 'Marvellous lake destination eco-friendly villa',
@@ -60,8 +62,8 @@ class PropertySeeder extends Seeder
                 'mq' => 200,
                 'visible' => 1,
                 'address' => 'Piazza del Campo, 1 - Siena, Toscana',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 43.318,
+                'longitude' => 11.33175
             ],
             [	//4
                 'title' => 'Chalet Orcianita',
@@ -75,8 +77,8 @@ class PropertySeeder extends Seeder
                 'mq' => 500,
                 'visible' => 1,
                 'address' => 'Via della Spiga, 1 - Milano, Lombardia',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.4687,
+                'longitude' => 9.19845
             ],
             [	//5
                 'title' => 'Chalet dal design di lusso di fronte allo sci del Monte Bianco',
@@ -90,8 +92,8 @@ class PropertySeeder extends Seeder
                 'mq' => 300,
                 'visible' => 1,
                 'address' => 'Via Montenapoleone, 1 - Milano, Lombardia',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.46729,
+                'longitude' => 9.19625
             ],
             [	//6
                 'title' => 'Loft in stile scandinavo all\'ombra della Mole',
@@ -105,8 +107,8 @@ class PropertySeeder extends Seeder
                 'mq' => 100,
                 'visible' => 1,
                 'address' => 'Via Condotti, 1 - Roma, Lazio',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 41.90569,
+                'longitude' => 12.48213
             ],
             [	//7
                 'title' => 'Container Suite: sospeso tra terra e mare',
@@ -120,8 +122,8 @@ class PropertySeeder extends Seeder
                 'mq' => 100,
                 'visible' => 1,
                 'address' => 'Piazza Bra, 1 - Verona, Veneto',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.43804,
+                'longitude' => 10.99379
             ],
             [	//8
                 'title' => 'Villa Arias',
@@ -135,8 +137,8 @@ class PropertySeeder extends Seeder
                 'mq' => 300,
                 'visible' => 1,
                 'address' => 'Via Veneto, 1 - Roma, Lazio',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 41.46178,
+                'longitude' => 12.61496
             ],
             [	//9
                 'title' => 'Appartamento di lusso a Santa Pola',
@@ -150,8 +152,8 @@ class PropertySeeder extends Seeder
                 'mq' => 120,
                 'visible' => 1,
                 'address' => 'Corso Vittorio Emanuele II, 1 - Napoli, Campania',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 40.94595,
+                'longitude' => 14.3749
             ],
             [	//10
                 'title' => 'Ville esclusive con vasca idromassaggio all\'aperto',
@@ -165,8 +167,8 @@ class PropertySeeder extends Seeder
                 'mq' => 90,
                 'visible' => 1,
                 'address' => 'Piazza Navona, 1 - Roma, Lazio',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 41.89913,
+                'longitude' => 12.4732
             ],
             [	//11
                 'title' => 'Sea Cliff House',
@@ -180,8 +182,8 @@ class PropertySeeder extends Seeder
                 'mq' => 190,
                 'visible' => 1,
                 'address' => 'Piazza del Duomo, 1 - Firenze, Toscana',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 43.77353,
+                'longitude' => 11.25632
             ],
             [	//12
                 'title' => 'Casa Doro',
@@ -195,8 +197,8 @@ class PropertySeeder extends Seeder
                 'mq' => 120,
                 'visible' => 1,
                 'address' => 'Via San Gregorio Armeno, 1 - Napoli, Campania',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 40.85056,
+                'longitude' => 14.25759
             ],
             [	//13
                 'title' => 'Appartamento Buganvilla',
@@ -210,8 +212,8 @@ class PropertySeeder extends Seeder
                 'mq' => 80,
                 'visible' => 1,
                 'address' => 'Corso Umberto I, 1 - Catania, Sicilia',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 37.61364,
+                'longitude' => 15.16568
             ],
             [	//14
                 'title' => 'Cannes Croisette',
@@ -225,8 +227,8 @@ class PropertySeeder extends Seeder
                 'mq' => 80,
                 'visible' => 1,
                 'address' => 'Piazza Unità d\'Italia, 1 - Trieste, Friuli-Venezia Giulia',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.65015,
+                'longitude' => 13.76694
             ],
             [	//15
                 'title' => 'Accogliente cottage immerso nella natura',
@@ -240,8 +242,8 @@ class PropertySeeder extends Seeder
                 'mq' => 80,
                 'visible' => 1,
                 'address' => 'Via Toledo, 1 - Napoli, Campania',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 40.84814,
+                'longitude' => 14.24962
             ],
             [	//16
                 'title' => 'Cocooning boudoir My St marc',
@@ -255,8 +257,8 @@ class PropertySeeder extends Seeder
                 'mq' => 90,
                 'visible' => 1,
                 'address' => 'Corso Buenos Aires, 1 - Milano, Lombardia',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.47519,
+                'longitude' => 9.20552
             ],
             [	//17
                 'title' => 'Splendido appartamento con vista mozzafiato sul mare',
@@ -270,8 +272,8 @@ class PropertySeeder extends Seeder
                 'mq' => 120,
                 'visible' => 1,
                 'address' => 'Via Roma, 1 - Torino, Piemonte',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.28774,
+                'longitude' => 7.40433
             ],
             [	//18
                 'title' => 'Splendida proprietà fronte mare con parcheggio',
@@ -285,8 +287,8 @@ class PropertySeeder extends Seeder
                 'mq' => 200,
                 'visible' => 1,
                 'address' => 'Via dei Fori Imperiali, 1 - Roma, Lazio',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 41.89338,
+                'longitude' => 12.4869
             ],
             [	//19
                 'title' => 'appartamento da sogno',
@@ -300,8 +302,8 @@ class PropertySeeder extends Seeder
                 'mq' => 200,
                 'visible' => 1,
                 'address' => 'Via Veneto, 2 - Roma, Lazio',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 41.7042,
+                'longitude' => 12.69257
             ],
             [	//20
                 'title' => 'attico aida',
@@ -315,8 +317,8 @@ class PropertySeeder extends Seeder
                 'mq' => 110,
                 'visible' => 1,
                 'address' => 'Corso Italia, 1 - Sorrento, Campania',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 40.6245,
+                'longitude' => 14.36925
             ],
             [	//21
                 'title' => 'casa vacanze in città',
@@ -330,8 +332,8 @@ class PropertySeeder extends Seeder
                 'mq' => 100,
                 'visible' => 1,
                 'address' => 'Via dei Calzaiuoli, 1 - Firenze, Toscana',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 43.77067,
+                'longitude' => 11.25521
             ],
             [	//22
                 'title' => 'stanza privata in casa',
@@ -345,8 +347,8 @@ class PropertySeeder extends Seeder
                 'mq' => 40,
                 'visible' => 1,
                 'address' => 'Corso Garibaldi, 1 - Brescia, Lombardia',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.54066,
+                'longitude' => 10.21567
             ],
             [	//23
                 'title' => 'villa tropicana',
@@ -360,10 +362,12 @@ class PropertySeeder extends Seeder
                 'mq' => 150,
                 'visible' => 1,
                 'address' => 'Via Dante, 1 - Milano, Lombardia',
-                'latitude' => '',
-                'longitude' => ''
+                'latitude' => 45.46517,
+                'longitude' => 9.18614
             ]
         ];
+
+
 
 
         foreach($properties as $property){
