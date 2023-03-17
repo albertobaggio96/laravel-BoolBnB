@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Sponsorship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class PropertyController extends Controller
 {
@@ -50,6 +51,9 @@ class PropertyController extends Controller
         $newProperty = new Property();
         $newProperty->user_id = Auth::user()->id;
         $newProperty->fill($data);
+        $newProperty->latitude = 10;
+        $newProperty->longitude = 10;
+        $newProperty->cover_img = Storage::put(`property_img/$newProperty->id`, $data['cover_img']);
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
         $newProperty->slug .= "-$newProperty->id";
