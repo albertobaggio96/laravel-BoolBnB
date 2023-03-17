@@ -10,8 +10,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
 class PropertyController extends Controller
 {
+
+    //Function for calcolate the coordinate
+    public function getGeocode($address){
+        $ext = ".json"; //response format
+        //Call TomTom API whit params 
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $address . $ext, [
+            "storeResult" => "false",
+            "limit" => "1", //limit to first results
+            "view" => "Unified",
+            "key" => env('KEY_TOMTOM') //personal key (set to .env file)
+        ]);
+        $jesondata = $response->json();  //convert response in json format
+        return $jesondata["results"][0]["position"]; //return array with 2 value, "lat" and "lon"
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -49,10 +65,11 @@ class PropertyController extends Controller
     {
         $data = $property->all();
         $newProperty = new Property();
+        $geocode = $this->getGeocode($data['address']);
         $newProperty->user_id = Auth::user()->id;
         $newProperty->fill($data);
-        $newProperty->latitude = 10;
-        $newProperty->longitude = 10;
+        $newProperty->latitude = $geocode["lat"];
+        $newProperty->longitude = $geocode["lon"];
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
         $newProperty->cover_img = Storage::put('property_img/' . $newProperty->id, $data['cover_img']);
