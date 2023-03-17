@@ -1,0 +1,11 @@
+'title' = 'casa vacanze in città ',
+'description' =  La casa vacanze si trova nel quartiere di HH-Horn vicino all'ippodromo di Horner Galopp in un ampio giardino; 1 camera da letto e 1 soggiorno/camera da letto con dispensa cucina, 1 doccia/WC.
+Proprio accanto alla proprietà, l'autobus 161 conduce alla metropolitana Horner Rennbahn e poi a circa 15 minuti dal porto o dall'Alster. Un piccolo centro commerciale con Netto e il mercato di Meydan si trova a 3 minuti a piedi. Anche una panetteria Ari, a 6 minuti di distanza, è aperta la domenica. Aldi e Lidl sono a 8 minuti a piedi. Il cottage è situato in un ampio giardino e dispone di circa 44 mq di spazio abitabile. Si compone di un soggiorno con due letti ( divano letto ), una camera con letto matrimoniale e cabina armadio. Nel soggiorno/camera da letto c'è una piccola cucina dispensa con 2 punti cottura e frigorifero. Macchina per il caffè, bollitore e tostapane sono forniti. Forniamo caffè e tè. Il prezzo include asciugamani e biancheria da letto. Ingresso separato per il cottage.
+'night_price' = '79',
+'n_bathroom' = '1',
+'n camere' = 1
+letti = 2(matrimoniale divano-letto)
+location = amburgo
+servizi = piscina, cucina, wifi, parcheggio gratis, tv, giardino privato, balcone, telecamera sicurezza, animali ammessi
+costi servizio = 50
+costi airbnb = 76
