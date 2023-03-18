@@ -34,7 +34,7 @@
 
                     <div class="form-outline w-100 mb-3">
                         <label for="description" class="form-label @error('description') is-invalid @enderror">Description</label>            
-                        <textarea class="d-block" name="description" id="description" cols="40" rows="10" placeholder="Insert description">{{old('description', $property->description)}}</textarea>
+                        <textarea class="d-block form-control" name="description" id="description" placeholder="Insert description">{{old('description', $property->description)}}</textarea>
                         @error('description')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
