@@ -16,6 +16,7 @@
     "dependencies": {
         "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.2.2",
-        "cross-env": "^7.0.3"
+        "cross-env": "^7.0.3",
+        "sweetalert2": "^11.7.3"
     }
 }

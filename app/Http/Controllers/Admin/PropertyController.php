@@ -196,9 +196,7 @@ class PropertyController extends Controller
 
     public function forceDelete(Property $property){
 
-        // if($property->isNotUrl()){
-        //     Storage::delete($property->preview);
-        // }
+        Storage::deleteDirectory("property_image/$property->id");
 
         $property->forceDelete();
 
