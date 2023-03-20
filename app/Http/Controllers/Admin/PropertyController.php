@@ -75,8 +75,8 @@ class PropertyController extends Controller
             'mq' => 'required|numeric|min:1',
             'visible' => 'required|boolean',
             'address' => 'required|string|min:2|max:200',
-            'latitude' => 'required|max:50',
-            'longitude' => 'required|max:50',
+            'latitude' => 'max:50',
+            'longitude' => 'max:50',
             'user_id' => 'required|exists:users,id',
             'services' => 'required|array|exists:services,id'
         ]);
@@ -144,8 +144,8 @@ class PropertyController extends Controller
             'mq' => 'required|numeric|min:1',
             'visible' => 'required|boolean',
             'address' => 'required|string|min:2|max:200',
-            'latitude' => 'required|max:50',
-            'longitude' => 'required|max:50',
+            'latitude' => 'max:50',
+            'longitude' => 'max:50',
             'user_id' => 'required|exists:users,id',
             'services' => 'required|array|exists:services,id'
         ]);
