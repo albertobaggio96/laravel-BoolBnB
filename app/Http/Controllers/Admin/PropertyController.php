@@ -148,7 +148,7 @@ class PropertyController extends Controller
             'n_toilettes' => 'required|numeric|min:1',
             'cover_img' => 'image',
             'mq' => 'required|numeric|min:1',
-            'visible' => 'required|boolean',
+            'visible' => 'boolean',
             'address' => 'required|string|min:2|max:200',
             'latitude' => 'max:50',
             'longitude' => 'max:50',
@@ -158,7 +158,7 @@ class PropertyController extends Controller
 
         $property->slug = Str::slug($property->title . "-$property->id");
         $property->services()->sync($data['services'] ?? []);
-        
+        $property->visible=array_key_exists('visible', $data) ? 1 : 0;
         $property->update($data);
         return redirect()->route('admin.properties.show', $property->slug);
     }
