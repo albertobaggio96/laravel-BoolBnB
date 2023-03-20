@@ -31,8 +31,9 @@
     </table>
   </section>
 @endsection
-{{-- todo popup --}}
 
-{{-- @section('js')
+@section('js')
+{{-- popup --}}
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   @vite('resources/js/deleteConfirm.js')
-@endsection --}}
+@endsection
