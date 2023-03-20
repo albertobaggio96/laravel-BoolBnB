@@ -103,6 +103,6 @@
     </div>
 </div>
 @endsection
-@section('script')
+@section('js')
 @vite(['resources/js/registrationValidation.js'])
 @endsection
