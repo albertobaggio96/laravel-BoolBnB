@@ -192,12 +192,7 @@ class PropertyController extends Controller
 
     public function forceDelete(Property $property){
 
-        $imgPath = [];
-        foreach($property->images as $img){
-            $imgPath[]=$img->path;
-        };
-
-        Storage::delete($property->cover_img, ...$imgPath);
+        Storage::deleteDirectory("property_image/$property->id");
 
         $property->forceDelete();
 
