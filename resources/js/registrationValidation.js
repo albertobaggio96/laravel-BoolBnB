@@ -11,15 +11,10 @@ function ValidateEmail(input) {
     const validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/;
   
     if (input.value.match(validRegex)) {
-     // alert("Valid email address!");
-      
       return true;
-  
+
     } else {
-      //alert("Invalid email address!");
-     
       return false;
-  
     }
   
   }
@@ -40,7 +35,9 @@ userEmail.addEventListener('input', function(){
     const validMail = ValidateEmail(userEmail)
 
     if(validMail !== true){
-        alert('wrong')
+        userEmail.classList.add('is-invalid')
+     }else{
+        userEmail.classList.remove('is-invalid')
      }
  })
 
