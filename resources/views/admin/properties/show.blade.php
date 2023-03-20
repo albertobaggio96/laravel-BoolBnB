@@ -27,22 +27,25 @@
                   </h4>
                </div>
                <div class="card-info d-flex ">
-                  <div class="row">
-                     <div class="col-3">
+                  <div class="container-fluid">
+                  <div class="row justify-content-center">
+                     <div class="col-12 text-center">
                         <h3 class="m-3">
                            Services available:
                         </h3>
                      </div>
 
                      @foreach ($property->services as $service)
-                        <div class="col-3 d-flex flex-wrap services">
-                           <h5 class="m-3">
+                        <div class="col-2 text-center services">
+                           <i class="{{$service->icon}}"></i>
+                           <h6>
                               {{$service->title}}
-                           </h5>
+                           </h6>
                         </div>
                      @endforeach
                   </div>
                </div>
+            </div>
             </div>
             <div class="container-btn d-flex justify-content-between">
                <div class="prev m-2">
