@@ -67,17 +67,18 @@ class PropertyController extends Controller
     {
         $data = $property->validate([
             'title' => 'required|string|min:5|max:100|unique:properties',
-            'descriprtion' => 'required|string|min:50|max:500',
+            'description' => 'required|string|min:50|max:500',
             'night_price' => 'required|numeric|min:1',
             'n_beds' => 'required|numeric|min:1',
             'n_rooms' => 'required|numeric|min:1',
+            'n_toilettes' => 'required|numeric|min:1',
             'cover_img' => 'required|image',
-            'mq' => 'required|decimal:2|min:1',
+            'mq' => 'required|numeric|min:1',
             'visible' => 'required|boolean',
             'address' => 'required|string|min:2|max:200',
             'latitude' => 'max:50',
-            'longitude' => 'required|max:50',
-            'user_id' => 'required|exists:users,id',
+            'longitude' => 'max:50',
+            'user_id' => 'exists:users,id',
             'services' => 'required|array|exists:services,id'
         ]);
         $newProperty = new Property();
@@ -136,17 +137,18 @@ class PropertyController extends Controller
     {
         $data = $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('properties')->ignore($property->id)],
-            'descriprtion' => 'required|string|min:50|max:500',
-            'night_price' => 'required|decimal:2|min:1',
+            'description' => 'required|string|min:50|max:500',
+            'night_price' => 'required|numeric|min:1',
             'n_beds' => 'required|numeric|min:1',
             'n_rooms' => 'required|numeric|min:1',
-            'cover_img' => 'required|image',
-            'mq' => 'required|decimal:2|min:1',
+            'n_toilettes' => 'required|numeric|min:1',
+            'cover_img' => 'image',
+            'mq' => 'required|numeric|min:1',
             'visible' => 'required|boolean',
             'address' => 'required|string|min:2|max:200',
-            'latitude' => 'required|max:50',
-            'longitude' => 'required|max:50',
-            'user_id' => 'required|exists:users,id',
+            'latitude' => 'max:50',
+            'longitude' => 'max:50',
+            'user_id' => 'exists:users,id',
             'services' => 'required|array|exists:services,id'
         ]);
 

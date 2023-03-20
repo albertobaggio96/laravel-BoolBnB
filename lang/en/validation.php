@@ -165,7 +165,7 @@ return [
         'night_price' => [
             'required' => 'Devi inserire un prezzo per notte',
             'min' => 'Il prezzo deve essere maggiore di 0',
-            'decimal' => 'Il prezzo deve essere un numero decimale, se non li ha inserire ,00',
+            'numeric' => 'Il prezzo deve essere un numero intero',
         ],
         'n_beds' => [
             'required' => 'Devi inserire il numero di letti presenti',
@@ -177,6 +177,11 @@ return [
             'min' => 'Il numero di stanze deve essere maggiore di 0',
             'numeric' => 'Il numero di stanze deve essere un numero intero'
         ],
+        'n_toilettes' => [
+            'required' => 'Devi inserire il numero di bagni presenti',
+            'numeric' => 'Il numero dei bagni deve essere un numero intero',
+            'min' => 'Il numero di bagni deve essere maggiore di 0'
+        ],
         'cover_img' => [
             'required' => 'Devi inserire un\'immagine di copertina per l\'annuncio',
             'image' => 'Il file inserito deve essere un\'immagine'
@@ -184,7 +189,7 @@ return [
         'mq' => [
             'required' => 'Devi inserire la metratura della proprietà',
             'min' => 'I metri quadrati devono essere maggiori di 0',
-            'decimal' => 'I metri quadrati devono essere un numero decimale, se non li ha inserire .00',
+            'numeric' => 'I metri quadrati devono essere un numero intero',
         ],
         'visible' => [
             'required' => 'Devi inserire se la proprietà e visibile ai clienti',
