@@ -42,7 +42,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/properties/trashed',  [PropertyController::class, 'trashed'] )->name('properties.trashed');
     Route::get('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore')->withTrashed();
     Route::delete('/properties/{property}/force-delete', [PropertyController::class, 'forceDelete'])->name('properties.force-delete')->withTrashed();
-    Route::resource('/properties', PropertyController::class);
+    Route::resource('/properties', PropertyController::class)->middleware('auth');
 });
 
 Route::post('/upload-image', [ImageController::class, 'uploadImage'])->name('uploadImage');

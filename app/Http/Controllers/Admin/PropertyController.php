@@ -108,12 +108,18 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        // ?? slider per vedere la proprietà precedente o successiva
         $userId = Auth::user()->id;
-        $nextProperty = Property::where('user_id', $userId)->where('title', '>', $property->title)->orderBy('title')->first();
-        $prevProperty = Property::where('user_id', $userId)->where('title', '<', $property->title)->orderBy('title', 'DESC')->first();
-        $services = Service::all();
-        return view('admin.properties.show', compact('property', 'nextProperty', 'prevProperty', 'services'));
+        if($property->user_id === $userId){
+
+            // ?? slider per vedere la proprietà precedente o successiva
+            $nextProperty = Property::where('user_id', $userId)->where('title', '>', $property->title)->orderBy('title')->first();
+            $prevProperty = Property::where('user_id', $userId)->where('title', '<', $property->title)->orderBy('title', 'DESC')->first();
+
+            return view('admin.properties.show', compact('property', 'nextProperty', 'prevProperty'));
+            
+        } else{
+            return abort(401);
+        }
     }
 
     /**
