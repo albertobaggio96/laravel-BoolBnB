@@ -74,26 +74,30 @@ class PropertyController extends Controller
             'n_toilettes' => 'required|numeric|min:1',
             'cover_img' => 'required|image',
             'mq' => 'required|numeric|min:1',
-            'visible' => 'required|boolean',
+            'visible' => 'boolean',
             'address' => 'required|string|min:2|max:200',
             'latitude' => 'max:50',
             'longitude' => 'max:50',
             'user_id' => 'exists:users,id',
             'services' => 'required|array|exists:services,id'
         ]);
+
         $newProperty = new Property();
         $geocode = $this->getGeocode($data['address']);
         $newProperty->user_id = Auth::user()->id;
         $newProperty->fill($data);
+        $newProperty->visible=array_key_exists('visible', $data) ? 1 : 0;
         $newProperty->latitude = $geocode["lat"];
         $newProperty->longitude = $geocode["lon"];
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
+        $newProperty->services()->sync($data['services'] ?? []);
         $newProperty->cover_img = Storage::put('property_img/' . $newProperty->id, $data['cover_img']);
         $newProperty->slug .= "-$newProperty->id";
         $newProperty->update();
 
         return redirect()->route('admin.properties.show', $newProperty->slug);
+
     }
 
     /**
