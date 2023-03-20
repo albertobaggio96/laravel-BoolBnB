@@ -177,6 +177,11 @@ return [
             'min' => 'Il numero di stanze deve essere maggiore di 0',
             'numeric' => 'Il numero di stanze deve essere un numero intero'
         ],
+        'n_toilettes' => [
+            'required' => 'Devi inserire il numero di bagni presenti',
+            'numeric' => 'Il numero dei bagni deve essere un numero intero',
+            'min' => 'Il numero di bagni deve essere maggiore di 0'
+        ],
         'cover_img' => [
             'required' => 'Devi inserire un\'immagine di copertina per l\'annuncio',
             'image' => 'Il file inserito deve essere un\'immagine'

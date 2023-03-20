@@ -71,13 +71,14 @@ class PropertyController extends Controller
             'night_price' => 'required|numeric|min:1',
             'n_beds' => 'required|numeric|min:1',
             'n_rooms' => 'required|numeric|min:1',
+            'n_toilettes' => 'required|numeric|min:1',
             'cover_img' => 'required|image',
             'mq' => 'required|numeric|min:1',
             'visible' => 'required|boolean',
             'address' => 'required|string|min:2|max:200',
             'latitude' => 'max:50',
             'longitude' => 'max:50',
-            'user_id' => 'required|exists:users,id',
+            'user_id' => 'exists:users,id',
             'services' => 'required|array|exists:services,id'
         ]);
         $newProperty = new Property();
@@ -140,13 +141,14 @@ class PropertyController extends Controller
             'night_price' => 'required|numeric|min:1',
             'n_beds' => 'required|numeric|min:1',
             'n_rooms' => 'required|numeric|min:1',
+            'n_toilettes' => 'required|numeric|min:1',
             'cover_img' => 'image',
             'mq' => 'required|numeric|min:1',
             'visible' => 'required|boolean',
             'address' => 'required|string|min:2|max:200',
             'latitude' => 'max:50',
             'longitude' => 'max:50',
-            'user_id' => 'required|exists:users,id',
+            'user_id' => 'exists:users,id',
             'services' => 'required|array|exists:services,id'
         ]);
 
