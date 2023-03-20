@@ -11,7 +11,7 @@
                             <h5>Seleziona i Servizi offerti dal tuo appartamento</h5>
                             @foreach ($services as $service)
                                 <div class="form-check form-switch col-6">
-                                    <input class="form-check-input" role="switch" type="checkbox" name="services[]" id="{{$service->id}}" value="{{$service->id}}" @checked($property->services->contains($service->id))>
+                                    <input class="form-check-input service" role="switch" type="checkbox" name="services[]" id="{{$service->id}}" value="{{$service->id}}" @checked($property->services->contains($service->id))>
                                     <label for="{{$service->id}}">{{$service->title}}</label>
                                 </div>
                                 @error('service')
@@ -28,7 +28,7 @@
 
 
                     <div class="form-outline w-100 mb-3">
-                        <label for="title<" class="form-label @error('title') is-invalid @enderror">Titolo</label>
+                        <label for="title" class="form-label @error('title') is-invalid @enderror">Titolo</label>
                         <input type="text" class="form-control" id="title" placeholder="Insert title" name="title" value="{{old('title', $property->title)}}">
                         @error('title')
                             <div class="invalid-feedback px-2">
