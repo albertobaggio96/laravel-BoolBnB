@@ -61,13 +61,13 @@ class PropertyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $property
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $property)
+    public function store(Request $request)
     {
-        $data = $property->validate([
-            'title' => 'required|string|min:5|max:100|unique:properties',
+        $data = $request->validate([
+            'title' => 'required|string|min:5|max:100',
             'description' => 'required|string|min:50|max:65535',
             'night_price' => 'required|numeric|min:1|max:999999,99',
             'n_beds' => 'required|numeric|min:1|max:127',
@@ -80,7 +80,8 @@ class PropertyController extends Controller
             'latitude' => 'max:50',
             'longitude' => 'max:50',
             'user_id' => 'exists:users,id',
-            'services' => 'required|array|exists:services,id'
+            'services' => 'required|array|exists:services,id',
+            'images' => 'array'
         ]);
 
         $newProperty = new Property();
@@ -92,6 +93,14 @@ class PropertyController extends Controller
         $newProperty->longitude = $geocode["lon"];
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
+        
+        foreach($data['images'] as $img){
+            $newImages = new Image();
+            $newImages->property_id = $newProperty->id;
+            $newImages->path= Storage::put('property_image/' . $newProperty->id, $img);
+            $newImages->save();
+        }
+
         $newProperty->services()->sync($data['services'] ?? []);
         $newProperty->cover_img = Storage::put('property_image/' . $newProperty->id, $data['cover_img']);
         $newProperty->slug .= "-$newProperty->id";
