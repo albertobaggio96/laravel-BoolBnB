@@ -165,6 +165,14 @@ class PropertyController extends Controller
         $property->slug = Str::slug($property->title . "-$property->id");
         $property->services()->sync($data['services'] ?? []);
         $property->visible=array_key_exists('visible', $data) ? 1 : 0;
+
+        // if have file it trash it
+        if($request->hasFile('cover_img')){
+            Storage::delete($property->cover_img);
+        }
+        // update new file
+        $data['cover_img']= Storage::put('property_image/' . $property->id, $data['cover_img']);
+
         $property->update($data);
         return redirect()->route('admin.properties.show', $property->slug);
     }
