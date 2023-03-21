@@ -24,7 +24,7 @@ class PropertyController extends Controller
             "storeResult" => "false",
             "limit" => "1", //limit to first results
             "view" => "Unified",
-            "key" => env('KEY_TOMTOM') //personal key (set to .env file)
+            "key" => env('VITE_KEY_TOMTOM') //personal key (set to .env file)
         ]);
         $jesondata = $response->json();  //convert response in json format
         return $jesondata["results"][0]["position"]; //return array with 2 value, "lat" and "lon"

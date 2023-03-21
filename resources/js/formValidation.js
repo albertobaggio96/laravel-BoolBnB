@@ -6,7 +6,7 @@ const toiletteProperty = document.getElementById('n_toilettes');
 const roomProperty = document.getElementById('rooms-number');
 const coverProperty = document.getElementById('cover_img');
 const mqProperty = document.getElementById('mq');
-const addressProperty = document.getElementById('address');
+//const addressProperty = document.getElementById('address');
 const visibleProperty = document.getElementById('visible');
 const servicesProperty = document.querySelectorAll('input.service')
 
@@ -38,7 +38,7 @@ minAndMaxLength(titleProperty, 5, 100)
 
 minAndMaxLength(descriptionProperty, 50, 65535)
 
-minAndMaxLength(addressProperty, 2, 200)
+//minAndMaxLength(addressProperty, 2, 200)
 
 //!! numeric
 minAndMaxNumber(nightPriceProperty, 1, 999999,99)
