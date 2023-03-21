@@ -25,11 +25,12 @@
          
         <div class="container-fluid d-flex g-0">
            @if(Route::currentRouteName() != 'login')
-            <header id="header">
+            <header id="header" class="">
                 @include('layouts.partials.navBar')
             </header>
            @endif
             <main class="{{Route::currentRouteName() == 'login' ? 'w-100' : ''}} w-100" id="main">
+                @include('topNavbar')
                 @yield('content')
             </main>
         </div>
