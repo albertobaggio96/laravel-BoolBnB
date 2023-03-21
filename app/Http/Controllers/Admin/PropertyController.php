@@ -92,7 +92,7 @@ class PropertyController extends Controller
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
         $newProperty->services()->sync($data['services'] ?? []);
-        $newProperty->cover_img = Storage::put('property_img/' . $newProperty->id, $data['cover_img']);
+        $newProperty->cover_img = Storage::put('property_image/' . $newProperty->id, $data['cover_img']);
         $newProperty->slug .= "-$newProperty->id";
         $newProperty->update();
 
