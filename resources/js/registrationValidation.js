@@ -7,6 +7,8 @@ function getAge(ageDiff){
     }
 }
 
+
+//check if email is valid
 function ValidateEmail(input) {
     const validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/;
   
@@ -19,15 +21,31 @@ function ValidateEmail(input) {
   
   }
   
+//function for create a new element 
+function createElement(element, content){
+    const myElement = document.createElement(element)
+    myElement.classList.add('text-danger')
+    myElement.textContent = content
+    return myElement
+}
   
   
-  const PswElement = document.getElementById('password')
-  const confirmPswElement = document.getElementById('password-confirm')   
-  const submitBtn = document.getElementById('submit-form')
-  const calendar = document.getElementById('date_of_birth')
-  const userEmail = document.getElementById('email')
-  let today =  new Date()
-  
+const PswElement = document.getElementById('password')
+const confirmPswElement = document.getElementById('password-confirm')   
+const submitBtn = document.getElementById('submit-form')
+const calendar = document.getElementById('date_of_birth')
+const userEmail = document.getElementById('email')
+let today =  new Date()
+
+//create element error for tag date
+let errorElementDate = createElement('div')
+calendar.after(errorElementDate)
+//create element error for tag email
+let errorElementEmail = createElement('div')
+userEmail.after(errorElementEmail)
+//create element error for tag password
+let errorElementPsw = createElement('div')
+confirmPswElement.after(errorElementPsw)
  
 
 
@@ -36,8 +54,11 @@ userEmail.addEventListener('input', function(){
 
     if(validMail !== true){
         userEmail.classList.add('is-invalid')
+        const error = "Inserisci una mail valida"
+        errorElementEmail.innerHTML = `${error}`
      }else{
         userEmail.classList.remove('is-invalid')
+        errorElementEmail.innerHTML = ""
      }
  })
 
@@ -49,8 +70,11 @@ calendar.addEventListener('input', () => {
     let verif = getAge(ageDiff)
     if(verif !== true){
         calendar.classList.add('is-invalid')
+        const error = "Devi avere almeno 18 anni per registrarti alla piattaforma"
+        errorElementDate.innerHTML = `${error}`
     }else{
         calendar.classList.remove('is-invalid')
+        errorElementDate.innerHTML = ""
     }
 })
 
@@ -62,10 +86,13 @@ confirmPswElement.addEventListener('input', () => {
     if(confirmPswElement.value == PswElement.value){
         confirmPswElement.classList.add('is-valid')
         confirmPswElement.classList.remove('is-invalid')
+        errorElementPsw.innerHTML = ""
         
     }else{
         confirmPswElement.classList.remove('is-valid')
         confirmPswElement.classList.add('is-invalid')
+        const error = "Attenzione! Le password non coincidono"
+        errorElementPsw.innerHTML = `${error}`
     }
 })
 

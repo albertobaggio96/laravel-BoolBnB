@@ -37,7 +37,15 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
 
-        ]);
+        ],
+        [
+            'date_of_birth.before' => 'Devi essere maggiorenne per creare un nuovo account',
+            'email.required'=> 'inserisci una mail valida',
+            'email.unique'=>'Questa mail e\'\ gia\'\ presente nei nostri database',
+            'password.required'=>'Inserisci una password',
+            
+        ]
+    );
 
         $user = User::create([
             'name' => $request->name,
