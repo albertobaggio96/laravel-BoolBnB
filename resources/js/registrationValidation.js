@@ -104,5 +104,20 @@ submitBtn.addEventListener('click', function(event){
         event.preventDefault()
         return 
     }
-    
 })
+function formatDate(date, number) {
+    return `${date.getFullYear() - number}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + (date.getDate    () + 1)).slice(-2)}`
+}
+
+const majorAge = formatDate(new Date(), 18)
+const maxAge = formatDate(new Date(), 120)
+
+calendar.setAttribute('max', majorAge)
+calendar.setAttribute('min', maxAge)
+
+
+// function formatDate(date) {
+//     return `${date.getFullYear() - 120}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + (date.getMonth() + 1)).slice(-2)}`
+// }
+
+
