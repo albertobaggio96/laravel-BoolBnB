@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('content')
-    <div class="text-center">
-        <h1>Benvenuto {{Auth::user()->name ?? ''}}</h1>
+
+<nav class="navbar bg-light w-100" id="second-navbar">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" id="navBarTog">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
+</nav>
+  
+@endsection
+@section('js')
+@vite(['resources/js/styleAnimation.js'])
 @endsection
