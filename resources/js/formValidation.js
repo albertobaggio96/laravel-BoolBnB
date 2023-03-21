@@ -21,27 +21,32 @@ function isValid(validation, input){
 
 // function that check number of string charatters
 function minAndMaxLength(input, min, max){
-  isValid((input.value.length >= min && input.value.length < max), input)
+  input.addEventListener('input', function(){
+    isValid((input.value.length >= min && input.value.length < max), input)
+  })
 }
 
 // function that check number value
 function minAndMaxNumber(input, min, max){
-  isValid((input.value >= min && input.value < max), input)
+  input.addEventListener('input', function(){
+    isValid((input.value >= min && input.value < max), input)
+  })
 }
 
-titleProperty.addEventListener('input', function(){
-  minAndMaxLength(titleProperty, 5, 100)
-})
+// !! string
+minAndMaxLength(titleProperty, 5, 100)
 
-descriptionProperty.addEventListener('input', function(){
-  minAndMaxLength(descriptionProperty, 50, 500)
-})
+minAndMaxLength(descriptionProperty, 50, 65535)
 
-addressProperty.addEventListener('input', function(){
-  minAndMaxLength(addressProperty, 2, 200)
-})
+minAndMaxLength(addressProperty, 2, 200)
 
+//!! numeric
+minAndMaxNumber(nightPriceProperty, 1, 999999,99)
 
-toiletteProperty.addEventListener('input', function(){
-  minAndMaxNumber(toiletteProperty, 1, 200)
-})
+minAndMaxNumber(bedNumberProperty, 1, 127)
+
+minAndMaxNumber(roomProperty, 1, 127)
+
+minAndMaxNumber(toiletteProperty, 1, 127)
+
+minAndMaxNumber(mqProperty, 1, 65536)
