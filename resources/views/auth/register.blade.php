@@ -71,7 +71,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }} &nbsp; <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" minlength="8">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
