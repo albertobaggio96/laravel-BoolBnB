@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Sponsorship;
@@ -145,6 +146,7 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+        // dd($request->all());
         $data = $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('properties')->ignore($property->id)],
             'description' => 'required|string|min:50|max:500',
@@ -159,8 +161,10 @@ class PropertyController extends Controller
             'latitude' => 'max:50',
             'longitude' => 'max:50',
             'user_id' => 'exists:users,id',
-            'services' => 'required|array|exists:services,id'
+            'services' => 'required|array|exists:services,id',
+            'images'=> 'array'
         ]);
+
 
         $property->slug = Str::slug($property->title . "-$property->id");
         $property->services()->sync($data['services'] ?? []);
@@ -172,6 +176,14 @@ class PropertyController extends Controller
         }
         // update new file
         $data['cover_img']= Storage::put('property_image/' . $property->id, $data['cover_img']);
+
+        // update multi images table
+        foreach($data['images'] as $img){
+            $newImages = new Image();
+            $newImages->property_id = $property->id;
+            $newImages->path= Storage::put('property_image/' . $property->id, $img);
+            $newImages->save();
+        }
 
         $property->update($data);
         return redirect()->route('admin.properties.show', $property->slug);

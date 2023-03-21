@@ -99,8 +99,15 @@
 
 
                     @if (Route::is('admin.properties.edit'))
-                        <h6 class="mb-2">Aggiungi altre immagini al tuo annuncio</h6>
-                        <iframe src="/multi-image" frameborder="0"></iframe>
+                        <div class="form-outline w-50 my-3">
+                        <label for="images" class="form-label @error('cover_img') is-invalid @enderror">Aggiungi altre immagini al tuo annuncio</label>
+                        <input type="file" id="images" name="images[]" multiple>
+                            @error('cover_img')
+                                <div class="invalid-feedback px-2">
+                                    <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
+                                </div>
+                            @enderror               
+                        </div>    
                     @endif
                     
                     <div class="form-outline w-50 my-3">
