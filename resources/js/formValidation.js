@@ -2,7 +2,7 @@ const titleProperty = document.getElementById('title');
 const descriptionProperty = document.getElementById('description');
 const nightPriceProperty = document.getElementById('night-price');
 const bedNumberProperty = document.getElementById('beds-number');
-const ToiletteProperty = document.getElementById('n_toilettes');
+const toiletteProperty = document.getElementById('n_toilettes');
 const roomProperty = document.getElementById('rooms-number');
 const coverProperty = document.getElementById('cover_img');
 const mqProperty = document.getElementById('mq');
@@ -19,9 +19,14 @@ function isValid(validation, input){
     }
 }
 
-// function that check number of charatters of string
+// function that check number of string charatters
 function minAndMaxLength(input, min, max){
   isValid((input.value.length >= min && input.value.length < max), input)
+}
+
+// function that check number value
+function minAndMaxNumber(input, min, max){
+  isValid((input.value >= min && input.value < max), input)
 }
 
 titleProperty.addEventListener('input', function(){
@@ -36,3 +41,7 @@ addressProperty.addEventListener('input', function(){
   minAndMaxLength(addressProperty, 2, 200)
 })
 
+
+toiletteProperty.addEventListener('input', function(){
+  minAndMaxNumber(toiletteProperty, 1, 200)
+})
