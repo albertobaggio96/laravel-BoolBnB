@@ -4,26 +4,13 @@ const nightPriceProperty = document.getElementById('night-price');
 const bedNumberProperty = document.getElementById('beds-number');
 const ToiletteProperty = document.getElementById('n_toilettes');
 const roomProperty = document.getElementById('rooms-number');
-const visibleProperty = document.getElementById('visible');
 const coverProperty = document.getElementById('cover_img');
 const mqProperty = document.getElementById('mq');
 const addressProperty = document.getElementById('address');
+const visibleProperty = document.getElementById('visible');
 const servicesProperty = document.querySelectorAll('input.service')
 
-// console.log(titleProperty,
-//   descriptionProperty,
-//   nightPriceProperty,
-//   bedNumberProperty,
-//   ToiletteProperty,
-//   roomProperty,
-//   visibleProperty,
-//   coverProperty,
-//   mqProperty,
-//   addressProperty,
-//   servicesProperty,
-//   nightPriceProperty
-// )
-
+//function add or remove is-invalid class
 function isValid(validation, input){
     if(validation){
       return input.classList.remove('is-invalid')
@@ -32,13 +19,20 @@ function isValid(validation, input){
     }
 }
 
-function minAndMax(input, min, max){
+// function that check number of charatters of string
+function minAndMaxLength(input, min, max){
   isValid((input.value.length >= min && input.value.length < max), input)
 }
 
 titleProperty.addEventListener('input', function(){
-  minAndMax(titleProperty, 5, 100)
+  minAndMaxLength(titleProperty, 5, 100)
 })
 
+descriptionProperty.addEventListener('input', function(){
+  minAndMaxLength(descriptionProperty, 50, 500)
+})
 
+addressProperty.addEventListener('input', function(){
+  minAndMaxLength(addressProperty, 2, 200)
+})
 
