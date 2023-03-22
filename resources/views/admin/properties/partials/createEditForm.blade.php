@@ -143,7 +143,7 @@
 
                     <div class="form-outline w-50 my-3">
                     <label for="images" class="form-label @error('images') is-invalid @enderror">Aggiungi altre immagini al tuo annuncio</label>
-                    <input type="file" id="images" name="images[]" multiple>
+                    <input type="file" class="form-control" id="images" name="images[]" multiple>
                         @error('images')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
