@@ -24,10 +24,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/multi-image', [ImageController::class, 'index']);
-
-
-
 //TODO IN RF1 L'UTENTE NON DEVE AVERE LA POSSIBILITA' DI CANCELLARE I DATI INSERITI IN FASE DI REGISTRAZIONE
 
 
@@ -45,6 +41,5 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('/properties', PropertyController::class)->middleware('auth');
 });
 
-Route::post('/upload-image', [ImageController::class, 'uploadImage'])->name('uploadImage');
 
 require __DIR__.'/auth.php';
