@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container h-100 py-4">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Registrati') }}</div>
 
@@ -90,10 +90,16 @@
                         </div>
 
                         <div class="mb-4 row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 mb-4">
                                 <button type="submit" class="btn btn-primary" id="submit-form">
                                     {{ __('Register') }}
                                 </button>
+                            </div>
+                            <div class="col-12 text-center">
+                                <h6>Hai gia' un account? Effettua l'accesso</h6>
+                                @if (Route::has('login'))
+                                    <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                @endif
                             </div>
                         </div>
                     </form>

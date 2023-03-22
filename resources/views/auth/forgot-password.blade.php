@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
+<div class="container mt-4 h-100">
+    <div class="row justify-content-center align-items-center h-100">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
@@ -36,6 +36,12 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <h6>Hai gia' un account? Effettua l'accesso</h6>
+                                @if (Route::has('login'))
+                                    <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                @endif
                             </div>
                         </div>
                     </form>
