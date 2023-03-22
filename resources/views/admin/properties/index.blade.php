@@ -10,14 +10,14 @@
   @endif
 
   <div class="text-center pb-4 d-flex">
-    <a href="{{ route("admin.properties.create") }}" class="btn btn-primary">Add new property</a>
+    
     {{-- todo cestrino--}}
-    <a href="{{ route("admin.properties.trashed") }}" class="btn btn-secondary">trash</a>
+    <a href="{{ route("admin.properties.trashed") }}" class="btn btn-bg-purp-light text-white">Cestino</a>
     {{-- todo ricerca--}}
     <form class="d-flex ms-auto d-inline w-25" action="{{ route("admin.properties.search") }}" method="POST">
       @csrf
-      <input class="form-control me-2" name="title">
-      <button class="btn btn-success" type="submit">Search</button>
+      <input class="form-control me-2" name="title" placeholder="cerca">
+      <button class="btn btn-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
   </div>
   <div class="table-responsive-sm">
@@ -25,25 +25,24 @@
     <thead>
       <tr>
         <th scope="col">Titolo</th>
-        <th scope="col">Prezzo a notte</th>
-        <th scope="col">N letti</th>
-        <th scope="col">N stanze</th>
-        <th scope="col">Mq</th>
-        <th scope="col">Visible</th>
-        <th scope="col">Indirizzo</th>
-        <th scope="col">Azioni utente</th>
-      </tr>
+        <th scope="col" class="custom-responsive-sm">Prezzo a notte</th>
+        <th scope="col" class="custom-responsive-sm">N letti</th>
+        <th scope="col" class="custom-responsive-sm">N stanze</th>
+        <th scope="col" class="custom-responsive-sm">Mq</th>
+        <th scope="col" class="custom-responsive-sm">Visible</th>
+        <th scope="col" class="custom-responsive-sm">Indirizzo</th>
+        <th scope="col">Azioni utente</
     </thead>
     <tbody class="table-group-divider">
       @foreach ($properties as $property)
         <tr>
             <td>{{ $property->title }}</td>
-            <td>{{ $property->night_price }}</td>
-            <td>{{ $property->n_beds }}</td>
-            <td>{{ $property->n_rooms }}</td>
-            <td>{{ $property->mq }}</td>
-            <td>{{ $property->visible }}</td>
-            <td>{{ $property->address }}</td>
+            <td class="custom-responsive-sm">{{ $property->night_price }}</td>
+            <td class="custom-responsive-sm">{{ $property->n_beds }}</td>
+            <td class="custom-responsive-sm">{{ $property->n_rooms }}</td>
+            <td class="custom-responsive-sm">{{ $property->mq }}</td>
+            <td class="custom-responsive-sm">{{ $property->visible }}</td>
+            <td class="custom-responsive-sm">{{ $property->address }}</td>
             <td>
               <a href="{{ route("admin.properties.show", $property->slug) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
               <a href="{{ route("admin.properties.edit", $property->slug) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>

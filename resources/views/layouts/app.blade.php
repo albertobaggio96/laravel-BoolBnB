@@ -31,6 +31,7 @@
            @endif
             <main class="{{Route::currentRouteName() == 'login' ? 'w-100' : ''}} w-100" id="main">
                 @include('topNavbar')
+                @yield('content-home')
                 @yield('content')
             </main>
         </div>
