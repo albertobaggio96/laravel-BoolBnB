@@ -187,27 +187,17 @@ class PropertyController extends Controller
         $data['cover_img']= Storage::put('property_image/' . $property->id, $data['cover_img']);
 
 
-
-        $imageTable = Image::where('property_id', $property->id)->pluck('id');
-
-        Image::destroy($imageTable);
-
-        if($data['images_table']){
-            foreach($data['images_table'] as $img){
-                $newImages = new Image();
-                $newImages->property_id = $property->id;
-                $newImages->path= $img;
-                $newImages->save();
-            }
-        }
-
-
-
-
-
-
-
-
+        // delete unselected img
+        $imageTable = Image::where('property_id', $property->id)->get();
+        $imageTableID = $imageTable->pluck('id')->toArray();
+        $imageTablePath = $imageTable->pluck('path')->toArray();
+        // from db
+        $unselectedImagesID = array_diff($imageTableID, $data['images_table']);
+        $unselectedImagesPath= array_diff($imageTablePath, $data['images_table']);
+        Image::destroy($unselectedImagesID);
+        // from storage
+        Storage::delete($unselectedImagesPath);
+        
         // update multi images table
         if($data['images']){
             foreach($data['images'] as $img){

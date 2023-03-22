@@ -110,7 +110,7 @@
                         <div class="row">
                             @foreach ($property->images as $image)
                             <div class="col-3 mb-2">
-                                <input class="text-center w-100" role="switch" type="checkbox" name="images_table[]" value="{{$image->path}}" checked>
+                                <input class="text-center w-100" role="switch" type="checkbox" name="images_table[]" value="{{$image->id}}" checked>
                                 <label for="{{$image->id}}"><img class="img-fluid" src="{{ asset('storage/' . $image->path) }}" alt="{{ $image->path }}"></label>
                             </div>
                             @endforeach
