@@ -180,26 +180,33 @@ class PropertyController extends Controller
         $property->visible=array_key_exists('visible', $data) ? 1 : 0;
 
         // if have file it trash it
-        if($request->hasFile('cover_img')){
-            Storage::delete($property->cover_img);
+        if(array_key_exists('cover_img', $data)){
+            if($request->hasFile('cover_img')){
+                Storage::delete($property->cover_img);
+            }
+            // update new file
+            $data['cover_img']= Storage::put('property_image/' . $property->id, $data['cover_img']);
         }
-        // update new file
-        $data['cover_img']= Storage::put('property_image/' . $property->id, $data['cover_img']);
 
 
         // delete unselected img
         $imageTable = Image::where('property_id', $property->id)->get();
         $imageTableID = $imageTable->pluck('id')->toArray();
-        $imageTablePath = $imageTable->pluck('path')->toArray();
-        // from db
-        $unselectedImagesID = array_diff($imageTableID, $data['images_table']);
-        $unselectedImagesPath= array_diff($imageTablePath, $data['images_table']);
-        Image::destroy($unselectedImagesID);
-        // from storage
-        Storage::delete($unselectedImagesPath);
+        if(array_key_exists('images_table', $data)){
+            $unselectedImagesID = array_diff($imageTableID, $data['images_table']);
+            // from storage
+            $unselectedImagesPath = Image::whereIn('id', $unselectedImagesID)->pluck('path')->toArray();
+            Storage::delete($unselectedImagesPath);
+            // from db
+            Image::destroy($unselectedImagesID);
+        } else{
+            $unselectedImagesPath = Image::where('property_id', $property->id)->pluck('path')->toArray();
+            Storage::delete($unselectedImagesPath);
+            Image::destroy($imageTableID);
+        }
         
         // update multi images table
-        if($data['images']){
+        if(array_key_exists('images', $data)){
             foreach($data['images'] as $img){
                 $newImages = new Image();
                 $newImages->property_id = $property->id;
