@@ -202,7 +202,7 @@ return [
             'string' => 'La descrizione deve essere di tipo stringa',
         ],
         'services' => [
-            'required' => 'Devi inserire i servizi della proprieta'
+            'required' => 'Devi inserire i servizi della proprietà'
         ], 
         'latitude'=>[
             'required' => 'Inserisci un indirizzo valido'
