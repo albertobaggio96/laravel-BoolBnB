@@ -171,9 +171,9 @@ class PropertyController extends Controller
             'longitude' => 'max:50',
             'user_id' => 'exists:users,id',
             'services' => 'required|array|exists:services,id',
-            'images'=> 'array'
+            'images'=> 'array',
+            'images_table' => 'array'
         ]);
-
 
         $property->slug = Str::slug($property->title . "-$property->id");
         $property->services()->sync($data['services'] ?? []);
@@ -186,12 +186,36 @@ class PropertyController extends Controller
         // update new file
         $data['cover_img']= Storage::put('property_image/' . $property->id, $data['cover_img']);
 
+
+
+        $imageTable = Image::where('property_id', $property->id)->pluck('id');
+
+        Image::destroy($imageTable);
+
+        if($data['images_table']){
+            foreach($data['images_table'] as $img){
+                $newImages = new Image();
+                $newImages->property_id = $property->id;
+                $newImages->path= $img;
+                $newImages->save();
+            }
+        }
+
+
+
+
+
+
+
+
         // update multi images table
-        foreach($data['images'] as $img){
-            $newImages = new Image();
-            $newImages->property_id = $property->id;
-            $newImages->path= Storage::put('property_image/' . $property->id, $img);
-            $newImages->save();
+        if($data['images']){
+            foreach($data['images'] as $img){
+                $newImages = new Image();
+                $newImages->property_id = $property->id;
+                $newImages->path= Storage::put('property_image/' . $property->id, $img);
+                $newImages->save();
+            }
         }
 
         $property->update($data);

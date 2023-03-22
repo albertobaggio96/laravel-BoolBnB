@@ -11,7 +11,7 @@
                             <h5>Seleziona i Servizi offerti dal tuo appartamento</h5>
                             @foreach ($services as $service)
                                 <div class="form-check form-switch col-6">
-                                    <input class="form-check-input service" role="switch" type="checkbox" name="services[]" id="{{$service->id}}" value="{{$service->id}}" @checked($property->services->contains($service->id))>
+                                    <input class="form-check-input service" role="switch" type="checkbox" name="services[]" value="{{$service->id}}" @checked($property->services->contains($service->id))>
                                     <label for="{{$service->id}}">{{$service->title}}</label>
                                 </div>
                                 @error('service')
@@ -106,12 +106,25 @@
                         @enderror               
                     </div>
 
+                    <div class="form-check form-switch col-12 mb-2 mt-2">
+                        <div class="row">
+                            @foreach ($property->images as $image)
+                            <div class="col-3 mb-2">
+                                <input class="text-center w-100" role="switch" type="checkbox" name="images_table[]" value="{{$image->path}}" checked>
+                                <label for="{{$image->id}}"><img class="img-fluid" src="{{ asset('storage/' . $image->path) }}" alt="{{ $image->path }}"></label>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    
+
                     {{-- imgages input --}}
 
                     <div class="form-outline w-50 my-3">
-                    <label for="images" class="form-label @error('cover_img') is-invalid @enderror">Aggiungi altre immagini al tuo annuncio</label>
+                    <label for="images" class="form-label @error('images') is-invalid @enderror">Aggiungi altre immagini al tuo annuncio</label>
                     <input type="file" id="images" name="images[]" multiple>
-                        @error('cover_img')
+                        @error('images')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
                             </div>
@@ -119,7 +132,7 @@
                     </div>    
                     
                     {{-- cover input --}}
-
+                    
                     <div class="form-outline w-50 my-3">
                         <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Imgagine di copertina </label>
                         <input type="file" class="form-control" id="cover_img" placeholder="Inserisci immagine di copertina" name="cover_img" value="{{old('cover_img', $property->cover_img)}}">
