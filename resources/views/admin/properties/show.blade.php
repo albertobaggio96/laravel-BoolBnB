@@ -61,23 +61,23 @@
             <div class="container-btn d-flex justify-content-between">
                <div class="prev m-2">
                   @isset($prevProperty)
-                  <a href="{{route('admin.properties.show', $prevProperty)}}" class="btn btn-danger">Indietro</a>
+                  <a href="{{route('admin.properties.show', $prevProperty)}}" class="btn btn-danger"><span class="custom-responsive-sm">Indietro</span> <i class="fa-solid fa-arrow-left text-white d-md-none"></i></a>
                   @endisset
                </div>
                
                <div class="container d-flex justify-content-center">
                   <div class="home m-2">
-                     <a href="{{route('admin.properties.edit', $property->slug)}}" class="btn btn-info">Modifica</a>
+                     <a href="{{route('admin.properties.edit', $property->slug)}}" class="btn btn-info"><span class="custom-responsive-sm">Modifica</span> <i class="fa-solid fa-pen-to-square text-white d-md-none"></i></a>
                   </div>
    
                   <div class="home m-2">
-                     <a href="{{route('admin.properties.index')}}" class="btn btn-warning">Vai alla home</a>
+                     <a href="{{route('admin.properties.index')}}" class="btn btn-warning"><span class="custom-responsive-sm">Vai alla home</span> <i class="fa-solid fa-house text-white d-md-none"></i></a>
                   </div>
                </div>
 
                <div class="next m-2">
                   @isset($nextProperty)
-                  <a href="{{route('admin.properties.show', $nextProperty)}}" class="btn btn-success ">Avanti</a>
+                  <a href="{{route('admin.properties.show', $nextProperty)}}" class="btn btn-success"><span class="custom-responsive-sm">Avanti</span> <i class="fa-sharp fa-solid fa-arrow-right text-white d-md-none"></i></a>
                   @endisset
                </div>
             </div>
