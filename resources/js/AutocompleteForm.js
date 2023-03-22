@@ -29,6 +29,11 @@ var inputAddress = document.getElementsByClassName('tt-search-box-input')[0]
 inputAddress.classList.add('form-control')
 inputAddress.setAttribute('name', 'address')
 inputAddress.setAttribute('autocomplete', 'off')
+const inputBox = document.getElementsByClassName('tt-search-box-input-container')[0]
+inputBox.classList.add('position-relative')
+const resultBox = document.getElementsByClassName('tt-search-box-result-list-container')[0]
+resultBox.classList.add('position-absolute', 'bg-white')
+
 
 //if the span is empty leave the palceholder
 if (addressSpan.textContent != '  ' ) {

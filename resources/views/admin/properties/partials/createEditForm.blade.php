@@ -104,17 +104,17 @@
                                 </div>
                             @enderror               
                         </div>
-
-                        <div class="form-outline mb-3 col-sm-12 col-md-6">
-                            <label for="address" class="form-label @error('address') is-invalid @enderror">Indirizzo:</label>
-                            <input type="text" class="form-control" id="address" placeholder="Insert property address" name="address" value="{{old('address', $property->address)}}">
+                        <div class="form-outline mb-3 col-sm-12 col-md-6" id="div-address">
+                            <label for="address" id="address-label" class="form-label @error('address') is-invalid @enderror">Indirizzo</label>
+                            <span id="address-span" class="d-none"> {{$property->address}} </span>
+    
+    
                             @error('address')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
                                 </div>
                             @enderror               
                         </div>
-    
                         <div class="form-check form-switch col-12 mb-2 mt-2">
                             <label for="visible" class="form-label @error('visible') is-invalid @enderror">Rendi visibile l'appartamento</label>
                             <input type="checkbox" class="form-check-input" role="switch" id="visible" placeholder="Inserisci visibilità" name="visible"  value="{{old('visible', 1)}}"  @checked($property->visible)>
@@ -162,33 +162,7 @@
                             </div>
                         @enderror               
                     </div>
-
-                    {{-- mq input --}}
-
-                    <div class="form-outline w-50 mb-3">
-                        <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superfie proprietà</label>
-                        <input type="text" class="form-control" id="mq" placeholder="Inserisci la superfice della proprietà in mq" name="mq" value="{{old('mq', $property->mq)}}">
-                        @error('mq')
-                            <div class="invalid-feedback px-2">
-                                <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
-                            </div>
-                        @enderror               
-                    </div>
-
                     {{-- address input --}}
-
-
-                    <div class="form-outline w-50 mb-3" id="div-address">
-                        <label for="address" id="address-label" class="form-label @error('address') is-invalid @enderror">Indirizzo</label>
-                        <span id="address-span" class="d-none"> {{$property->address}} </span>
-
-
-                        @error('address')
-                            <div class="invalid-feedback px-2">
-                                <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
-                            </div>
-                        @enderror               
-                    </div>
                 </div>
 
                 <div class="card-footer text-end pb-4 d-flex justify-content-between">
