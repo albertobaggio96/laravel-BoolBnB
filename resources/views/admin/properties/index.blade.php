@@ -14,7 +14,7 @@
     {{-- todo cestrino--}}
     <a href="{{ route("admin.properties.trashed") }}" class="btn btn-bg-purp-light text-white">Cestino</a>
     {{-- todo ricerca--}}
-    <form class="d-flex ms-auto d-inline w-25" action="{{ route("admin.properties.search") }}" method="POST">
+    <form class="d-flex ms-auto d-inline" action="{{ route("admin.properties.search") }}" method="POST">
       @csrf
       <input class="form-control me-2" name="title" placeholder="cerca">
       <button class="btn btn-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
