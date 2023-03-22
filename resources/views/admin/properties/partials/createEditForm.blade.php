@@ -147,6 +147,7 @@
 
                     <div class="form-outline w-50 mb-3" id="div-address">
                         <label for="address" id="address-label" class="form-label @error('address') is-invalid @enderror">Indirizzo</label>
+                        <span id="address-span" class="d-none"> {{$property->address}} </span>
 
 
                         @error('address')
