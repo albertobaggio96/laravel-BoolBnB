@@ -43,6 +43,11 @@
    background: rgba(0, 0, 0, 0.1);
 }
 
+.main-wrapper{
+   height: calc(100vh - 56px);
+   overflow: scroll;
+}
+
 header{
    width: 20%;
 

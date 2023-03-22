@@ -29,10 +29,12 @@
                 @include('layouts.partials.navBar')
             </header>
            @endif
-            <main class="{{Route::currentRouteName() == 'login' ? 'w-100' : ''}} w-100" id="main">
-                @include('topNavbar')
+           <main class="{{Route::currentRouteName() == 'login' ? 'w-100' : ''}} w-100" id="main">
+            @include('topNavbar')
                 @yield('content-home')
-                @yield('content')
+                <div class="main-wrapper">
+                    @yield('content')
+                </div>
             </main>
         </div>
     </div>
