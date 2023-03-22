@@ -98,7 +98,7 @@
 
                     <div class="form-check form-switch col-6 w-25 mb-2 mt-2">
                         <label for="visible" class="form-label @error('visible') is-invalid @enderror">Visibile</label>
-                        <input type="checkbox" class="form-check-input" role="switch" id="visible" placeholder="Inserisci visibilità" name="visible"  value="{{old('visible', 1)}}  @checked($property->visible)">
+                        <input type="checkbox" class="form-check-input" role="switch" id="visible" placeholder="Inserisci visibilità" name="visible"  value="{{old('visible', 1)}}"  @checked($property->visible)>
                         @error('visible')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
