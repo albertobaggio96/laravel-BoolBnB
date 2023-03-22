@@ -6,20 +6,19 @@ deleteElementConfirm.forEach((formElement)=>{
     event.preventDefault();
     const formElementName= formElement.getAttribute("data-element-name")
     Swal.fire({
-      title: `Are you sure to delete "${formElementName}"?`,
-      text: "You will find it to the trash",
+      title: `Sei sicuro di voler eliminare questo elemento "${formElementName}"?`,
+      text: "L'elemento sara' spostato nel cestino",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, do it!',
-      title: 'Custom animation with Animate.css',
+      cancelButtonText: 'Annulla',
+      confirmButtonText: 'Procedi',
+      title: 'Sei sicuro di voler eliminare questo elemento',
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          'Deleted!',
-          `Your project "${formElementName}" has been moved to trash.`,
-          'success'
+         'Fatto'
         )
         formElement.submit()
       }
@@ -34,14 +33,14 @@ forceDeleteElementConfirm.forEach((formElement)=>{
     event.preventDefault();
     const formElementName= formElement.getAttribute("data-element-name")
     Swal.fire({
-      title:  `Are you sure to delete "${formElementName}"?`,
-      text: "Please confirm your request !",
+      title:  `Sei sicuro di voler eliminare "${formElementName}"?`,
+      text: "Una volta eliminato dal cestino non sara' piu' possibile recuperarlo",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      cancelButtonText: 'Cancel',
-      confirmButtonText: 'Yes, confirm !'
+      cancelButtonText: 'Annulla',
+      confirmButtonText: 'Si!, Conferma'
     }).then((result) => {
       if (result.value) {
         Swal.fire({
