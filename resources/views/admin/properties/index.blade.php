@@ -42,7 +42,7 @@
             <td class="custom-responsive-sm">{{ $property->n_rooms }}</td>
             <td class="custom-responsive-sm">{{ $property->mq }}</td>
             <td class="custom-responsive-sm">{{ $property->visible }}</td>
-            <td class="custom-responsive-sm">{{ $property->address }}</td>
+            <td class="custom-responsive-sm w-25">{{ $property->address }}</td>
             <td>
               <a href="{{ route("admin.properties.show", $property->slug) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
               <a href="{{ route("admin.properties.edit", $property->slug) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
