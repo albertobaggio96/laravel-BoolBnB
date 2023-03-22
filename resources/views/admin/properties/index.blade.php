@@ -9,7 +9,7 @@
     </div>
   @endif
 
-  <div class="text-center pb-4">
+  <div class="text-center pb-4 d-flex">
     <a href="{{ route("admin.properties.create") }}" class="btn btn-primary">Add new property</a>
     {{-- todo cestrino--}}
     <a href="{{ route("admin.properties.trashed") }}" class="btn btn-secondary">trash</a>
@@ -20,17 +20,18 @@
       <button class="btn btn-success" type="submit">Search</button>
     </form>
   </div>
-  <table class="table table-dark table-striped table-hover">
+  <div class="table-responsive-sm">
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Night Price</th>
-        <th scope="col">Beds</th>
-        <th scope="col">Rooms</th>
-        <th scope="col">MQ</th>
+        <th scope="col">Titolo</th>
+        <th scope="col">Prezzo a notte</th>
+        <th scope="col">N letti</th>
+        <th scope="col">N stanze</th>
+        <th scope="col">Mq</th>
         <th scope="col">Visible</th>
-        <th scope="col">Address</th>
-        <th scope="col">Options</th>
+        <th scope="col">Indirizzo</th>
+        <th scope="col">Azioni utente</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -49,13 +50,14 @@
               <form class="d-inline delete-element" action="{{ route("admin.properties.destroy", $property->slug) }}" method="POST" data-element-name="{{ $property->title }}">
                 @csrf
                 @method("DELETE")
-                <button type="submit" class="btn btn-danger" value="delete"><i class="fa-solid fa-trash-can-arrow-up"></i><span>Delete</span></button>
+                <button type="submit" class="btn btn-danger" value="delete"><i class="fa-solid fa-trash-can-arrow-up"></i><span class="d-none d-lg-inline">Delete</span></button>
               </form>
             </td>
         </tr>
       @endforeach
     </tbody>
   </table>
+</div>
   {{-- todo paginazione--}}
   {{-- {{ $properties->links() }} --}}
 </section>

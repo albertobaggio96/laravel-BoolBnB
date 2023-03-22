@@ -59,5 +59,22 @@ main{
    }
 }
 
+table {
+   border-collapse: separate;
+   border-spacing: 0px 15px;
+}
+
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+tr {
+  border-radius: 0.25rem;
+  outline: 1px solid #cccccc;
+  box-shadow: 10px 10px 10px 0px #d0d0d0;
+}
 
  
