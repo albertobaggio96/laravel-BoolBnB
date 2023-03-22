@@ -94,11 +94,13 @@ class PropertyController extends Controller
         $newProperty->slug = Str::slug($newProperty->title);
         $newProperty->save();
         
-        foreach($data['images'] as $img){
-            $newImages = new Image();
-            $newImages->property_id = $newProperty->id;
-            $newImages->path= Storage::put('property_image/' . $newProperty->id, $img);
-            $newImages->save();
+        if(array_key_exists('images', $data)){
+            foreach($data['images'] as $img){
+                $newImages = new Image();
+                $newImages->property_id = $newProperty->id;
+                $newImages->path= Storage::put('property_image/' . $newProperty->id, $img);
+                $newImages->save();
+            }
         }
 
         $newProperty->services()->sync($data['services'] ?? []);
