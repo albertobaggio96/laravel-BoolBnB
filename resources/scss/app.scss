@@ -43,5 +43,21 @@ main{
 }
 
 
+@include media-breakpoint-down(sm){
+   header{
+      position: fixed;
+      z-index: 1;
+      width: 60%;
+   }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 900px){
+   header{
+      position: fixed;
+      z-index: 1;
+      width: 60%;
+   }
+}
+
 
  

@@ -1,5 +1,3 @@
-{{-- @extends('layouts.app')
-@section('content') --}}
 
 <nav class="navbar bg-light w-100 " id="second-navbar">
     <div class="container-fluid justify-content-end justify-content-lg-start">
@@ -9,7 +7,3 @@
     </div>
 </nav>
   
-{{-- @endsection
-@section('js')
-@vite(['resources/js/styleAnimation.js'])
-@endsection --}}
