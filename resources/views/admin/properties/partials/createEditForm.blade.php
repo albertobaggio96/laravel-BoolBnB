@@ -12,15 +12,15 @@
                         </div>
                             @foreach ($services as $service)
                                 <div class="form-check form-switch col-sm-12 col-lg-6">
-                                    <input class="form-check-input service" role="switch" type="checkbox" name="services[]" id="{{$service->id}}" value="{{$service->id}}" @checked($property->services->contains($service->id))>
+                                    <input class="form-check-input service" role="switch" type="checkbox" name="services[]" value="{{$service->id}}" @checked($property->services->contains($service->id))>
                                     <label for="{{$service->id}}">{{$service->title}}</label>
                                 </div>
-                                @error('service')
-                                    <div class="invalid-feedback px-2">
-                                        <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
-                                    </div>
-                                @enderror                  
                             @endforeach 
+                            @error('services')
+                                <div class="text-danger">
+                                    <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
+                                </div>
+                            @enderror                  
                     </div>
                     <div class="row">
                         <div class="form-outline mb-3 col-12">
@@ -106,14 +106,12 @@
                         </div>
                         <div class="form-outline mb-3 col-sm-12 col-md-6" id="div-address">
                             <label for="address" id="address-label" class="form-label @error('address') is-invalid @enderror">Indirizzo</label>
-                            <span id="address-span" class="d-none"> {{$property->address}} </span>
-    
-    
+                            <span id="address-span" class="d-none"> {{old('address', $property->address)}} </span>
                             @error('address')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
                                 </div>
-                            @enderror               
+                            @enderror              
                         </div>
                         <div class="form-check form-switch col-12 mb-2 mt-2">
                             <label for="visible" class="form-label @error('visible') is-invalid @enderror">Rendi visibile l'appartamento</label>
@@ -126,16 +124,18 @@
                         </div>
                     </div>
 
-                    <div class="form-check form-switch col-12 mb-2 mt-2">
-                        <div class="row">
-                            @foreach ($property->images as $image)
-                            <div class="col-3 mb-2">
-                                <input class="text-center w-100" role="switch" type="checkbox" name="images_table[]" value="{{$image->id}}" checked>
-                                <label for="{{$image->id}}"><img class="img-fluid" src="{{ asset('storage/' . $image->path) }}" alt="{{ $image }}"></label>
+                    @if (Route::is('admin.properties.edit'))
+                        <div class="form-check form-switch col-12 mb-2 mt-2">
+                            <div class="row">
+                                @foreach ($property->images as $image)
+                                <div class="col-3 mb-2">
+                                    <input class="text-center w-100" role="switch" type="checkbox" name="images_table[]" value="{{$image->id}}" checked>
+                                    <label for="{{$image->id}}"><img class="img-fluid" src="{{ asset('storage/' . $image->path) }}" alt="{{ $image }}"></label>
+                                </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
-                    </div>
+                    @endif
 
                     
 

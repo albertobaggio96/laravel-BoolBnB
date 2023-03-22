@@ -196,13 +196,16 @@ return [
             'boolean' => 'La visibilità deve essere vera o falsa: inserire 0 per "falso" oppure inserire 1 per "vero"'
         ],
         'address' => [
-            'required' => 'Devi inserire un indirizzo per la proprietà',
+            'required' => 'Devi inserire un indirizzo valido per la proprietà',
             'min' => 'La lunghezza dell\'indirizzo deve essere compresa tra 2 e 200 caratteri',
             'max' => 'La lunghezza dell\'indirizzo deve essere compresa tra 2 e 200 caratteri',
             'string' => 'La descrizione deve essere di tipo stringa',
         ],
         'services' => [
             'required' => 'Devi inserire i servizi della proprieta'
+        ], 
+        'latitude'=>[
+            'required' => 'Inserisci un indirizzo valido'
         ]
     ],
 

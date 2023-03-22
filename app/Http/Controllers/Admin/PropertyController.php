@@ -29,7 +29,7 @@ class PropertyController extends Controller
             "key" => env('VITE_KEY_TOMTOM') //personal key (set to .env file)
         ]);
         $jesondata = $response->json();  //convert response in json format
-        return $jesondata["results"][0]["position"]; //return array with 2 value, "lat" and "lon"
+        return $jesondata["results"][0]["position"] ?? false; //return array with 2 value, "lat" and "lon"
     }
 
     /**
@@ -67,6 +67,15 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        $geocode = $this->getGeocode($request->address);
+        if($geocode){
+            $request['latitude'] = $geocode["lat"];
+            $request['longitude'] = $geocode["lon"];
+        } else{
+            $request['address'] = null;
+        }
+
+        
         $data = $request->validate([
             'title' => 'required|string|min:5|max:100|unique:properties',
             'description' => 'required|string|min:50|max:65535',
@@ -158,7 +167,14 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
-        // dd($request->all());
+        $geocode = $this->getGeocode($request->address);
+        if($geocode){
+            $request['latitude'] = $geocode["lat"];
+            $request['longitude'] = $geocode["lon"];
+        } else{
+            $request['address'] = null;
+        }
+        
         $data = $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('properties')->ignore($property->id)],
             'description' => 'required|string|min:50||max:65535',
