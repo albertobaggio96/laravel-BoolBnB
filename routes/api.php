@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\PropertyController as ApiPropertyController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::get('/properties', [ ApiPropertyController::class, 'index' ])->name('api.properties.index');
+Route::get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');
+//Route::middleware('auth:api')->get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');
