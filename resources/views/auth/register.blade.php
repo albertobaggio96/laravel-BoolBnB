@@ -5,7 +5,7 @@
     <div class="row justify-content-center align-items-center h-100">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Registrati') }}</div>
+                <div class="card-header text-center">{{ __('Registrati') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}  <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -92,13 +92,13 @@
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4 mb-4">
                                 <button type="submit" class="btn btn-primary" id="submit-form">
-                                    {{ __('Register') }}
+                                    {{ __('Registrati') }}
                                 </button>
                             </div>
                             <div class="col-12 text-center">
                                 <h6>Hai gia' un account? Effettua l'accesso</h6>
                                 @if (Route::has('login'))
-                                    <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                                 @endif
                             </div>
                         </div>
