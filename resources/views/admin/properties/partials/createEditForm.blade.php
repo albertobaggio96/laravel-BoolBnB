@@ -97,7 +97,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superfie proprietà:</label>
-                            <input type="text" class="form-control" id="mq" placeholder="Insert property surface in square meters" name="mq" value="{{old('mq', $property->mq)}}" required>
+                            <input type="number" class="form-control" id="mq" placeholder="Insert property surface in square meters" name="mq" value="{{old('mq', $property->mq)}}" required>
                             @error('mq')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
