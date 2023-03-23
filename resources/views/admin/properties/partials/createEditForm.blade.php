@@ -14,7 +14,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <p>Seleziona i Servizi offerti dal tuo appartamento <span class="fs-4 align-top">*</span></p>
+                            <p>Seleziona i servizi offerti dal tuo appartamento (almeno uno) <span class="fs-4 align-top">*</span></p>
                         </div>
                             @foreach ($services as $service)
                                 <div class="form-check form-switch col-sm-12 col-lg-6">
@@ -31,7 +31,7 @@
                     <div class="row">
                         <div class="form-outline mb-3 col-12">
                             <label for="title" class="form-label @error('title') is-invalid @enderror">Titolo: <span class="fs-4 align-top">*</span></label>
-                            <input type="text" class="form-control" id="title" placeholder="Insert title" name="title" value="{{old('title', $property->title)}}" required>
+                            <input type="text" class="form-control" id="title" placeholder="Inserisci titolo (minimo 5 carattteri)" name="title" value="{{old('title', $property->title)}}" required>
                             @error('title')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -42,7 +42,7 @@
 
                     <div class="form-outline mb-3 col-12">
                         <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione: <span class="fs-4 align-top">*</span></label>            
-                        <textarea class="d-block form-control" name="description" id="description" placeholder="Insert description" required>{{old('description', $property->description)}}</textarea>
+                        <textarea class="d-block form-control" name="description" id="description" placeholder="Inserisci descrizione (minimo 50 carattteri)" required>{{old('description', $property->description)}}</textarea>
                         @error('description')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -103,7 +103,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superfie proprietà: <span class="fs-4 align-top">*</span></label>
-                            <input type="number" class="form-control" id="mq" placeholder="Insert property surface in square meters" name="mq" value="{{old('mq', $property->mq)}}" required>
+                            <input type="number" class="form-control" id="mq" placeholder="Inserisci la superficie della proprietà (in metri quadrati)" name="mq" value="{{old('mq', $property->mq)}}" required>
                             @error('mq')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -148,8 +148,8 @@
                     {{-- imgages input --}}
 
                     <div class="form-outline w-50 my-3">
-                    <label for="images" class="form-label @error('images') is-invalid @enderror">Aggiungi altre immagini al tuo annuncio</label>
-                    <input type="file" class="form-control" id="images" name="images[]" multiple>
+                        <label for="images" class="form-label @error('images') is-invalid @enderror">Aggiungi altre immagini al tuo annuncio</label>
+                        <input type="file" class="form-control" id="images" name="images[]" multiple>
                         @error('images')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -160,6 +160,9 @@
                     {{-- cover input --}}
                     
                     <div class="form-outline my-3 col-12">
+                        @if (Route::is('admin.properties.edit'))
+                            <img src="{{asset('storage/' . $property->cover_img)}}" alt="cover image" class="d-block w-25">
+                        @endif
                         <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Imgagine di copertina <span class="fs-4 align-top">*</span></label>
                         <input type="file" class="form-control" id="cover_img" placeholder="Inserisci immagine di copertina" name="cover_img" value="{{old('cover_img', $property->cover_img)}}"  @if (Route::is('admin.properties.create')) required @endif>
                         @error('cover_img')
