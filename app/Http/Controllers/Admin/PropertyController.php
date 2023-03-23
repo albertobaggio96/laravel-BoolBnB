@@ -77,7 +77,7 @@ class PropertyController extends Controller
 
         
         $data = $request->validate([
-            'title' => 'required|string|min:5|max:100|unique:properties',
+            'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('properties')->where('user_id', Auth::user()->id)],
             'description' => 'required|string|min:50|max:65535',
             'night_price' => 'required|numeric|min:1|max:999999,99',
             'n_beds' => 'required|numeric|min:1|max:127',
