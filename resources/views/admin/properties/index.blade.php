@@ -41,7 +41,7 @@
             <td class="custom-responsive-sm">{{ $property->n_beds }}</td>
             <td class="custom-responsive-sm">{{ $property->n_rooms }}</td>
             <td class="custom-responsive-sm">{{ $property->mq }}</td>
-            <td class="custom-responsive-sm">{{ $property->visible }}</td>
+            <td class="custom-responsive-sm">@if($property->visible) <i class="fa-solid fa-check text-success"></i> @else <i class="fa-solid fa-xmark text-danger"></i> @endif</td>
             <td class="custom-responsive-sm w-25">{{ $property->address }}</td>
             <td>
               <a href="{{ route("admin.properties.show", $property->slug) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
