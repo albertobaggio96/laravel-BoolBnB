@@ -6,7 +6,14 @@
    <div class="row justify-content-center">
       <div class="col-sm-12 col-lg-8">
          <div class="card my-card my-2 m-md-4 p-2 m-lg-5 ">
-            <img src="{{asset('storage/' . $property->cover_img)}}" class="card-img-top" alt="...">
+            <div class="image-cover d-flex m-2">
+               <img src="{{asset('storage/' . $property->cover_img)}}" class="card-img-top" alt="...">
+            </div>
+            <div class=" container image-card d-flex">
+               @foreach ($property->images as $image)
+               <img src="{{asset('storage/' . $image->path)}}" alt="">
+               @endforeach
+            </div>
             <div class="card-body">
                <h1 class="text-center p-2">
                   {{$property->title}}
@@ -33,6 +40,15 @@
                      <h5 class="py-2">
                         Superficie: {{$property->mq}}mq
                      </h5>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                     <div class=" col-12 justify-content-center card-info text-center card-text p-1 border border-3 border-white">
+                        <h5 class="">
+                           Indirizzo: {{$property->address}}
+                        </h5>
+                     </div>
                   </div>
                </div>
                <div class="card-info d-flex ">
