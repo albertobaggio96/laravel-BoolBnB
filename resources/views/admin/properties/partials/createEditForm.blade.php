@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="form-outline mb-3 col-12">
                             <label for="title" class="form-label @error('title') is-invalid @enderror">Titolo:</label>
-                            <input type="text" class="form-control" id="title" placeholder="Insert title" name="title" value="{{old('title', $property->title)}}">
+                            <input type="text" class="form-control" id="title" placeholder="Insert title" name="title" value="{{old('title', $property->title)}}" required>
                             @error('title')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -36,7 +36,7 @@
 
                     <div class="form-outline mb-3 col-12">
                         <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione:</label>            
-                        <textarea class="d-block form-control" name="description" id="description" placeholder="Insert description">{{old('description', $property->description)}}</textarea>
+                        <textarea class="d-block form-control" name="description" id="description" placeholder="Insert description" required>{{old('description', $property->description)}}</textarea>
                         @error('description')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -49,7 +49,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="night-price" class="form-label @error('night_price') is-invalid @enderror">Prezzo per notte:</label>
-                            <input type="number" class="form-control" id="night-price" placeholder="Inserisci il costo per notte" name="night_price" value="{{old('night_price', $property->night_price)}}">               
+                            <input type="number" class="form-control" id="night-price" placeholder="Inserisci il costo per notte" name="night_price" value="{{old('night_price', $property->night_price)}}" required>               
                             @error('night_price')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -61,7 +61,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="beds-number" class="form-label @error('n_beds') is-invalid @enderror">Numero di letti:</label>
-                            <input type="number" class="form-control" id="beds-number" placeholder="Inserisci il numero di letti" name="n_beds" value="{{old('n_beds', $property->n_beds)}}">
+                            <input type="number" class="form-control" id="beds-number" placeholder="Inserisci il numero di letti" name="n_beds" value="{{old('n_beds', $property->n_beds)}}" required>
                             @error('n_beds')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -73,7 +73,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="n_toilettes" class="form-label @error('n_beds') is-invalid @enderror">Numero di bagni:</label>
-                            <input type="number" class="form-control" id="n_toilettes" placeholder="Inserisci il numero di bagni" name="n_toilettes" value="{{old('n_toilettes', $property->n_toilettes)}}">
+                            <input type="number" class="form-control" id="n_toilettes" placeholder="Inserisci il numero di bagni" name="n_toilettes" value="{{old('n_toilettes', $property->n_toilettes)}}" required>
                             @error('n_toilettes')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -85,7 +85,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="rooms-number" class="form-label @error('n_rooms') is-invalid @enderror">Numero di stanze:</label>
-                            <input type="number" class="form-control" id="rooms-number" placeholder="Inserisci il numero di stanze" name="n_rooms" value="{{old('n_rooms', $property->n_rooms)}}">
+                            <input type="number" class="form-control" id="rooms-number" placeholder="Inserisci il numero di stanze" name="n_rooms" value="{{old('n_rooms', $property->n_rooms)}}" required>
                             @error('n_rooms')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -97,7 +97,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superfie proprietà:</label>
-                            <input type="text" class="form-control" id="mq" placeholder="Insert property surface in square meters" name="mq" value="{{old('mq', $property->mq)}}">
+                            <input type="text" class="form-control" id="mq" placeholder="Insert property surface in square meters" name="mq" value="{{old('mq', $property->mq)}}" required>
                             @error('mq')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
@@ -155,7 +155,7 @@
                     
                     <div class="form-outline my-3 col-12">
                         <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Imgagine di copertina </label>
-                        <input type="file" class="form-control" id="cover_img" placeholder="Inserisci immagine di copertina" name="cover_img" value="{{old('cover_img', $property->cover_img)}}">
+                        <input type="file" class="form-control" id="cover_img" placeholder="Inserisci immagine di copertina" name="cover_img" value="{{old('cover_img', $property->cover_img)}}"  @if (Route::is('admin.properties.create')) required @endif>
                         @error('cover_img')
                             <div class="invalid-feedback px-2">
                                 <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}

@@ -29,6 +29,7 @@ var inputAddress = document.getElementsByClassName('tt-search-box-input')[0]
 inputAddress.classList.add('form-control')
 inputAddress.setAttribute('name', 'address')
 inputAddress.setAttribute('autocomplete', 'off')
+inputAddress.setAttribute('required', true)
 const inputBox = document.getElementsByClassName('tt-search-box-input-container')[0]
 inputBox.classList.add('position-relative')
 const resultBox = document.getElementsByClassName('tt-search-box-result-list-container')[0]
