@@ -49,7 +49,7 @@
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
                             <label for="night-price" class="form-label @error('night_price') is-invalid @enderror">Prezzo per notte:</label>
-                            <input type="number" class="form-control" id="night-price" placeholder="Inserisci il costo per notte" name="night_price" value="{{old('night_price', $property->night_price)}}" required>               
+                            <input type="text" class="form-control" id="night-price" placeholder="Inserisci il costo per notte" name="night_price" value="{{old('night_price', $property->night_price)}}" required>               
                             @error('night_price')
                                 <div class="invalid-feedback px-2">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
