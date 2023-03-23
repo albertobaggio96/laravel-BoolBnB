@@ -7,8 +7,14 @@
 
                 <div class="card px-4 px-md-5 py-3 mb-3">
                     <div class="row">
+                        <div class="col-12 mb-3">
+                            <h4 class="text-muted">I campi contrassegnati da <i class="fa-solid fa-asterisk"></i> sono obbligatori</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-12">
-                            <h5>Seleziona i Servizi offerti dal tuo appartamento</h5>
+                            <p>Seleziona i Servizi offerti dal tuo appartamento <span class="fs-4 align-top">*</span></p>
                         </div>
                             @foreach ($services as $service)
                                 <div class="form-check form-switch col-sm-12 col-lg-6">
@@ -24,7 +30,7 @@
                     </div>
                     <div class="row">
                         <div class="form-outline mb-3 col-12">
-                            <label for="title" class="form-label @error('title') is-invalid @enderror">Titolo:</label>
+                            <label for="title" class="form-label @error('title') is-invalid @enderror">Titolo: <span class="fs-4 align-top">*</span></label>
                             <input type="text" class="form-control" id="title" placeholder="Insert title" name="title" value="{{old('title', $property->title)}}" required>
                             @error('title')
                                 <div class="invalid-feedback px-2">
@@ -35,7 +41,7 @@
                     </div>
 
                     <div class="form-outline mb-3 col-12">
-                        <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione:</label>            
+                        <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione: <span class="fs-4 align-top">*</span></label>            
                         <textarea class="d-block form-control" name="description" id="description" placeholder="Insert description" required>{{old('description', $property->description)}}</textarea>
                         @error('description')
                             <div class="invalid-feedback px-2">
@@ -48,7 +54,7 @@
                     {{-- night-price input --}}
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
-                            <label for="night-price" class="form-label @error('night_price') is-invalid @enderror">Prezzo per notte:</label>
+                            <label for="night-price" class="form-label @error('night_price') is-invalid @enderror">Prezzo per notte: <span class="fs-4 align-top">*</span></label>
                             <input type="number" class="form-control" id="night-price" placeholder="Inserisci il costo per notte" name="night_price" value="{{old('night_price', $property->night_price)}}" required>               
                             @error('night_price')
                                 <div class="invalid-feedback px-2">
@@ -60,7 +66,7 @@
                     {{-- beds input --}}
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
-                            <label for="beds-number" class="form-label @error('n_beds') is-invalid @enderror">Numero di letti:</label>
+                            <label for="beds-number" class="form-label @error('n_beds') is-invalid @enderror">Numero di letti: <span class="fs-4 align-top">*</span></label>
                             <input type="number" class="form-control" id="beds-number" placeholder="Inserisci il numero di letti" name="n_beds" value="{{old('n_beds', $property->n_beds)}}" required>
                             @error('n_beds')
                                 <div class="invalid-feedback px-2">
@@ -72,7 +78,7 @@
                     {{-- toilettes input --}}
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
-                            <label for="n_toilettes" class="form-label @error('n_beds') is-invalid @enderror">Numero di bagni:</label>
+                            <label for="n_toilettes" class="form-label @error('n_beds') is-invalid @enderror">Numero di bagni: <span class="fs-4 align-top">*</span></label>
                             <input type="number" class="form-control" id="n_toilettes" placeholder="Inserisci il numero di bagni" name="n_toilettes" value="{{old('n_toilettes', $property->n_toilettes)}}" required>
                             @error('n_toilettes')
                                 <div class="invalid-feedback px-2">
@@ -84,7 +90,7 @@
                     {{-- rooms input --}}
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
-                            <label for="rooms-number" class="form-label @error('n_rooms') is-invalid @enderror">Numero di stanze:</label>
+                            <label for="rooms-number" class="form-label @error('n_rooms') is-invalid @enderror">Numero di stanze: <span class="fs-4 align-top">*</span></label>
                             <input type="number" class="form-control" id="rooms-number" placeholder="Inserisci il numero di stanze" name="n_rooms" value="{{old('n_rooms', $property->n_rooms)}}" required>
                             @error('n_rooms')
                                 <div class="invalid-feedback px-2">
@@ -96,7 +102,7 @@
                     {{-- visible input --}}
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
-                            <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superfie proprietà:</label>
+                            <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superfie proprietà: <span class="fs-4 align-top">*</span></label>
                             <input type="number" class="form-control" id="mq" placeholder="Insert property surface in square meters" name="mq" value="{{old('mq', $property->mq)}}" required>
                             @error('mq')
                                 <div class="invalid-feedback px-2">
@@ -105,7 +111,7 @@
                             @enderror               
                         </div>
                         <div class="form-outline mb-3 col-sm-12 col-md-6" id="div-address">
-                            <label for="address" id="address-label" class="form-label @error('address') is-invalid @enderror">Indirizzo</label>
+                            <label for="address" id="address-label" class="form-label @error('address') is-invalid @enderror">Indirizzo <span class="fs-4 align-top">*</span></label>
                             <span id="address-span" class="d-none"> {{old('address', $property->address)}} </span>
                             @error('address')
                                 <div class="invalid-feedback px-2">
@@ -154,7 +160,7 @@
                     {{-- cover input --}}
                     
                     <div class="form-outline my-3 col-12">
-                        <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Imgagine di copertina </label>
+                        <label for="cover_img" class="form-label @error('cover_img') is-invalid @enderror">Imgagine di copertina <span class="fs-4 align-top">*</span></label>
                         <input type="file" class="form-control" id="cover_img" placeholder="Inserisci immagine di copertina" name="cover_img" value="{{old('cover_img', $property->cover_img)}}"  @if (Route::is('admin.properties.create')) required @endif>
                         @error('cover_img')
                             <div class="invalid-feedback px-2">
