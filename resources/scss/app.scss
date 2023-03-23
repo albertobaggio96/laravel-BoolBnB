@@ -28,6 +28,16 @@
    img{
       width: 100%;
    }
+
+   .image-card{
+      overflow-y: hidden;
+      overflow-x: scroll;
+
+      img{
+         height: 250px;
+         width: 250px;
+      }
+   }
 }
 
 .show-container{
