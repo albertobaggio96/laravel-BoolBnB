@@ -26,7 +26,8 @@
                                 <div class="text-danger">
                                     <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}
                                 </div>
-                            @enderror                  
+                            @enderror
+                            <div id="error-box" class="text-danger"></div>                  
                     </div>
                     <div class="row">
                         <div class="form-outline mb-3 col-12">
@@ -176,13 +177,10 @@
 
                 <div class="card-footer text-end pb-4 d-flex justify-content-between">
                     <a href="{{ route('admin.properties.index')}}" class="btn btn-dark rounded-circle"><i class="fa-solid fa-angles-left"></i></a>
-                    <button type="submit" class="btn btn-success rounded-circle"><i class="fa-solid fa-plus"></i></button>
+                    <button type="submit" class="btn btn-success rounded-circle" id="btn-submit"><i class="fa-solid fa-plus"></i></button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 @vite(['resources/js/AutocompleteForm.js'])
-
-
-
