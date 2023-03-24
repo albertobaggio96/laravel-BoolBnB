@@ -22,14 +22,21 @@ class PropertyController extends Controller {
 
     public function index(Property $property, Request $request){
         $params = $request->query();
-        //$arrayWhere = [
-            //['title', 'Like', '%' . $params['title'] . '%'],
-        //];
-        //if ($params['min_beds']) { array_push($arrayWhere,  ['n_beds', '>=', $params['min_beds']]); };
-        //if ($params['max_beds']) { array_push($arrayWhere,  ['n_beds', '<=', $params['max_beds']]); };
+        $arrayWhere = [];
+        if (array_key_exists('min_rooms', $params)) { array_push($arrayWhere,  ['n_rooms', '>=', $params['min_rooms']]); };
+        if (array_key_exists('min_beds', $params)) { array_push($arrayWhere,  ['n_beds', '>=', $params['min_beds']]); };
         
-        $properties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
-                    ->get();
+        $query = Property::with('services', 'sponsorships', 'images', 'user', 'views');
+
+        if (array_key_exists('services', $params)) { 
+            foreach ($params['services'] as $service) {
+                $query->whereHas('services', function($query) use ($service) {
+                    $query->where('title', $service);
+                });
+            }
+        };
+        $properties = $query->where($arrayWhere)->get();
+
 
         return response()->json([
             'success' => true,
