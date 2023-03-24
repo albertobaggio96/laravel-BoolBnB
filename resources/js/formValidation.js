@@ -8,7 +8,11 @@ const coverProperty = document.getElementById('cover_img');
 const mqProperty = document.getElementById('mq');
 //const addressProperty = document.getElementById('address');
 const visibleProperty = document.getElementById('visible');
-const servicesProperty = document.querySelectorAll('input.service')
+const servicesProperty = document.querySelectorAll('input.service');
+
+const errorBox = document.getElementById('error-box')
+let markedCheckboxes = []
+const submit = document.getElementById('btn-submit')
 
 //function add or remove is-invalid class
 function isValid(validation, input){
@@ -32,6 +36,33 @@ function minAndMaxNumber(input, min, max){
     isValid((input.value >= min && input.value < max), input)
   })
 }
+
+// function validateCheckbox() {
+//   servicesProperty.forEach((checkbox) => {
+//     if (checkbox.checked) {
+//       markedCheckboxes.push(checkbox)
+//     }
+//   })
+
+//   if (markedCheckboxes.length < 1) {
+//   errorBox.innerHTML = "selezionare almeno un servizio"
+//   }
+// }
+
+// submit.addEventListener('submit', validateCheckbox())
+
+submit.addEventListener('click', function(event) {
+  servicesProperty.forEach((checkbox) => {
+    if (checkbox.checked) {
+      markedCheckboxes.push(checkbox)
+    }
+  })
+
+  if (markedCheckboxes.length < 1) {
+    event.preventDefault()
+    errorBox.innerHTML = "selezionare almeno un servizio"
+  }
+})
 
 // !! string
 minAndMaxLength(titleProperty, 5, 100)
