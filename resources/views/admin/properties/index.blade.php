@@ -31,7 +31,7 @@
         <th scope="col" class="custom-responsive-sm">Mq</th>
         <th scope="col" class="custom-responsive-sm">Visible</th>
         <th scope="col" class="custom-responsive-sm">Indirizzo</th>
-        <th scope="col">Azioni utente</
+        <th scope="col">Azioni utente</th>
     </thead>
     <tbody class="table-group-divider">
       @foreach ($properties as $property)
