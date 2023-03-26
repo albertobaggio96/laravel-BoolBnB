@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\PropertyController as ApiPropertyController;
+use App\Http\Controllers\Api\ServiceController as ApiServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ use App\Http\Controllers\Api\PropertyController as ApiPropertyController;
 // });
 
 
+Route::get('/properties/services', [ ApiServiceController::class, 'index' ])->name('api.properties.services');
 Route::get('/properties', [ ApiPropertyController::class, 'index' ])->name('api.properties.index');
 Route::get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');
 //Route::middleware('auth:api')->get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');
