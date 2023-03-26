@@ -63,7 +63,7 @@ class PropertyController extends Controller {
         if (array_key_exists('services', $params)) { 
             foreach ($params['services'] as $service) {
                 $query->whereHas('services', function($query) use ($service) {
-                    $query->where('title', $service);
+                    $query->where('id', $service);
                 });
             }
         };
@@ -107,3 +107,4 @@ class PropertyController extends Controller {
         return response()->json($response);
     }
 }
+
