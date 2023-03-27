@@ -56,7 +56,7 @@ class PropertyController extends Controller {
         if (array_key_exists('min_rooms', $params)) { array_push($arrayWhere,  ['n_rooms', '>=', $params['min_rooms']]); };
         if (array_key_exists('min_beds', $params)) { array_push($arrayWhere,  ['n_beds', '>=', $params['min_beds']]); };
 
-        $radius = array_key_exists('radius', $params) ? $params['radius'] : 20;
+        $radius = (array_key_exists('radius', $params) and is_numeric($params['radius'])) ? $params['radius'] : 20;
 
         $query = Property::with('services', 'sponsorships', 'images', 'user', 'views');
 
@@ -69,7 +69,7 @@ class PropertyController extends Controller {
         };
         $properties = $query->where($arrayWhere)->get();
         
-        if (array_key_exists('address', $params)) {
+        if (array_key_exists('address', $params) and $params['address'] != '') {
             $address = $params['address'];
             $addressCoordinate = $this->getGeocode($address);
             if ($addressCoordinate) {
@@ -88,7 +88,7 @@ class PropertyController extends Controller {
             }
         } else {
             $status = false;
-            $errorMessage .= 'Manca il parametro Address!';
+            $errorMessage .= 'Paramentro Asddress non corretto!';
         }
 
         if ($status) {
