@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             // relation
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')->references('id')->on('properties')->onUpdate('cascade')->onDelete('cascade');
             // end relation
 
