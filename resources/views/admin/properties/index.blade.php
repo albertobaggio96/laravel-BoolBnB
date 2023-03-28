@@ -43,13 +43,14 @@
           <td class="custom-responsive-sm">{{ $property->mq }}</td>
           <td class="custom-responsive-sm">@if($property->visible) <i class="fa-solid fa-check text-success"></i> @else <i class="fa-solid fa-xmark text-danger"></i> @endif</td>
           <td class="custom-responsive-sm w-25">{{ $property->address }}</td>
-          <td>
-            <a href="{{ route("admin.properties.show", $property->slug) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-            <a href="{{ route("admin.properties.edit", $property->slug) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-            <form class="d-inline delete-element" action="{{ route("admin.properties.destroy", $property->slug) }}" method="POST" data-element-name="{{ $property->title }}">
+          <td class="">
+            <a href="{{ route("admin.properties.show", $property->slug) }}" class="btn btn-primary m-2"><i class="fa-solid fa-eye"></i></a>
+            <a href="{{ route("admin.properties.messages", $property->slug) }}" class="btn btn-success m-2"><i class="fa-solid fa-message"></i></a>
+            <a href="{{ route("admin.properties.edit", $property->slug) }}" class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></a>
+            <form class=" d-inline delete-element" action="{{ route("admin.properties.destroy", $property->slug) }}" method="POST" data-element-name="{{ $property->title }}">
               @csrf
               @method("DELETE")
-              <button type="submit" class="btn btn-danger" value="delete"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
+              <button type="submit" class="btn btn-danger m-2" value="delete"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
             </form>
           </td>
         </tr>

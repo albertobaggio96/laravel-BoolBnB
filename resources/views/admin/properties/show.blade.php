@@ -6,25 +6,11 @@
    <div class="row justify-content-center">
       <div class="col-sm-12 col-lg-8">
          <div class="card my-card my-2 m-md-4 p-2 m-lg-5 ">
-            <div class="image-cover d-flex m-2">
-               <img src="{{asset('storage/' . $property->cover_img)}}" class="card-img-top" alt="...">
-            </div>
-            <div class=" container image-card d-flex">
-               @foreach ($property->images as $image)
-               <img src="{{asset('storage/' . $image->path)}}" alt="">
-               @endforeach
-            </div>
+            <img src="{{asset('storage/' . $property->cover_img)}}" class="card-img-top" alt="...">
             <div class="card-body">
                <h1 class="text-center p-2">
                   {{$property->title}}
                </h1>
-               <h4 class="text-center mb-3">
-                  @if ($property->visible === 1)
-                     La proprietà è visibile ai clienti
-                  @else
-                     La proprietà non è visibile ai clienti
-                  @endif
-               </h4>
                <p class="card-text p-4">{{$property->description}}</p>
                <div class="row gy-1">
                   <div class="col-12 col-lg-3 justify-content-center card-info d-flex align-items-center card-text border border-3 border-white">
@@ -47,15 +33,6 @@
                      <h5 class="py-2">
                         Superficie: {{$property->mq}}mq
                      </h5>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-12">
-                     <div class=" col-12 justify-content-center card-info text-center card-text p-1 border border-3 border-white">
-                        <h5 class="">
-                           Indirizzo: {{$property->address}}
-                        </h5>
-                     </div>
                   </div>
                </div>
                <div class="card-info d-flex ">
@@ -95,6 +72,10 @@
    
                   <div class="home m-2">
                      <a href="{{route('admin.properties.index')}}" class="btn btn-warning"><span class="custom-responsive-sm">Vai alla home</span> <i class="fa-solid fa-house text-white d-md-none"></i></a>
+                  </div>
+
+                  <div class="home m-2">
+                     <a href="{{route('admin.properties.messages', $property->slug)}}" class="btn btn-secondary"><span class="custom-responsive-sm">Visualizza i messaggi</span> <i class="fa-solid fa-message text-white d-md-none"></i></a>
                   </div>
                </div>
 
