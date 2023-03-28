@@ -49,7 +49,7 @@
             <form class="d-inline delete-element" action="{{ route("admin.properties.destroy", $property->slug) }}" method="POST" data-element-name="{{ $property->title }}">
               @csrf
               @method("DELETE")
-              <button type="submit" class="btn btn-danger" value="delete"><i class="fa-solid fa-trash-can-arrow-up"></i><span class="d-none d-lg-inline">Delete</span></button>
+              <button type="submit" class="btn btn-danger" value="delete"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
             </form>
           </td>
         </tr>
