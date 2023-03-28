@@ -93,6 +93,11 @@ tr {
   box-shadow: 10px 10px 10px 0px #d0d0d0;
 }
 
+.ms_not-visible {
+   background-color:rgb(137, 137, 137);
+   opacity: 0.65;
+}
+
 
 @include media-breakpoint-down(sm){
    header{
