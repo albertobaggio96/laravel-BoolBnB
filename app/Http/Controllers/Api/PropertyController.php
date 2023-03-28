@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 use App\Models\Image;
+use App\Models\Message;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Sponsorship;
@@ -46,6 +47,20 @@ class PropertyController extends Controller {
             'success' => true,
             'results' => $property
         ]);
+    }
+
+    public function message(Request $request,Property $property){
+        $data = $request->all();
+        $newMessage = new Message();
+        $newMessage->property_id = $property['id'];
+        // $newMessage->mail_from = $data['mail_from'];
+        // $newMessage->name = $data['name'];
+        // $newMessage->subject = $data['subject'];
+        // $newMessage->body_message = $data['body_message'];
+        $newMessage->fill($data);
+        $newMessage->displayed = false;
+        $newMessage->save();
+        return [$data, $property];
     }
 
     public function index(Property $property, Request $request){
