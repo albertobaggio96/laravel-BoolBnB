@@ -18,6 +18,13 @@
                <h1 class="text-center p-2">
                   {{$property->title}}
                </h1>
+               <h4 class="text-center mb-3">
+                  @if ($property->visible === 1)
+                     La proprietà è visibile ai clienti
+                  @else
+                     La proprietà non è visibile ai clienti
+                  @endif
+               </h4>
                <p class="card-text p-4">{{$property->description}}</p>
                <div class="row gy-1">
                   <div class="col-12 col-lg-3 justify-content-center card-info d-flex align-items-center card-text border border-3 border-white">
