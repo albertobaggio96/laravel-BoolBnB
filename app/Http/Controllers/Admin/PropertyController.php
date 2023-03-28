@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\Property;
 use App\Models\Service;
+use App\Models\Message;
 use App\Models\Sponsorship;
 use RealRashid\SweetAlert\Facades\Alert;;
 use Illuminate\Http\Request;
@@ -143,7 +144,7 @@ class PropertyController extends Controller
             return abort(401);
         }
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -304,6 +305,23 @@ class PropertyController extends Controller
         $properties= Property::where('user_id', $userId)->where('title', 'Like', $request->title . '%')->union($first)->get();
 
         return view('admin.properties.index', compact('properties'));
+    }
+
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function messages(Property $property){
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $messages= Message::where('property_id', $property->id)->get();
+            return view('admin.properties.messages', compact('messages'));
+        } else{
+            return abort(401);
+        }
     }
 }
 
