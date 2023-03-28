@@ -21,12 +21,12 @@
                         <li class="nav-item d-flex align-items-center mx-4">
                             <a class="nav-link text-white" href="{{route('admin.properties.index') }}">
                                 <i class="fa-solid fa-network-wired text-white"></i>
-                                {{ __('Properties') }}
+                                {{ __('Proprietà') }}
                             </a>
                         </li>
                     </ul>
                     <div class="bottom-navbar d-flex align-items-center mx-5">
-                        <a class="text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}
+                        <a class="text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Disconnetti') }}
                             <i class="fa-solid fa-door-open text-white"></i>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

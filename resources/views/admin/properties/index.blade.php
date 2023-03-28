@@ -29,7 +29,7 @@
         <th scope="col" class="custom-responsive-sm">N letti</th>
         <th scope="col" class="custom-responsive-sm">N stanze</th>
         <th scope="col" class="custom-responsive-sm">Mq</th>
-        <th scope="col" class="custom-responsive-sm">Visible</th>
+        <th scope="col" class="custom-responsive-sm">Visibilità</th>
         <th scope="col" class="custom-responsive-sm">Indirizzo</th>
         <th scope="col">Azioni utente</th>
     </thead>

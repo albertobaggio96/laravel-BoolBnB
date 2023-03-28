@@ -103,7 +103,7 @@
                     {{-- visible input --}}
 
                         <div class="form-outline mb-3 col-sm-12 col-md-6">
-                            <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superfie proprietà: <span class="fs-4 align-top">*</span></label>
+                            <label for="mq" class="form-label @error('mq') is-invalid @enderror">Superficie proprietà: <span class="fs-4 align-top">*</span></label>
                             <input type="number" class="form-control" id="mq" placeholder="Inserisci la superficie della proprietà (in metri quadrati)" name="mq" value="{{old('mq', $property->mq)}}" required>
                             @error('mq')
                                 <div class="invalid-feedback px-2">
