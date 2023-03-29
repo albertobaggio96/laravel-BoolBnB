@@ -59,14 +59,14 @@
             
             <div class="text-center text-lg-start mt-4 pt-2">
                 <button type="submit" class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">{{ __('Accedi') }}</button>
+                style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: #574ff2;">{{ __('Accedi') }}</button>
 
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
                     <h6>Non hai un account? Creane subito uno!</h6>
                     @if (Route::has('register'))
-                        <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                        <a class="btn btn-primary" style="background-color: #574ff2;" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                     @endif
             </div>
 
