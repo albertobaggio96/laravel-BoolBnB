@@ -4,15 +4,16 @@
 <div class="container h-100 py-4">
     <div class="row justify-content-center align-items-center h-100">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header text-center">{{ __('Registrati') }}</div>
+            <div class="card my-card p-5">
+                <div class=" text-center fs-1">{{ __('Registrati!') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            
+                            <label for="name" class="col-md-4 col-form-label text-md-right fs-4">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
@@ -26,7 +27,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-right fs-4">{{ __('Cognome') }}</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" autocomplete="surname" autofocus>
@@ -40,7 +41,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Data Di Nascita') }}</label>
+                            <label for="date_of_birth" class="col-md-4 col-form-label text-md-right fs-4">{{ __('Data Di Nascita') }}</label>
 
                             <div class="col-md-6">
                                 <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}" autocomplete="date_of_birth" autofocus>
@@ -54,7 +55,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }} &nbsp; <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right fs-4">{{ __('E-Mail') }} &nbsp; <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
                             
 
                             <div class="col-md-6">
@@ -68,7 +69,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }} &nbsp; <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right fs-4">{{ __('Password') }} &nbsp; <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" minlength="8">
@@ -82,7 +83,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}  <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right fs-4">{{ __('Conferma Password') }}  <span class="card-subtitle mb-2 text-muted">*obbligatorio</span></label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
