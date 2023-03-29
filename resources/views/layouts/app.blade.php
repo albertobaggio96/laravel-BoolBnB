@@ -41,7 +41,7 @@
                 @if(Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register' && Route::currentRouteName() != 'password.request')
                     @include('topNavbar')
                 @endif
-                <div class="main-wrapper">
+                <div class="{{Route::currentRouteName() == 'login' ? '' : 'main-wrapper'}}">
                     {{-- CONTENT FOR HOME BLADE --}}
                     @yield('content-home')
                     {{-- MAIN CONTENT --}}
