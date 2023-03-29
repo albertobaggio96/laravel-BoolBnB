@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\PropertyController as ApiPropertyController;
 use App\Http\Controllers\Api\ServiceController as ApiServiceController;
+use App\Http\Controllers\Api\MessageController as ApiMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,5 @@ Route::get('/properties/services', [ ApiServiceController::class, 'index' ])->na
 Route::get('/properties', [ ApiPropertyController::class, 'index' ])->name('api.properties.index');
 Route::get('/properties/home', [ ApiPropertyController::class, 'home' ])->name('api.properties.home');
 Route::get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');
-Route::post('/properties/{property}/message', [ ApiPropertyController::class, 'message' ])->name('api.properties.messagge');
+Route::post('/properties/{property}/message', [ ApiMessageController::class, 'message' ])->name('api.properties.messagge');
 //Route::middleware('auth:api')->get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');

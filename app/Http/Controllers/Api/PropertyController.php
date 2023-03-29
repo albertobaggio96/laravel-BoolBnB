@@ -11,6 +11,7 @@ use App\Models\Message;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Sponsorship;
+use Illuminate\Support\Facades\Validator;
 
 class PropertyController extends Controller {
     //Function for calcolate the coordinate
@@ -47,28 +48,6 @@ class PropertyController extends Controller {
             'success' => true,
             'results' => $property
         ]);
-    }
-
-    public function message(Request $request,Property $property){
-        //$data = $request->all();
-        //dd($request);
-        $data = $request->validate([
-            'mail_from' => 'required|email',
-            'name' => 'required|string|max:254',
-            'subject' => 'required|string|max:254',
-            'body_message' => 'required|string|min:20|max:65535'
-        ]);
-        //dd($data);
-        $newMessage = new Message();
-        $newMessage->property_id = $property['id'];
-        // $newMessage->mail_from = $data['mail_from'];
-        // $newMessage->name = $data['name'];
-        // $newMessage->subject = $data['subject'];
-        // $newMessage->body_message = $data['body_message'];
-        $newMessage->fill($data);
-        $newMessage->displayed = false;
-        $newMessage->save();
-        return response()->json(['success' => true, 'data' => $data]);
     }
 
     public function index(Property $property, Request $request){
