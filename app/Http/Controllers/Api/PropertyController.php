@@ -67,7 +67,7 @@ class PropertyController extends Controller {
         $status = true;
         $errorMessage = '';
         $params = $request->query();
-        $arrayWhere = [];
+        $arrayWhere = [['visible', true ]];
         if (array_key_exists('min_rooms', $params)) { array_push($arrayWhere,  ['n_rooms', '>=', $params['min_rooms']]); };
         if (array_key_exists('min_beds', $params)) { array_push($arrayWhere,  ['n_beds', '>=', $params['min_beds']]); };
 
@@ -111,6 +111,51 @@ class PropertyController extends Controller {
                 'success' => $status,
                 'parmas' => $params,
                 'results' => $validProperties
+            ];
+        } else {
+            $response = [
+                'success' => $status,
+                'errorMessage' =>  $errorMessage
+            ];
+        }
+
+        return response()->json($response);
+    }
+
+    public function home(Property $property, Request $request){
+        $status = true;
+        $errorMessage = '';
+        $params = $request->query();
+        $arrayWhere = [['visible', true ]];
+        if (array_key_exists('sponsorship', $params) && $params['sponsorship']==true) { 
+            $allProperties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
+                                    ->where($arrayWhere);
+            $sponsorshipProperties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
+                                    ->where($arrayWhere)
+                                    ->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"));
+            $tmpProperties = $sponsorshipProperties->union($allProperties)->get();
+            $properties = [];
+            foreach ($tmpProperties as $key => $property) {
+                $active = false;
+                foreach ($property['sponsorships'] as $key2 => $sponsorship) {
+                    if ($sponsorship['pivot']['end_date'] > date("Y-m-d H:i:s")) {
+                        $active = true;
+                    }
+                }
+                $property['active_sponsorship'] =  $active;
+                array_push($properties, $property);
+            }
+        } else {
+            $properties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
+                                    ->where($arrayWhere)
+                                    ->get();
+        };
+
+        if ($status) {
+            $response = [
+                'success' => $status,
+                'parmas' => $params,
+                'results' => $properties
             ];
         } else {
             $response = [
