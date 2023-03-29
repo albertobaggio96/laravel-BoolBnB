@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\ServiceController as ApiServiceController;
 
 Route::get('/properties/services', [ ApiServiceController::class, 'index' ])->name('api.properties.services');
 Route::get('/properties', [ ApiPropertyController::class, 'index' ])->name('api.properties.index');
+Route::get('/properties/home', [ ApiPropertyController::class, 'home' ])->name('api.properties.home');
 Route::get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');
 Route::post('/properties/{property}/message', [ ApiPropertyController::class, 'message' ])->name('api.properties.messagge');
 //Route::middleware('auth:api')->get('/properties/{property}', [ ApiPropertyController::class, 'show' ])->name('api.properties.show');
