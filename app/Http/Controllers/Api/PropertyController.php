@@ -73,7 +73,11 @@ class PropertyController extends Controller {
 
         $radius = (array_key_exists('radius', $params) and is_numeric($params['radius'])) ? $params['radius'] : 20;
 
-        $query = Property::with('services', 'sponsorships', 'images', 'user', 'views');
+        $last = Property::with('services', 'sponsorships', 'images', 'user', 'views');
+
+        $first = Property::with('services', 'sponsorships', 'images', 'user', 'views')->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"));
+
+        $query = $first->union($last);
 
         if (array_key_exists('services', $params)) { 
             foreach ($params['services'] as $service) {
@@ -88,15 +92,31 @@ class PropertyController extends Controller {
             $address = $params['address'];
             $addressCoordinate = $this->getGeocode($address);
             if ($addressCoordinate) {
-                $validProperties = [];
+                $activeProperties = [];
+                $inactiveProperties = [];
                 foreach ($properties as $key => $property) {
                     $tmp_dist = $this->distance($addressCoordinate['lat'], $addressCoordinate['lon'] , $property->latitude, $property->longitude);
                     if ($tmp_dist <= $radius) {
                         $property['distance'] =  $tmp_dist;
-                        array_push($validProperties, $property);
+                        $active = false;
+                        foreach ($property['sponsorships'] as $key2 => $sponsorship) {
+                            if ($sponsorship['pivot']['end_date'] > date("Y-m-d H:i:s")) {
+                                $active = true;
+                            }
+                        }
+                        $property['active_sponsorship'] =  $active;
+                        if ($active) {
+                            array_push($activeProperties, $property);
+                        } else {
+                            array_push($inactiveProperties, $property);
+                        }
                     }
                 }
-                usort($validProperties, fn($a, $b) => $a['distance'] - $b['distance']);
+
+                usort($activeProperties, fn($a, $b) => $a['distance'] - $b['distance']);
+                usort($inactiveProperties, fn($a, $b) => $a['distance'] - $b['distance']);
+                $validProperties = array_merge($activeProperties, $inactiveProperties);
+
             } else {
                 $status = false;
                 $errorMessage .= 'Indirizzo inserito non Valido!';
