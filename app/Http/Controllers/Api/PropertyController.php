@@ -60,7 +60,7 @@ class PropertyController extends Controller {
         $newMessage->fill($data);
         $newMessage->displayed = false;
         $newMessage->save();
-        return [$data, $property];
+        return ['success' => true];
     }
 
     public function index(Property $property, Request $request){
