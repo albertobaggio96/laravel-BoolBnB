@@ -367,7 +367,8 @@ class PropertyController extends Controller
     public function sponsorshipsConferm(Request $request, Property $property, Sponsorship $sponsorship){
         $userId = Auth::user()->id;
         if($property->user_id === $userId){
-            $property->sponsorships()->attach($sponsorship->id, ['start_date' => date("Y-m-d H:i:s"), 'end_date' => date("Y-m-d H:i:s"), ]);
+            $property->sponsorships()->attach($sponsorship->id,
+            ['start_date' => date("Y-m-d H:i:s"), 'end_date' => date('Y-m-d H:i:s', strtotime(date("Y-m-d H:i:s"). ' + '.$sponsorship->period.' hours')) ]);
             return redirect()->route('admin.properties.show', $property->slug);
         } else{
             return abort(401);
