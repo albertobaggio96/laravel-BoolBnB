@@ -331,11 +331,28 @@ class PropertyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function sponsorships(Property $property){
+    public function sponsorshipsSelect(Property $property){
         $userId = Auth::user()->id;
         if($property->user_id === $userId){
             $sponsorships= Sponsorship::all();
-            return view('admin.properties.sponsorships', compact('sponsorships'));
+            return view('admin.properties.sponsorshipsSelect', compact('sponsorships','property'));
+        } else{
+            return abort(401);
+        }
+    }
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorshipsPay(Request $request, Property $property){
+        $planSelected = $request->all()['planSelected'];
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $sponsorship= Sponsorship::where('id', $planSelected)->first();
+            return view('admin.properties.sponsorshipsPay', compact('sponsorship','property'));
         } else{
             return abort(401);
         }

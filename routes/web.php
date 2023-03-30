@@ -34,7 +34,8 @@ Route::get('/dashboard', function () {
 // });
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group( function(){
-    Route::get('/properties/{property}/sponsorships', [PropertyController::class, 'sponsorships'])->name('properties.sponsorships');
+    Route::get('/properties/{property}/sponsorshipsSelect', [PropertyController::class, 'sponsorshipsSelect'])->name('properties.sponsorshipsSelect');
+    Route::post('/properties/{property}/sponsorshipsPay', [PropertyController::class, 'sponsorshipsPay'])->name('properties.sponsorshipsPay');
     Route::get('/properties/{property}/messages', [PropertyController::class, 'messages'])->name('properties.messages');
     Route::post('/properties/search', [PropertyController::class, 'search'])->name('properties.search');
     Route::get('/properties/trashed',  [PropertyController::class, 'trashed'] )->name('properties.trashed');
