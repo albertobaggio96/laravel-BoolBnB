@@ -26,7 +26,7 @@
 
             </div>
 
-            <form class="d-flex delete-element justify-content-end" action="" method="POST" data-element-name="">
+            <form class="d-flex delete-element justify-content-end" action="{{ route('admin.messages.destroy', $message['id']) }}" method="POST" data-element-name="">
                @csrf
                @method("DELETE")
                <button type="submit" class="btn btn-danger" value="delete"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
