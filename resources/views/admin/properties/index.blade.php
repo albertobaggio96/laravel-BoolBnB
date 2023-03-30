@@ -47,6 +47,7 @@
             <a href="{{ route("admin.properties.show", $property->slug) }}" class="btn btn-primary m-2"><i class="fa-solid fa-eye"></i></a>
             <a href="{{ route("admin.properties.messages", $property->slug) }}" class="btn btn-success m-2"><i class="fa-solid fa-message"></i></a>
             <a href="{{ route("admin.properties.edit", $property->slug) }}" class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></a>
+            <a href="{{ route("admin.properties.sponsorships", $property->slug) }}" class="btn btn-info m-2"><i class="fa-solid fa-rocket"></i></a>
             <form class=" d-inline delete-element" action="{{ route("admin.properties.destroy", $property->slug) }}" method="POST" data-element-name="{{ $property->title }}">
               @csrf
               @method("DELETE")

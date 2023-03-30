@@ -323,6 +323,23 @@ class PropertyController extends Controller
             return abort(401);
         }
     }
+
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorships(Property $property){
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $sponsorships= Sponsorship::all();
+            return view('admin.properties.sponsorships', compact('sponsorships'));
+        } else{
+            return abort(401);
+        }
+    }
 }
 
 
