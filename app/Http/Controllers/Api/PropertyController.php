@@ -61,19 +61,24 @@ class PropertyController extends Controller {
         $radius = (array_key_exists('radius', $params) and is_numeric($params['radius'])) ? $params['radius'] : 20;
 
         $last = Property::with('services', 'sponsorships', 'images', 'user', 'views')->where($arrayWhere);
-
-        $first = Property::with('services', 'sponsorships', 'images', 'user', 'views')->where($arrayWhere)->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"));
-
-        $query = $first->union($last);
-
         if (array_key_exists('services', $params)) { 
             foreach ($params['services'] as $service) {
-                $query->whereHas('services', function($query) use ($service) {
-                    $query->where('id', $service);
+                $last->whereHas('services', function($last) use ($service) {
+                    $last->where('id', $service);
                 });
             }
         };
-        $properties = $query->get();
+
+        $first = Property::with('services', 'sponsorships', 'images', 'user', 'views')->where($arrayWhere)->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"));
+        if (array_key_exists('services', $params)) { 
+            foreach ($params['services'] as $service) {
+                $first->whereHas('services', function($first) use ($service) {
+                    $first->where('id', $service);
+                });
+            }
+        };
+        
+        $properties = $first->union($last)->get();
         
         if (array_key_exists('address', $params) and $params['address'] != '') {
             $address = $params['address'];
