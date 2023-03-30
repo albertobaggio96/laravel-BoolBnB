@@ -17,7 +17,7 @@
               @foreach ($messages as $message)
               <article class="card my-card my-2 m-md-4 p-2 m-lg-5 {{ $message->displayed ? 'bg-secondary' : '' }}">
                           
-                 <a href="{{ route('admin.messages.displayed', $message->id) }}" class="card-info text-decoration-none text-black">
+                 <a href="{{ route('admin.messages.displayed', [$message->id, 'index']) }}" class="card-info text-decoration-none text-black">
                     <div class="mb-3">
                         <h2 class="fs-5 d-inline">Nome :</h2>
                         <span>{{$message->name}}</span>   

@@ -36,8 +36,8 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group( function(){
     Route::get('/', [AdminMessageController::class, 'index'])->name('messages.index');
-    Route::get('/messages/{message}', [AdminMessageController::class, 'show'])->name('messages.show');
-    Route::get('/messages/{message}/displayed', [AdminMessageController::class, 'displayed'])->name('messages.displayed');
+    Route::get('/messages/{message}/{redirect}', [AdminMessageController::class, 'show'])->name('messages.show');
+    Route::get('/messages/{message}/{redirect}/displayed', [AdminMessageController::class, 'displayed'])->name('messages.displayed');
     Route::delete('/messages/{message}/{reditect}', [AdminMessageController::class, 'destroy'])->name('messages.destroy');
     Route::get('/properties/{property}/messages', [PropertyController::class, 'messages'])->name('properties.messages');
     Route::post('/properties/search', [PropertyController::class, 'search'])->name('properties.search');

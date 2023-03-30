@@ -29,13 +29,13 @@ class MessageController extends Controller
         return view('layouts.partials.home', compact('messages', 'unreadMessages'));
     }
 
-    public function show(Message $message){
+    public function show(Message $message, $redirect){
         $userId = Auth::user()->id;
-
         $autentification = Property::where('id', $message->property->id)->pluck('user_id')->first();
+        $propertySlug = Property::where('id', $message->property_id)->pluck('slug')->first();
         
         if($autentification === $userId){
-            return view('admin.properties.message', compact('message'));
+            return view('admin.properties.message', compact('message', 'redirect', 'propertySlug'));
         } else {
             return abort(401);
         }
@@ -60,7 +60,7 @@ class MessageController extends Controller
         }
     }
 
-    public function displayed(Message $message){
+    public function displayed(Message $message, $redirect){
         $userId = Auth::user()->id;
 
         $autentification = Property::where('id', $message->property->id)->pluck('user_id')->first();
@@ -68,7 +68,7 @@ class MessageController extends Controller
         if($autentification === $userId){
             $message->displayed = 1;
             $message->update();
-            return redirect()->route('admin.messages.show', $message->id);
+            return redirect()->route('admin.messages.show', [$message->id, $redirect]);
         } else {
             return abort(401);
         }
