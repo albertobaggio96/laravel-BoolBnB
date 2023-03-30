@@ -323,6 +323,58 @@ class PropertyController extends Controller
             return abort(401);
         }
     }
+
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorshipsSelect(Property $property){
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $sponsorships= Sponsorship::all();
+            return view('admin.properties.sponsorshipsSelect', compact('sponsorships','property'));
+        } else{
+            return abort(401);
+        }
+    }
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorshipsPay(Request $request, Property $property){
+        $planSelected = $request->all()['planSelected'];
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $sponsorship= Sponsorship::where('id', $planSelected)->first();
+            return view('admin.properties.sponsorshipsPay', compact('sponsorship','property'));
+        } else{
+            return abort(401);
+        }
+    }
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorshipsConferm(Request $request, Property $property, Sponsorship $sponsorship){
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $property->sponsorships()->attach($sponsorship->id,
+            ['start_date' => date("Y-m-d H:i:s"), 'end_date' => date('Y-m-d H:i:s', strtotime(date("Y-m-d H:i:s"). ' + '.$sponsorship->period.' hours')) ]);
+            return redirect()->route('admin.properties.show', $property->slug);
+        } else{
+            return abort(401);
+        }
+        //return redirect()->route('admin.properties.show', $property->slug);
+    }
 }
 
 

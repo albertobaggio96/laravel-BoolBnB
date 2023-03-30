@@ -39,6 +39,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/messages/{message}/{redirect}', [AdminMessageController::class, 'show'])->name('messages.show');
     Route::get('/messages/{message}/{redirect}/displayed', [AdminMessageController::class, 'displayed'])->name('messages.displayed');
     Route::delete('/messages/{message}/{reditect}', [AdminMessageController::class, 'destroy'])->name('messages.destroy');
+    Route::get('/properties/{property}/sponsorshipsSelect', [PropertyController::class, 'sponsorshipsSelect'])->name('properties.sponsorshipsSelect');
+    Route::post('/properties/{property}/sponsorshipsPay', [PropertyController::class, 'sponsorshipsPay'])->name('properties.sponsorshipsPay');
+    Route::post('/properties/{property}/{sponsorship}/sponsorshipsConferm', [PropertyController::class, 'sponsorshipsConferm'])->name('properties.sponsorshipsConferm');
     Route::get('/properties/{property}/messages', [PropertyController::class, 'messages'])->name('properties.messages');
     Route::post('/properties/search', [PropertyController::class, 'search'])->name('properties.search');
     Route::get('/properties/trashed',  [PropertyController::class, 'trashed'] )->name('properties.trashed');
