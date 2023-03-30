@@ -48,12 +48,16 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(Message $message, $redirect)
     {
-        $propertySlug = Property::where('id', $message->property_id)->pluck('slug')->first();
-        $message->delete();
-
-        return redirect()->route('admin.properties.messages', $propertySlug);
+        if($redirect === 'index'){
+            $message->delete();
+            return redirect()->route('admin.messages.index');
+        } else if($redirect === 'messages'){
+            $propertySlug = Property::where('id', $message->property_id)->pluck('slug')->first();
+            $message->delete();
+            return redirect()->route('admin.properties.messages', $propertySlug);
+        }
     }
 
     public function displayed(Message $message){
