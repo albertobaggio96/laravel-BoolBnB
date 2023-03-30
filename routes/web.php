@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.partials.home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('layouts.partials.home');
+// })->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,12 +35,15 @@ Route::get('/dashboard', function () {
 // });
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group( function(){
+    Route::get('/', [AdminMessageController::class, 'index'])->name('messages.index');
+    Route::get('/messages/{message}/displayed', [AdminMessageController::class, 'displayed'])->name('messages.displayed');
     Route::get('/properties/{property}/messages', [PropertyController::class, 'messages'])->name('properties.messages');
     Route::post('/properties/search', [PropertyController::class, 'search'])->name('properties.search');
     Route::get('/properties/trashed',  [PropertyController::class, 'trashed'] )->name('properties.trashed');
     Route::get('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore')->withTrashed();
     Route::delete('/properties/{property}/force-delete', [PropertyController::class, 'forceDelete'])->name('properties.force-delete')->withTrashed();
     Route::resource('/properties', PropertyController::class)->middleware('auth');
+    // Route::delete('messages/{message}' [AdminMessageController::class, 'destroy'])->name('messages.destroy');
     Route::resource('/messages', AdminMessageController::class)->middleware('auth');
 });
 

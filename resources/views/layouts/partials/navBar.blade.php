@@ -13,7 +13,7 @@
                     </div>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-column h-100 my-5">
                         <li class="nav-item d-flex align-items-center mx-4">
-                            <a class="nav-link text-white" href="{{route('home') }}">
+                            <a class="nav-link text-white" href="{{route('admin.messages.index') }}">
                                 <i class="fa-solid fa-house text-white"></i>
                                 {{ __('Home') }}
                             </a>
