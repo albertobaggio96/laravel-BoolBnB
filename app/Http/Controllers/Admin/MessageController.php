@@ -19,11 +19,14 @@ class MessageController extends Controller
     {
         $userId = Auth::user()->id;
 
-        $messages = Message::with('property')->whereHas('property', function($query) use ($userId) {
+        $filterMessage = Message::with('property')->whereHas('property', function($query) use ($userId) {
             $query->where('user_id', $userId);
-        })->get();
+        })->orderBy('created_at');
 
-        return view('layouts.partials.home', compact('messages'));
+        $messages = $filterMessage->get();
+        $unreadMessages = $filterMessage->where('displayed', 0)->count();
+
+        return view('layouts.partials.home', compact('messages', 'unreadMessages'));
     }
 
     public function show(Message $message){

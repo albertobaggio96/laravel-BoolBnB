@@ -13,6 +13,7 @@
               <h1 class="m-2 text-center">
                  Ecco tutti i messaggi ricevuti
               </h1>
+              <h2>Messaggi non letti : {{ $unreadMessages }}</h2>
               @foreach ($messages as $message)
               <article class="card my-card my-2 m-md-4 p-2 m-lg-5 {{ $message->displayed ? 'bg-secondary' : '' }}">
                           
