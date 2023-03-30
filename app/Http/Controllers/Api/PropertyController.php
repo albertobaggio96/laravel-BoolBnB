@@ -60,9 +60,9 @@ class PropertyController extends Controller {
 
         $radius = (array_key_exists('radius', $params) and is_numeric($params['radius'])) ? $params['radius'] : 20;
 
-        $last = Property::with('services', 'sponsorships', 'images', 'user', 'views');
+        $last = Property::with('services', 'sponsorships', 'images', 'user', 'views')->where($arrayWhere);
 
-        $first = Property::with('services', 'sponsorships', 'images', 'user', 'views')->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"));
+        $first = Property::with('services', 'sponsorships', 'images', 'user', 'views')->where($arrayWhere)->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"));
 
         $query = $first->union($last);
 
@@ -73,7 +73,7 @@ class PropertyController extends Controller {
                 });
             }
         };
-        $properties = $query->where($arrayWhere)->get();
+        $properties = $query->get();
         
         if (array_key_exists('address', $params) and $params['address'] != '') {
             $address = $params['address'];
