@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+  <a href="{{ route('admin.properties.index') }}" class="btn btn-success m-3">Ritorna alla home</a>
+
   <section id="trashed" class="container">
     @if (session('message'))
       <div class="alert alert-{{ session('alert-type') }} mb-5">

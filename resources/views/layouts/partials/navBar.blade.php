@@ -24,6 +24,12 @@
                                 {{ __('Proprietà') }}
                             </a>
                         </li>
+                        <li class="nav-item d-flex align-items-center mx-4">
+                            <a class="nav-link text-white d-flex" href="http://localhost:5174/">
+                                <i class="fa-solid fa-reply m-1"></i>
+                                <p>Ritorna su BoolBnB</p>
+                            </a>
+                        </li>
                     </ul>
                     <div class="bottom-navbar d-flex align-items-center mx-5">
                         <a class="text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Disconnetti') }}
