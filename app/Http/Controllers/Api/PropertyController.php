@@ -115,7 +115,7 @@ class PropertyController extends Controller {
             }
         } else {
             $status = false;
-            $errorMessage .= 'Paramentro Asddress non corretto!';
+            $errorMessage .= 'Paramentro Address non corretto!';
         }
 
         if ($status) {
