@@ -317,7 +317,7 @@ class PropertyController extends Controller
     public function messages(Property $property){
         $userId = Auth::user()->id;
         if($property->user_id === $userId){
-            $messages= Message::where('property_id', $property->id)->get();
+            $messages= Message::where('property_id', $property->id)->orderBy('created_at', 'DESC')->get();
             return view('admin.properties.messages', compact('messages'));
         } else{
             return abort(401);

@@ -21,7 +21,7 @@ class MessageController extends Controller
 
         $filterMessage = Message::with('property')->whereHas('property', function($query) use ($userId) {
             $query->where('user_id', $userId);
-        })->orderBy('created_at');
+        })->orderBy('created_at', 'DESC');
 
         $messages = $filterMessage->get();
         $unreadMessages = $filterMessage->where('displayed', 0)->count();
