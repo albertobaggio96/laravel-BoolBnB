@@ -134,39 +134,23 @@ class PropertyController extends Controller {
         return response()->json($response);
     }
 
-    public function home(Property $property, Request $request){
+    public function home(){
         $status = true;
         $errorMessage = '';
-        $params = $request->query();
         $arrayWhere = [['visible', true ]];
-        if (array_key_exists('sponsorship', $params) && $params['sponsorship']==true) { 
-            $allProperties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
-                                    ->where($arrayWhere);
-            $sponsorshipProperties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
+        $properties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
                                     ->where($arrayWhere)
-                                    ->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"));
-            $tmpProperties = $sponsorshipProperties->union($allProperties)->get();
-            $properties = [];
-            foreach ($tmpProperties as $key => $property) {
-                $active = false;
-                foreach ($property['sponsorships'] as $key2 => $sponsorship) {
-                    if ($sponsorship['pivot']['end_date'] > date("Y-m-d H:i:s")) {
-                        $active = true;
-                    }
-                }
-                $property['active_sponsorship'] =  $active;
-                array_push($properties, $property);
-            }
-        } else {
-            $properties = Property::with('services', 'sponsorships', 'images', 'user', 'views')
-                                    ->where($arrayWhere)
+                                    ->whereRelation('sponsorships', 'end_date', '>=', date("Y-m-d H:i:s"))
                                     ->get();
-        };
+
+        foreach ($properties as $property) {
+            $property['active_sponsorship'] = true;
+        }
+
 
         if ($status) {
             $response = [
                 'success' => $status,
-                'parmas' => $params,
                 'results' => $properties
             ];
         } else {
