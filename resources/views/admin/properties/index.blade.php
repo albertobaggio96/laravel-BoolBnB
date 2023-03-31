@@ -28,11 +28,12 @@
         <th scope="col" class="custom-responsive-sm">Prezzo a notte</th>
         <th scope="col" class="custom-responsive-sm">N letti</th>
         <th scope="col" class="custom-responsive-sm">N stanze</th>
-        <th scope="col" class="custom-responsive-sm">Mq</th>
+        <th scope="col" class="custom-responsive-sm">Sponsorizzazione</th>
         <th scope="col" class="custom-responsive-sm">Visibilità</th>
         <th scope="col" class="custom-responsive-sm">Indirizzo</th>
         <th scope="col">Azioni utente</th>
     </thead>
+    
     <tbody class="table-group-divider">
       @forelse ($properties as $property)
         <tr class="{{ (!$property->visible) ? 'ms_not-visible' : ''}}">
@@ -40,7 +41,11 @@
           <td class="custom-responsive-sm">{{ $property->night_price }}</td>
           <td class="custom-responsive-sm">{{ $property->n_beds }}</td>
           <td class="custom-responsive-sm">{{ $property->n_rooms }}</td>
-          <td class="custom-responsive-sm">{{ $property->mq }}</td>
+          <td class="custom-responsive-sm">@if($property->sponsorships?->last()?->pivot?->end_date) 
+            {{round((strtotime( $property->sponsorships?->last()?->pivot?->end_date) - strtotime(date("Y-m-d H:i:s")))/3600,0).' ore'}} 
+            @else <i class="fa-solid fa-xmark text-danger"></i> @endif</td>
+
+
           <td class="custom-responsive-sm">@if($property->visible) <i class="fa-solid fa-check text-success"></i> @else <i class="fa-solid fa-xmark text-danger"></i> @endif</td>
           <td class="custom-responsive-sm w-25">{{ $property->address }}</td>
           <td class="">

@@ -41,7 +41,7 @@ class PropertyController extends Controller
     public function index()
     {
         $userId = Auth::user()->id;
-        $properties = Property::where('user_id', $userId)->orderBy('title')->get();
+        $properties = Property::with('sponsorships')->where('user_id', $userId)->orderBy('title')->get();
 
         return view('admin.properties.index', compact('properties'));
     }
