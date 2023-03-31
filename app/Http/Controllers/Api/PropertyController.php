@@ -39,7 +39,7 @@ class PropertyController extends Controller {
         $a = sin($dLat/2) * sin($dLat/2) + cos($lat1) * cos($lat2) * sin($dLon/2) * sin($dLon/2);
         $c = 2 * atan2(sqrt($a), sqrt(1-$a));
         $d = $r * $c;
-        return round($d,2);
+        return round($d,0);
     }
 
     public function show(Property $property){
@@ -86,12 +86,12 @@ class PropertyController extends Controller {
             if ($addressCoordinate) {
                 $activeProperties = [];
                 $inactiveProperties = [];
-                foreach ($properties as $key => $property) {
+                foreach ($properties as $property) {
                     $tmp_dist = $this->distance($addressCoordinate['lat'], $addressCoordinate['lon'] , $property->latitude, $property->longitude);
                     if ($tmp_dist <= $radius) {
                         $property['distance'] =  $tmp_dist;
                         $active = false;
-                        foreach ($property['sponsorships'] as $key2 => $sponsorship) {
+                        foreach ($property['sponsorships'] as $sponsorship) {
                             if ($sponsorship['pivot']['end_date'] > date("Y-m-d H:i:s")) {
                                 $active = true;
                             }
