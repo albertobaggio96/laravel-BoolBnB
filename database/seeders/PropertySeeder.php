@@ -331,7 +331,7 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 100,
                 'visible' => 1,
-                'address' => 'Via delle Rose, 1 - Genzano di Roma (RM), Lazio',
+                'address' => 'Via delle Rose, 1 - Genzano di Roma, Lazio',
                 'latitude' => 41.70759,
                 'longitude' => 12.68220
             ],
