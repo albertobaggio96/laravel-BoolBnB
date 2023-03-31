@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="return">
-   <a href="{{ route('admin.properties.index') }}" class="btn btn-primary m-2"><i class="fa-solid fa-arrow-left-long"></i></a>
+   <a href="{{ route('admin.properties.index') }}" class="btn btn-bg-purp-light m-2"><i class="fa-solid fa-arrow-left-long text-white"></i></a>
 </div>
 
 <section class="container-fluid show-container">

@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
           <div class="col-12">
             <div class="return">
-              <a href="{{ route($redirect === 'index' ? 'admin.messages.index' : 'admin.properties.messages', $propertySlug) }}" class="btn btn-primary m-2"><i class="fa-solid fa-arrow-left-long"></i></a>
+              <a href="{{ route($redirect === 'index' ? 'admin.messages.index' : 'admin.properties.messages', $propertySlug) }}" class="btn btn-bg-purp-light m-2"><i class="fa-solid fa-arrow-left-long text-white"></i></a>
             </div>
           </div>
           <div class="col-sm-12 col-lg-8">
