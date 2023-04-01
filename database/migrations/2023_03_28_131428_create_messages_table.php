@@ -15,12 +15,17 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+
+            // relation
             $table->unsignedBigInteger('property_id');
-            $table->foreign('property_id')->references('id')->on('properties');
+            $table->foreign('property_id')->references('id')->on('properties')->onUpdate('cascade')->onDelete('cascade');
+            // end relation
+
             $table->string('mail_from', 100);
             $table->string('name', 100);
-            $table->string('subject', 255);
-            $table->text('message');
+            $table->string('subject', 100);
+            $table->text('body_message');
+            $table->boolean('displayed');
             $table->timestamps();
         });
     }

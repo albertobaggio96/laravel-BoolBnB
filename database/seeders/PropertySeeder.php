@@ -31,9 +31,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 150,
                 'visible' => 1,
-                'address' => 'Piazza San Marco, 1 - Venezia, Veneto',
-                'latitude' => 45.43424,
-                'longitude' => 12.33805
+                'address' => 'Via Flaminia, 1 - Rignano Flaminio, Lazio',
+                'latitude' => 42.17587,
+                'longitude' => 12.49561
             ],
             [	//2
                 'title' => 'Villa Front Lake',
@@ -61,9 +61,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 200,
                 'visible' => 1,
-                'address' => 'Piazza del Campo, 1 - Siena, Toscana',
-                'latitude' => 43.318,
-                'longitude' => 11.33175
+                'address' => 'Via del Fosso di Fiorano, 1 - Guidonia Montecelio, Lazio',
+                'latitude' => 42.02046,
+                'longitude' => 12.71630
             ],
             [	//4
                 'title' => 'Chalet Orcianita',
@@ -76,9 +76,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 7,
                 'mq' => 500,
                 'visible' => 1,
-                'address' => 'Via della Spiga, 1 - Milano, Lombardia',
-                'latitude' => 45.4687,
-                'longitude' => 9.19845
+                'address' => 'Via Casilina, 1 - Colleferro, Lazio',
+                'latitude' => 41.74704,
+                'longitude' => 12.87054
             ],
             [	//5
                 'title' => 'Chalet dal design di lusso di fronte allo sci del Monte Bianco',
@@ -91,9 +91,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 4,
                 'mq' => 300,
                 'visible' => 1,
-                'address' => 'Via Montenapoleone, 1 - Milano, Lombardia',
-                'latitude' => 45.46729,
-                'longitude' => 9.19625
+                'address' => 'Via Tuscolana, 1 - Frascati, Lazio',
+                'latitude' => 41.81231,
+                'longitude' => 12.67548
             ],
             [	//6
                 'title' => 'Loft in stile scandinavo all\'ombra della Mole',
@@ -121,9 +121,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 100,
                 'visible' => 1,
-                'address' => 'Piazza Bra, 1 - Verona, Veneto',
-                'latitude' => 45.43804,
-                'longitude' => 10.99379
+                'address' => 'Via Appia Nuova, 1 - Albano Laziale, Lazio',
+                'latitude' => 41.73361,
+                'longitude' => 12.63666
             ],
             [	//8
                 'title' => 'Villa Arias',
@@ -181,9 +181,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 3,
                 'mq' => 190,
                 'visible' => 1,
-                'address' => 'Piazza del Duomo, 1 - Firenze, Toscana',
-                'latitude' => 43.77353,
-                'longitude' => 11.25632
+                'address' => 'Via Laurentina, 1 - Pomezia, Lazio',
+                'latitude' => 41.68056,
+                'longitude' => 12.48907
             ],
             [	//12
                 'title' => 'Casa Doro',
@@ -226,9 +226,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 80,
                 'visible' => 1,
-                'address' => 'Piazza Unità d\'Italia, 1 - Trieste, Friuli-Venezia Giulia',
-                'latitude' => 45.65015,
-                'longitude' => 13.76694
+                'address' => 'Via degli Olmetti, 1 - Ariccia, Lazio',
+                'latitude' => 41.73652,
+                'longitude' => 12.67710
             ],
             [	//15
                 'title' => 'Accogliente cottage immerso nella natura',
@@ -256,9 +256,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 90,
                 'visible' => 1,
-                'address' => 'Corso Buenos Aires, 1 - Milano, Lombardia',
-                'latitude' => 45.47519,
-                'longitude' => 9.20552
+                'address' => 'Via Anagnina, 1 - Grottaferrata, Lazio',
+                'latitude' => 41.80050,
+                'longitude' => 12.67322
             ],
             [	//17
                 'title' => 'Splendido appartamento con vista mozzafiato sul mare',
@@ -271,9 +271,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 2,
                 'mq' => 120,
                 'visible' => 1,
-                'address' => 'Via Roma, 1 - Torino, Piemonte',
-                'latitude' => 45.28774,
-                'longitude' => 7.40433
+                'address' => 'Via Fratelli Cervi, 1 - Ciampino, Lazio',
+                'latitude' => 41.808567,
+                'longitude' => 12.593260
             ],
             [	//18
                 'title' => 'Splendida proprietà fronte mare con parcheggio',
@@ -331,9 +331,9 @@ class PropertySeeder extends Seeder
                 'n_bathroom' => 1,
                 'mq' => 100,
                 'visible' => 1,
-                'address' => 'Via dei Calzaiuoli, 1 - Firenze, Toscana',
-                'latitude' => 43.77067,
-                'longitude' => 11.25521
+                'address' => 'Via delle Rose, 1 - Genzano di Roma, Lazio',
+                'latitude' => 41.70759,
+                'longitude' => 12.68220
             ],
             [	//22
                 'title' => 'stanza privata in casa',

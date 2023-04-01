@@ -38,7 +38,7 @@ class Property extends Model
     }
 
     public function sponsorships(){
-        return $this->belongsToMany(Sponsorship::class);
+        return $this->belongsToMany(Sponsorship::class)->withPivot('start_date','end_date');
     }
 
     public function services(){
@@ -53,5 +53,8 @@ class Property extends Model
         return $this->hasMany(Image::class);
     }
 
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }
 

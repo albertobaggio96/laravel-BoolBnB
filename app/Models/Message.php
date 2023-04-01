@@ -9,9 +9,9 @@ class Message extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['property_id', 'mail_from', 'name', 'subject', 'message'];
+    protected $fillable = ['property_id', 'mail_from', 'name', 'subject', 'body_message','displayed'];
 
-    public function property() {
+    public function property(){
         return $this->belongsTo(Property::class);
     }
 }

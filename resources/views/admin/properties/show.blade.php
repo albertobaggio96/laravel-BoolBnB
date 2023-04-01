@@ -11,7 +11,23 @@
                <h1 class="text-center p-2">
                   {{$property->title}}
                </h1>
-               <p class="card-text p-4">{{$property->description}}</p>
+               <div class="text-center">
+                  <h4 class="d-inline">
+                  @if ($property->visible === 1)
+                     La proprietà è visibile ai clienti
+                  @else
+                     La proprietà non è visibile ai clienti
+                  @endif
+                  </h4>
+                  <h4 class="d-inline">
+                     @if (($property->sponsorships?->last()?->pivot?->end_date))
+                        e ha una sponsorizzazione attiva per ancora {{round((strtotime( $property->sponsorships?->last()?->pivot?->end_date) - strtotime(date("Y-m-d H:i:s")))/3600,0).' ore'}}
+                        @else
+                        e non ha una sponsorizzazione attiva
+                     @endif
+                  </h4>
+               </div>
+               <p class="card-text mt-3 p-4">{{$property->description}}</p>
                <div class="row gy-1">
                   <div class="col-12 col-lg-3 justify-content-center card-info d-flex align-items-center card-text border border-3 border-white">
                      <h5 class="py-2">  
@@ -72,6 +88,10 @@
    
                   <div class="home m-2">
                      <a href="{{route('admin.properties.index')}}" class="btn btn-warning"><span class="custom-responsive-sm">Vai alla home</span> <i class="fa-solid fa-house text-white d-md-none"></i></a>
+                  </div>
+
+                  <div class="home m-2">
+                     <a href="{{route('admin.properties.messages', $property->slug)}}" class="btn btn-secondary"><span class="custom-responsive-sm">Visualizza i messaggi</span> <i class="fa-solid fa-message text-white d-md-none"></i></a>
                   </div>
                </div>
 

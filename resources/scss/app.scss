@@ -3,34 +3,82 @@
 
 
 
-.btn-bg-purple{
+.ms_bg-violet{
+   background-color: #6962e9;
+}
+
+.btn-bg-purple {
    background-color: #574ff2;
-   &:hover{
+
+   &:hover {
       background-color: #6962e9;
    }
 }
 
-.btn-bg-purp-light{
+.btn-bg-purp-light {
    background-color: #7089f5;
-   &:hover{
+
+   &:hover {
       background-color: #9fadee;
    }
 }
 
-.card{
+.card {
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-   .card-text{
+   .card-text {
       background: rgba(0, 0, 0, 0.1);
       border-radius: 20px;
    }
 
-   img{
+   img {
       width: 100%;
+   }
+
+   .image-card {
+      overflow-y: hidden;
+      overflow-x: scroll;
+
+      img {
+         height: 250px;
+         width: 250px;
+      }
    }
 }
 
-.show-container{
+.my-card {
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login-form {
+   margin-top: 7rem;
+}
+
+
+
+.divider:after,
+.divider:before {
+   content: "";
+   flex: 1;
+   height: 1px;
+   background: #eee;
+}
+
+.h-custom {
+   height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+   .h-custom {
+      height: 100%;
+   }
+}
+
+
+
+
+
+.show-container {
    width: 100%;
    height: calc(100vh - 56px);
    background-repeat: no-repeat;
@@ -38,27 +86,27 @@
    overflow: scroll;
 }
 
-.service-box{
+.service-box {
    border-radius: 20px;
    background: rgba(0, 0, 0, 0.1);
 }
 
-.main-wrapper{
-   height: calc(100vh - 56px);
+.main-wrapper {
+   height: calc(100vh - 80px);
    overflow: scroll;
 }
 
-header{
+header {
    width: 20%;
 
-   nav{
+   nav {
       width: 100%;
       height: 100vh;
       background-color: #1a202e;
    }
 }
 
-main{
+main {
    width: 80%;
    height: 100vh;
    background-color: #f1f5fb;
@@ -72,32 +120,38 @@ table {
 
 th,
 td {
-  text-align: center;
-  vertical-align: middle;
-  padding: 10px;
+   text-align: center;
+   vertical-align: middle;
+   padding: 10px;
 }
 
 tr {
-  border-radius: 0.25rem;
-  outline: 1px solid #cccccc;
-  box-shadow: 10px 10px 10px 0px #d0d0d0;
+   border-radius: 0.25rem;
+   outline: 1px solid #cccccc;
+   box-shadow: 10px 10px 10px 0px #d0d0d0;
+}
+
+.ms_not-visible {
+   background-color: rgb(137, 137, 137);
+   opacity: 0.65;
 }
 
 
-@include media-breakpoint-down(sm){
-   header{
+@include media-breakpoint-down(sm) {
+   header {
       position: fixed;
       z-index: 1;
       width: 60%;
       height: 100%;
    }
-   .custom-responsive-sm{
+
+   .custom-responsive-sm {
       display: none;
    }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 900px){
-   header{
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+   header {
       position: fixed;
       z-index: 1;
       width: 60%;
@@ -106,7 +160,7 @@ tr {
 }
 
 
- 
+
 
 
 //searchBar address autocomplete

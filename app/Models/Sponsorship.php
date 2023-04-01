@@ -16,6 +16,10 @@ class Sponsorship extends Model
         'period',
     ];
 
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+    
     public function properties(){
         return $this->belongsToMany(Property::class);
     }

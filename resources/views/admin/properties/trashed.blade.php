@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+  <a href="{{ route('admin.properties.index') }}" class="btn btn-success m-3">Ritorna alla home</a>
+
   <section id="trashed" class="container">
     @if (session('message'))
       <div class="alert alert-{{ session('alert-type') }} mb-5">
@@ -10,19 +13,19 @@
 
     <table class="table table-striped table-hover">
       <thead>
-        <th scope="col">title</th>
-        <th scope="col" class="text-center">options</th>
+        <th scope="col">Titolo</th>
+        <th scope="col" class="text-center">Azioni utente</th>
       </thead>
       <tbody class="table-group-divider">
         @foreach ($trashProperties as $property)
           <tr>
             <td>{{ $property->title }}</td>
             <td class="text-center">
-              <a href="{{ route('admin.properties.restore', $property->slug) }}" class="btn btn-warning">Restore</a>
+              <a href="{{ route('admin.properties.restore', $property->slug) }}" class="btn btn-warning">Ripristina</a>
               <form class="d-inline force-delete-element"action="{{ route('admin.properties.force-delete', $property->slug) }}" method="POST"data-element-name="{{ $property->title }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger" value="delete">Delete</button>
+                <button type="submit" class="btn btn-danger" value="delete">Elimina</button>
               </form>
             </td>
           </tr>

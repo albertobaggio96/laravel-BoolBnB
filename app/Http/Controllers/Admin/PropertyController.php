@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\Property;
 use App\Models\Service;
+use App\Models\Message;
 use App\Models\Sponsorship;
 use RealRashid\SweetAlert\Facades\Alert;;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class PropertyController extends Controller
     public function index()
     {
         $userId = Auth::user()->id;
-        $properties = Property::where('user_id', $userId)->orderBy('title')->get();
+        $properties = Property::with('sponsorships')->where('user_id', $userId)->orderBy('title')->get();
 
         return view('admin.properties.index', compact('properties'));
     }
@@ -77,7 +78,7 @@ class PropertyController extends Controller
 
         
         $data = $request->validate([
-            'title' => 'required|string|min:5|max:100|unique:properties',
+            'title' => ['required', 'string', 'min:5', 'max:100',  Rule::unique('properties')->where('user_id', Auth::user()->id)],
             'description' => 'required|string|min:50|max:65535',
             'night_price' => 'required|numeric|min:1|max:999999,99',
             'n_beds' => 'required|numeric|min:1|max:127',
@@ -143,7 +144,7 @@ class PropertyController extends Controller
             return abort(401);
         }
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -304,6 +305,75 @@ class PropertyController extends Controller
         $properties= Property::where('user_id', $userId)->where('title', 'Like', $request->title . '%')->union($first)->get();
 
         return view('admin.properties.index', compact('properties'));
+    }
+
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function messages(Property $property){
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $messages= Message::where('property_id', $property->id)->orderBy('created_at', 'DESC')->get();
+            return view('admin.properties.messages', compact('messages'));
+        } else{
+            return abort(401);
+        }
+    }
+
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorshipsSelect(Property $property){
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $sponsorships= Sponsorship::all();
+            return view('admin.properties.sponsorshipsSelect', compact('sponsorships','property'));
+        } else{
+            return abort(401);
+        }
+    }
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorshipsPay(Request $request, Property $property){
+        $planSelected = $request->all()['planSelected'];
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $sponsorship= Sponsorship::where('id', $planSelected)->first();
+            return view('admin.properties.sponsorshipsPay', compact('sponsorship','property'));
+        } else{
+            return abort(401);
+        }
+    }
+
+    /**
+     * search filter by title
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorshipsConferm(Request $request, Property $property, Sponsorship $sponsorship){
+        $userId = Auth::user()->id;
+        if($property->user_id === $userId){
+            $property->sponsorships()->attach($sponsorship->id,
+            ['start_date' => date("Y-m-d H:i:s"), 'end_date' => date('Y-m-d H:i:s', strtotime(date("Y-m-d H:i:s"). ' + '.$sponsorship->period.' hours')) ]);
+            return redirect()->route('admin.properties.show', $property->slug);
+        } else{
+            return abort(401);
+        }
+        //return redirect()->route('admin.properties.show', $property->slug);
     }
 }
 
